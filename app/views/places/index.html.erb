@@ -1,0 +1,17 @@
+<h1>Places</h1>
+
+<ul>
+	<% @places.each do |p| %>
+	<li>
+		<strong> <%= link_to p.name, place_path(p) %> </strong> -- <%= p.tip %> <br>
+		<%= p.address %><br>
+		<%= p.keywords %> 
+	</li>
+	<%= link_to "Edit", edit_place_path(p) %> | <%= link_to 'Yelp', p.url %>
+	<br>
+	<br>
+	<% end %>
+</ul>
+
+
+<%= link_to "Add new place", new_place_path %>

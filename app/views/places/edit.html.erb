@@ -1,0 +1,17 @@
+<h1>Edit this place</h1>
+
+<%= form_for @place do |p| %>
+	<%= p.label :name %>: <%= p.text_field :name %><br>
+	<%= p.label :address %>: <%= p.text_field :address %><br>
+	<%= p.label :rating %>: <%= p.text_field :rating %><br>
+	<%= p.label :url %>: <%= p.text_field :url %><br>
+	<%= p.label :phone %>: <%= p.text_field :phone %><br>
+	<%= p.label :photo %>: <%= p.text_field :photo %><br>
+	<%= p.label :keywords %>: <%= p.text_field :keywords %><br>
+	<br>
+	<%= p.submit "Save" %>  -  <%= link_to "Delete this place", @place, 
+		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
+<% end %>
+<br>
+
+<%= link_to "Back to the list", places_path %>

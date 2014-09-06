@@ -1,0 +1,15 @@
+<h1>Add a new place</h1>
+
+<%= form_for @places do |p| %>
+	<%= p.label :name %>: <%= p.text_field :name %><br>
+	<%= p.label :address %>: <%= p.text_field :address %><br>
+	<%= p.label :rating %>: <%= p.text_field :rating %><br>
+	<%= p.label :url %>: <%= p.text_field :url %><br>
+	<%= p.label :phone %>: <%= p.text_field :phone %><br>
+	<%= p.label :photo %>: <%= p.text_field :photo %><br>
+	<%= p.label :keywords %>: <%= p.text_field :keywords %><br>
+
+	<%= p.submit "Add New Place" %>
+<% end %>
+
+<%= link_to "Back to the list", places_path %>
