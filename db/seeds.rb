@@ -34,22 +34,38 @@ places = Place.create([
 moods = Mood.create([
 	{ 
 		name: 'Happy Hour with Co-Workers', 
+		description: 'What a day. Join your favorite coworkers to raise a drink after a long, long day.',
 		keywords: ['happy hour', 'bar'], 
 		category: ['bars'], 
 		days: [1,2,3,4,5], 
 		time_in: '1600', 
 		time_out: '1900',
+		photo: 'http://www.emlii.com/images/article/2014/03/5331d70bd9b98.jpeg',
 
 		place: places[0],
 	}, 
 	{ 
 		name: 'Brunch on the Beach', 
+		description: 'The only proper way to enjoy the weekend is with a relaxing brunch on the beach.',
 		keywords: ['brunch', 'beach'], 
 		category: ['bars', 'restaurants'], 
 		days: [6,7], 
 		time_in: '900', 
 		time_out: '1400',
-		
+		photo: 'http://www.vmbimages.net/HostedImages/gulfstreambrunch.jpg',
+
 		place: places[1],
+	},
+	{ 
+		name: 'Grabbing a Nightcap', 
+		description: 'Still some gas left in the tank. Drop in a special haunt to rub elbows the evil spirits.',
+		keywords: ['late night', 'bar', 'nightcap'], 
+		category: ['bars'], 
+		days: [1,2,3,4,5], 
+		time_in: '2000', 
+		time_out: '2300',
+		photo: 'http://magazine.foxnews.com/sites/magazine.foxnews.com/files/styles/1600_image/public/Nightcap_0.jpg?itok=__GaB7Nt',
+
+		place: places[0],
 	}
 	])

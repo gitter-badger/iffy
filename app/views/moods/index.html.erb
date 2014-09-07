@@ -1,4 +1,4 @@
-
+<div id='moods'>
 <h1>Moods</h1>
 
 <!-- LIST OF MOODS -->
@@ -6,9 +6,13 @@
 	<% @moods.each do |mood| %>
 	
 	<li> 
-		<%= mood.name %> - <%= mood.place.name %>
+		<%= image_tag mood.photo %> <%= link_to mood.name, mood_path(mood) %> - <%= mood.description %><br>
+		 <%= mood.days %>, <%= mood.time_in %> til <%= mood.time_out %>
+
+		<!-- - <%= mood.place.name %> -->
 
 	</li>
 	
 	<% end %>
 </ul>
+</div>

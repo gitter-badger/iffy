@@ -3,7 +3,7 @@
 <%= form_for @place do |p| %>
 	<%= p.label :name %>: <%= p.text_field :name %><br>
 	<%= p.label :address %>: <%= p.text_field :address %><br>
-	<%= p.label :tip %>: <%= p.text_field :tip %><br>
+	<%= p.label :tip %>: <%= p.text_area :tip %><br>
 	<%= p.label :rating %>: <%= p.text_field :rating %><br>
 	<%= p.label :url %>: <%= p.text_field :url %><br>
 	<%= p.label :phone %>: <%= p.text_field :phone %><br>
@@ -16,3 +16,5 @@
 <br>
 
 <%= link_to "Back to the list", places_path %>
+
+

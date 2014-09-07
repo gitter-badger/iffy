@@ -1,0 +1,12 @@
+<div id="mood">
+
+<%= link_to "Back to Directory", moods_path %><br>
+<br>
+<%= @mood.name %><br>
+<%= link_to @mood.place.name, @mood.place(@mood) %><br>
+
+<!-- <%= image_tag @mood.photo %> -->
+<br>
+<%= link_to "Edit", edit_mood_path %> | <%= link_to "Delete", @mood, 
+		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
+</div>

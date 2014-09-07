@@ -10,7 +10,7 @@
 		<ul>
 			<% p.moods.each do |m| %>
 
-				<li><%= m.name %>
+				<li><%= link_to m.name, mood_path(m) %>
 
 			<% end %>
 		</ul>

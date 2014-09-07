@@ -13,4 +13,7 @@ class MoodsController < ApplicationController
 			render 'new'
 		end
 	end
+	def show
+		@mood = Mood.find(params[:id])
+	end
 end
