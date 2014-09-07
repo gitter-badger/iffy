@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
 
   resources :places
+  resources :moods
 
 
   # Example of regular route:

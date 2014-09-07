@@ -5,7 +5,16 @@
 	<li>
 		<strong> <%= link_to p.name, place_path(p) %> </strong> -- <%= p.tip %> <br>
 		<%= p.address %><br>
-		<%= p.keywords %> 
+		<%= p.keywords %><br>
+
+		<ul>
+			<% p.moods.each do |m| %>
+
+				<li><%= m.name %>
+
+			<% end %>
+		</ul>
+
 	</li>
 	<%= link_to "Edit", edit_place_path(p) %> | <%= link_to 'Yelp', p.url %>
 	<br>

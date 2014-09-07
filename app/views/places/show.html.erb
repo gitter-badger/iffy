@@ -1,7 +1,14 @@
-<h1> <%= @place.name %> </h1>
+<div id="place">
 
+<%= link_to "Back to Directory", places_path %><br>
+<br>
+<%= image_tag @place.rating_stars %>
+<h1 class="name"> <%= @place.name %> </h1>
+<p class="address"> <%= @place.address %> </p>
+<p class="tip"> <%= @place.tip %> </p>
 
-<%= link_to "Delete this place!", @place, 
+<%= image_tag @place.photo %>
+
+<%= link_to "Edit", edit_place_path %> | <%= link_to "Delete", @place, 
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
-
-<%= link_to "Back to Directory", places_path %>
+</div>

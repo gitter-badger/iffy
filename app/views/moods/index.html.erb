@@ -1,0 +1,14 @@
+
+<h1>Moods</h1>
+
+<!-- LIST OF MOODS -->
+<ul>
+	<% @moods.each do |mood| %>
+	
+	<li> 
+		<%= mood.name %> - <%= mood.place.name %>
+
+	</li>
+	
+	<% end %>
+</ul>

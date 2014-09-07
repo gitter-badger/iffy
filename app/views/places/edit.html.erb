@@ -1,8 +1,9 @@
-<h1>Edit this place</h1>
+<h1>Edit <%= @place.name %></h1>
 
 <%= form_for @place do |p| %>
 	<%= p.label :name %>: <%= p.text_field :name %><br>
 	<%= p.label :address %>: <%= p.text_field :address %><br>
+	<%= p.label :tip %>: <%= p.text_field :tip %><br>
 	<%= p.label :rating %>: <%= p.text_field :rating %><br>
 	<%= p.label :url %>: <%= p.text_field :url %><br>
 	<%= p.label :phone %>: <%= p.text_field :phone %><br>
