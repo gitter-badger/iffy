@@ -6,7 +6,7 @@ class MoodsController < ApplicationController
 		@moods = Mood.new
 	end
 	def create
-		@mood = Mood.new(params.require(:mood).permit(:name, :keywords, :category, :days, :time_in, :time_out, :place))
+		@mood = Mood.new(params.require(:mood).permit(:name, :description, :photo, :keywords, :category, :days, :time_in, :time_out, :sort, :place))
 		if @mood.save
 			redirect_to moods_path
 		else

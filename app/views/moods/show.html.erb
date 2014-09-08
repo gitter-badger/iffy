@@ -2,7 +2,12 @@
 
 <%= link_to "Back to Directory", moods_path %><br>
 <br>
-<%= @mood.name %><br>
+<%= image_tag @mood.photo %><br>
+<br>
+<strong><%= @mood.name %></strong><br>
+<%= @mood.description %><br>
+<br>
+Recommended Places:<br>
 <%= link_to @mood.place.name, @mood.place(@mood) %><br>
 
 <!-- <%= image_tag @mood.photo %> -->

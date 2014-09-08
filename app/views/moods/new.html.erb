@@ -1,9 +1,13 @@
+<%= link_to "Back to Moods", moods_path %><br>
+
 <h1>Add a new mood</h1>
 
 <%= form_for @moods do |m| %>
 	<%= m.label :name %>: <%= m.text_field :name %><br>
+	<%= m.label :description %>: <%= m.text_area :description %><br>
 	<%= m.label :keywords %>: <%= m.text_field :keywords %><br>
 	<%= m.label :category %>: <%= m.text_field :category %><br>
+	<%= m.label :photo %>: <%= m.text_field :photo %><br>
 	<%= m.label :days %>: <%= m.text_field :days %><br>
 	<%= m.label :time_in %>: <%= m.text_field :time_in %><br>
 	<%= m.label :time_out %>: <%= m.text_field :time_out %><br>
@@ -11,5 +15,3 @@
 
 	<%= m.submit "Add New Mood" %>
 <% end %>
-
-<%= link_to "Back to Moods", moods_path %>
