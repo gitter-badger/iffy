@@ -2,20 +2,21 @@
 	.bg {
 	width: 100%;
 	background-image: url(<%= asset_path @place.photo %>);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #000;
 }
 
 </style>
 <div id="place">
-
-<%= link_to "Back to Directory", places_path %><br>
 <br>
+<p class="intro">You should check out:</p>
 <%= image_tag @place.rating_stars %>
 <h1 class="name"> <%= @place.name %> </h1>
 <p class="address"> <%= @place.address %> </p>
 <p class="tip"> <%= @place.tip %> </p>
 
-<%#= image_tag(@place.photo, :class => "bg") %>
-
+<%= link_to "Back to Directory", places_path %><br>
 <%= link_to "Edit", edit_place_path %> | <%= link_to "Delete", @place, 
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
 </div>

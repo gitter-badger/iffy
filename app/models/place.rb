@@ -11,11 +11,4 @@ class Place
   field :keywords, type: Array
 
   has_many :moods
-
-
-  # attr_accessor :keywords
-
-  # def initialize
-  #   @keywords = []
-  # end
 end

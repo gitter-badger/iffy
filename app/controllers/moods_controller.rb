@@ -29,7 +29,7 @@ class MoodsController < ApplicationController
 		@mood = Mood.find(params[:id])
 		@mood.keywords = params[:mood][:keywords].tr("][", "").split(", ")
 
-		if @mood.update_attributes(params.require(:mood).permit(:name, :description, :keywords, :category, :days, :time_in, :time_out, :photo, :sort))
+		if @mood.update_attributes(params.require(:mood).permit(:name, :description, :photo, :keywords, :category, :days, :time_in, :time_out, :sort, :place))
 			redirect_to moods_path
 		else
 			render 'edit'
