@@ -6,9 +6,11 @@
 <!-- LIST OF MOODS -->
 <ul>
 	<% @moods.each do |mood| %>
-	
 	<li> 
-		<%= image_tag mood.photo %> <%= link_to mood.name, mood_path(mood) %> - <%= mood.description %>
+		<%= image_tag mood.photo %><br>
+		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %>
+		<br>
+		<br>
 	</li>
 	
 	<% end %>

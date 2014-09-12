@@ -12,7 +12,9 @@ class PlacesController < ApplicationController
 	end
 
 	def create
-		@place = Place.new(params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo, :keywords))
+		# params[:keywords] = params[:keywords].split(",")
+		@place = Place.new(params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo))
+		@place.keywords = params[:place][:keywords].split(",")
 		if @place.save
 			redirect_to places_path
 		else
@@ -26,6 +28,7 @@ class PlacesController < ApplicationController
 
 	def update
 		@place = Place.find(params[:id])
+		@place.keywords = params[:place][:keywords].tr("][", "").split(", ")
 
 		if @place.update_attributes(params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo, :keywords))
 			redirect_to places_path

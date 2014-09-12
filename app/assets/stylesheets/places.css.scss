@@ -1,16 +1,18 @@
 
 #place {
-	background-color: #000;
+	background-color: rgba(255, 255, 255, 0.2);
 	background-size: cover;
 	color: #FFF;
 	padding: 20px;
+	margin: 100px 10px 0px 10px;
 }
 
 .name {
 	font-family: 'helvetica';
 	font-size: 100px;
-	text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	/*line-height: 10px;*/
+	margin: 10px;
 }
 .address {
 	font-family: 'helvetica';
@@ -20,9 +22,6 @@
 .tip {
 	font-family: 'helvetica';
 	font-size: 50px;
-	text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-}
-.tip {
-	font-family: 'helvetica';
-	font-size: 50px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	margin: 10px;
 }

@@ -6,12 +6,13 @@
 	<%= m.label :name %>: <%= m.text_field :name %><br>
 	<%= m.label :description %>: <%= m.text_area :description %><br>
 	<%= m.label :keywords %>: <%= m.text_field :keywords %><br>
-	<%= m.label :category %>: <%= m.text_field :category %><br>
+	<%= m.label :category %>:<%= m.collection_select(:category, Category.all, :path, :name) %><br>
 	<%= m.label :photo %>: <%= m.text_field :photo %><br>
 	<%= m.label :days %>: <%= m.text_field :days %><br>
-	<%= m.label :time_in %>: <%= m.text_field :time_in %><br>
-	<%= m.label :time_out %>: <%= m.text_field :time_out %><br>
-	<%= m.label :place %>: <%= m.text_field :place %><br>
+	<%= m.label :time_in %>: <%= select_time Time.now, prefix: :time_in %><br>
+	<%= m.label :time_out %>: <%= select_time Time.now, prefix: :time_out %><br>
+	<%= m.label :place %>:<%= m.collection_select(:place, Place.all, :id, :name) %><br>
+	<br>
 
 	<%= m.submit "Add New Mood" %>
 <% end %>

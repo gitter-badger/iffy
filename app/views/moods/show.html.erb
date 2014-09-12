@@ -7,8 +7,14 @@
 <strong><%= @mood.name %></strong><br>
 <%= @mood.description %><br>
 <br>
-Recommended Places:<br>
+<strong>Recommended Places:</strong><br>
 <%= link_to @mood.place.name, @mood.place(@mood) %><br>
+<br>
+<strong>Best Days:</strong><br>
+<%= @mood.days %><br>
+<br>
+<strong>Best Time:</strong><br>
+<%= @mood.time_in %> til <%= @mood.time_out %><br>
 
 <!-- <%= image_tag @mood.photo %> -->
 <br>

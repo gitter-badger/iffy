@@ -1,3 +1,10 @@
+<style type="text/css">
+	.bg {
+	width: 100%;
+	background-image: url(<%= asset_path @place.photo %>);
+}
+
+</style>
 <div id="place">
 
 <%= link_to "Back to Directory", places_path %><br>
@@ -7,7 +14,7 @@
 <p class="address"> <%= @place.address %> </p>
 <p class="tip"> <%= @place.tip %> </p>
 
-<%= image_tag @place.photo %>
+<%#= image_tag(@place.photo, :class => "bg") %>
 
 <%= link_to "Edit", edit_place_path %> | <%= link_to "Delete", @place, 
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>

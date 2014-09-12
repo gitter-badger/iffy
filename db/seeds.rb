@@ -69,3 +69,65 @@ moods = Mood.create([
 		place: places[0],
 	}
 	])
+
+categories = Category.create([
+	{ 
+		name: 'Active Life',
+		path: 'active'
+	},
+	{
+		name: 'Arts & Entertainment',
+		path: 'arts'
+	},
+	{
+		name: 'Automotive',
+		path: 'auto'
+	},
+	{
+		name: 'Beauty & Spas',
+		path: 'beautysvc'
+	},
+	{
+		name: 'Bicycles',
+		path: 'bicycles'
+	},
+	{
+		name: 'Financial Services',
+		path: 'financialservices'
+	},
+	{
+		name: 'Food',
+		path: 'food'
+	},
+	{
+		name: 'Health & Medical',
+		path: 'health'
+	},
+	{
+		name: 'Home Services',
+		path: 'homeservices'
+	},
+	{
+		name: 'Hotels & Travel',
+		path: 'hotelstravel'
+	},
+	{
+		name: 'Local Flavor',
+		path: 'localflavor'
+	},
+	{
+		name: 'Nightlife',
+		path: 'nightlife'
+	},
+	{
+		name: 'Restaurants',
+		path: 'restaurants'
+	},
+	{
+		name: 'Shopping',
+		path: 'shopping'
+	}
+])
+
+
+
