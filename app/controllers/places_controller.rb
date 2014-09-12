@@ -1,4 +1,5 @@
 class PlacesController < ApplicationController
+
 	def index
 		@places = Place.all
 	end
@@ -24,13 +25,15 @@ class PlacesController < ApplicationController
 
 	def edit
 		@place = Place.find(params[:id])
+
 	end
 
 	def update
 		@place = Place.find(params[:id])
-		@place.keywords = params[:place][:keywords].tr("][", "").split(", ")
-
-		if @place.update_attributes(params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo, :keywords))
+		
+		if @place.update(params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo))
+			@place.keywords = params[:place][:keywords].tr("][", "").gsub(/["\\]/, '').split(", ")
+			@place.save
 			redirect_to places_path
 		else
 			render 'edit'
@@ -66,6 +69,9 @@ class PlacesController < ApplicationController
 
 	end
 
+	def place_params
+		params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo, :keywords)
+	end
 
 end
 

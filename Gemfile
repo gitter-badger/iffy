@@ -4,6 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
 
+gem 'pry', '~> 0.10.1'
+
 # Use Mongo
 gem 'mongoid', github: 'mongoid/mongoid'
 

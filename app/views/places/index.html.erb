@@ -8,7 +8,7 @@
 	<li>
 		<strong> <%= link_to p.name, place_path(p) %> </strong> -- <%= p.tip %> <br>
 		<%= p.address %><br>
-		<%= p.keywords %><br>
+		<%= p.keywords.join(", ") %><br>
 
 		<ul>
 			<% p.moods.each do |m| %>
