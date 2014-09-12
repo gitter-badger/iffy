@@ -2,7 +2,7 @@ class Mood
   include Mongoid::Document
   field :name, type: String
   field :description, type: String
-  field :keywords, type: String
+  field :keywords, type: Array
   field :category, type: String
   field :days, type: String
   field :time_in, type: Integer

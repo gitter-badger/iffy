@@ -1,6 +1,6 @@
 <h1>Edit <%= @mood.name %></h1>
 
-<%= form_for @moods do |m| %>
+<%= form_for @mood do |m| %>
 	<%= m.label :name %>: <%= m.text_field :name %><br>
 	<%= m.label :keywords %>: <%= m.text_field :keywords %><br>
 	<%= m.label :category %>: <%= m.text_field :category %><br>

@@ -6,7 +6,8 @@ class MoodsController < ApplicationController
 		@moods = Mood.new
 	end
 	def create
-		@mood = Mood.new(params.require(:mood).permit(:name, :description, :photo, :keywords, :category, :days, :time_in, :time_out, :sort, :place))
+		@mood = Mood.new(params.require(:mood).permit(:name, :description, :photo, :category, :days, :time_in, :time_out, :sort, :place))
+		@mood.keywords = params[:mood][:keywords].split(",")
 		if @mood.save
 			redirect_to moods_path
 		else
@@ -27,12 +28,16 @@ class MoodsController < ApplicationController
 
 	def update
 		@mood = Mood.find(params[:id])
-		@mood.keywords = params[:mood][:keywords].tr("][", "").split(", ")
-
-		if @mood.update_attributes(params.require(:mood).permit(:name, :description, :photo, :keywords, :category, :days, :time_in, :time_out, :sort, :place))
+		
+		if @mood.update(params.require(:mood).permit(:name, :description, :photo, :days, :time_in, :time_out, :sort, :place))
+			@mood.keywords = params[:mood][:keywords].tr("][", "").gsub(/["\\]/, '').split(", ")
+			@mood.save
 			redirect_to moods_path
 		else
 			render 'edit'
 		end
 	end
 end
+
+
+
