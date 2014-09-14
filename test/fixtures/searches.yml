@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  term: MyString
+  limit: MyString
+  sort: MyString
+  category: MyString
+  location: MyString
+  radius: MyString
+
+two:
+  term: MyString
+  limit: MyString
+  sort: MyString
+  category: MyString
+  location: MyString
+  radius: MyString

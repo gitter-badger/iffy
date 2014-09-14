@@ -1,0 +1,36 @@
+<%= link_to "Back to the list", searches_path %>
+<br>
+<h1>New Search</h1>
+<%= form_for @searches do |s| %>
+<table>
+	<tr>
+		<td><%= s.label :term %>:</td>
+		<td><%= s.text_field :term %></td>
+	</tr>
+	<tr>
+		<td><%= s.label :category_filter %>:</td>
+		<td><%= s.text_field :category_filter %></td>
+	</tr>
+	<tr>
+		<td><%= s.label :location %>:</td>
+		<td><%= s.text_field :location %></td>
+	</tr>
+	<tr>
+		<td><%= s.label :radius_filter %>:</td>
+		<td><%= s.text_field :radius_filter, :value => '1000' %></td>
+	</tr>
+	<tr>
+		<td><%= s.label :limit %>:</td>
+		<td><%= s.text_field :limit, :value => '5' %></td>
+	</tr>
+	<tr>
+		<td><%= s.label :sort %>:</td>
+		<td>Match: <%= s.radio_button :sort, '0' %> Distance: <%= s.radio_button :sort, '1' %> Rating: <%= s.radio_button :sort, '2', :checked => 'checked' %></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><%= s.submit "Search" %></td>
+	</tr>
+</table>
+<% end %>
+<br>

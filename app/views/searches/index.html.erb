@@ -1,0 +1,30 @@
+<h1>Searches</h1>
+<table>
+	<tr>
+		<th>Terms</th>
+		<th>Sort</th>
+		<th>Limit</th>
+		<th>Category</th>
+		<th>Location</th>
+		<th>Radius (M)</th>
+	</tr>
+	<ul>
+	<!-- LIST OF SEARCHES -->
+	<% @searches.each do |search| %>
+	<tr>
+		<td>
+			<li> <%= link_to search.term, search_path(search) %> </li>
+		</td>
+		<td><%= search.sort %></td>
+		<td><%= search.limit %></td>
+		<td><%= search.category_filter %></td>
+		<td><%= search.location %></td>
+		<td><%= search.radius_filter %></td>
+	</tr>
+
+	<% end %>
+</ul>
+</table>
+<br>
+
+<%= link_to "New Search", new_search_path %>

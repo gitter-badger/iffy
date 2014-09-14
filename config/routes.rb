@@ -8,6 +8,19 @@ root 'places#index'
 
   resources :places
   resources :moods
+  resources :searches
+
+  get '/login', to: 'sessions#new', as: :sessions
+  post '/login', to: 'sessions#create'
+  delete '/logout' => 'sessions#destroy', as: :log_out
+
+
+  ########################
+  # USERS RESOURCE
+  ########################
+  get 'signup/' => 'users#new', as: :signup
+  get 'users/new' => 'users#new'
+  post 'users/' => 'users#create'
 
 
   # Example of regular route:

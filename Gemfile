@@ -9,7 +9,9 @@ gem 'pry', '~> 0.10.1'
 # Use Mongo
 gem 'mongoid', github: 'mongoid/mongoid'
 
-gem 'yelp'
+gem 'yelp', require: 'yelp'
+
+gem 'bcrypt', '~> 3.1.7'
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'bootstrap-sass', '~> 3.2.0'

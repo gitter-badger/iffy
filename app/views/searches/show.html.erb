@@ -1,0 +1,25 @@
+<%= link_to "View All Searches", searches_path %><br>
+<table>
+	<tr>
+		<th>Terms</th>
+		<th>Sort</th>
+		<th>Limit</th>
+		<th>Category</th>
+		<th>Location</th>
+		<th>Radius (M)</th>
+	</tr>
+	<tr>
+		<td><%= @search.term %></td>
+		<td><%= @search.sort %></td>
+		<td><%= @search.limit %></td>
+		<td><%= @search.category_filter %></td>
+		<td><%= @search.location %></td>
+		<td><%= @search.radius_filter %></td>
+	</tr>
+</table>
+<br>
+
+<%= @search.searchYelp.inspect %><br>
+<%#= @search.searchYelp.name %><br>
+<%#= @search.searchYelp.rating %><br>
+<%#= @search.searchYelp.location.address %>

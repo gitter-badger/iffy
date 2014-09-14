@@ -4,9 +4,9 @@ class Mood
   field :description, type: String
   field :keywords, type: Array
   field :category, type: String
-  field :days, type: String
-  field :time_in, type: Integer
-  field :time_out, type: Integer
+  field :days, type: Array
+  field :time_in, type: Time
+  field :time_out, type: Time
   field :photo, type: String
   field :sort, type: Integer
 

@@ -8,13 +8,13 @@
 	<%= m.label :keywords %>: <%= m.text_field :keywords %><br>
 	<%= m.label :category %>:<%= m.collection_select(:category, Category.all, :path, :name) %><br>
 	<%= m.label :photo %>: <%= m.text_field :photo %><br>
-	<%= m.label :days%><% Date::ABBR_DAYNAMES.each do |day| %>
-		  <%= m.check_box :days, {}, day %>
+	<%#= m.label :days%><% Date::ABBR_DAYNAMES.each do |day| %>
+		  <%= check_box_tag "mood[days][]", day %>
 		  <%= day %>
 		<% end %><br>
 	<%= m.label :time_in %>: <%= select_time Time.now, prefix: :time_in %><br>
 	<%= m.label :time_out %>: <%= select_time Time.now, prefix: :time_out %><br>
-	<%= m.label :place %>:<%= m.collection_select(:place, Place.all, :id, :name) %><br>
+	<%#= m.label :place %><%#= m.collection_select(:place, Place.all, :id, :name) %><br>
 	<br>
 
 	<%= m.submit "Add New Mood" %>
