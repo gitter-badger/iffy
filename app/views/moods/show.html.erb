@@ -1,17 +1,16 @@
 <div id="mood">
-
 <%= link_to "Back to Directory", moods_path %><br>
 <br>
-<%= image_tag @mood.photo %><br>
+<%= image_tag @mood.photo, id: 'mood-image' %><br>
 <br>
-<strong><%= @mood.name %></strong><br>
+<strong>Mood</strong><br>
+<%= @mood.name %><br>
+<br>
+<strong>Description</strong><br>
 <%= @mood.description %><br>
 <br>
-<strong>Recommended Places:</strong><br>
-<%#= link_to @mood.place.name, @mood.place(@mood) %><br>
-<br>
-<strong>Best Days:</strong><br>
-<%= @mood.days %><br>
+<strong>Best Day(s):</strong><br>
+<%= @mood.days.join(", ") %><br>
 <br>
 <strong>Best Time:</strong><br>
 <%= @mood.time_in %> til <%= @mood.time_out %><br>

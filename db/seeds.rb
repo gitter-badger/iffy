@@ -129,5 +129,3 @@ categories = Category.create([
 	}
 ])
 
-
-

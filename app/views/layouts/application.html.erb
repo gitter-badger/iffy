@@ -1,15 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Iffy</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<html ng-app="iffyApp">
+	<head>
+	  <title>Iffy</title>
+		  <%= stylesheet_link_tag    "application", media: "all" %>
+		  <%= javascript_include_tag "application" %>
+		  <%= csrf_meta_tags %>
+	</head>
+<body class="<%= @place  ? 'bg' : '' %>">
+<!--
+	<body class="<%#= @place  ? 'bg' : '' %>" onload="getLocation()">
+-->
 
-</head>
-<body class="<%= @place ? 'bg' : '' %>">
-<%= flash[:error] %>
-<%= yield %>
+
+	
+	<div ng-view>
+		<%= flash[:error] %>
+		<%= yield %>
+	</div>
 
 </body>
 </html>

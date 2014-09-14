@@ -1,0 +1,23 @@
+<h1>It's <%= @day %> <%= @daypart %>, what are you in the mood for?</h1>
+<!--<p>It's <%= @day %>, what are you in the mood for?</p>-->
+
+<!-- LIST OF MOODS -->
+<ul>
+	
+	<% @moods.each do |mood| %>
+	<% if mood.days.include? @abbr_day %>
+	<li> 
+		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %>
+		<br>
+		<br>
+	</li>
+	<% end %>
+	
+	<% end %>
+</ul>
+
+<p id="demo">Getting your location...</p>
+
+<script>
+var x = document.getElementById("demo");
+</script>

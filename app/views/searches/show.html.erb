@@ -19,7 +19,10 @@
 </table>
 <br>
 
-<%= @search.searchYelp.inspect %><br>
-<%#= @search.searchYelp.name %><br>
-<%#= @search.searchYelp.rating %><br>
-<%#= @search.searchYelp.location.address %>
+<%#= @search.searchYelp.inspect %><br>
+<img src="<%= @search.searchYelp.businesses[0].image_url[0..-7] %>o.jpg"><br>
+<strong><%= @search.searchYelp.businesses[0].name %></strong><br>
+<img src="<%= @search.searchYelp.businesses[0].rating_img_url_large %>"><br>
+<%= @search.searchYelp.businesses[0].location.address.join(",") %><br>
+<%= @search.searchYelp.businesses[0].snippet_text %><br>
+<a href="<%= @search.searchYelp.businesses[0].url %>">LINK</a>

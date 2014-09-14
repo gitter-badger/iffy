@@ -1,8 +1,8 @@
 <%= link_to "Back to the list", searches_path %>
 <br>
-<h1>New Search</h1>
+<h1>Edit This Search</h1>
 <p>All fields are required</p>
-<%= form_for @searches do |s| %>
+<%= form_for @search do |s| %>
 <table>
 	<tr>
 		<td><%= s.label :term %>:</td>
@@ -22,7 +22,7 @@
 	</tr>
 	<tr>
 		<td><%= s.label :limit %>:</td>
-		<td><%= s.text_field :limit, :value => '5' %></td>
+		<td><%= s.text_field :limit, :value => '2' %></td>
 	</tr>
 	<tr>
 		<td><%= s.label :sort %>:</td>
@@ -35,3 +35,5 @@
 </table>
 <% end %>
 <br>
+
+
