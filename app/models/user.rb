@@ -8,6 +8,9 @@ class User
   field :zip, type: Integer
   field :moods, type: Array
   field :places, type: Array
+  field :access, type: String
+  field :radius, type: Integer
+
 
   def password=(new_password)
     self.password_digest = BCrypt::Password.create(new_password)

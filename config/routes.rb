@@ -18,9 +18,17 @@ root 'discover#index'
   ########################
   # USERS RESOURCE
   ########################
+  get 'users/' => 'users#index'
+  post 'users/' => 'users#create'
+  delete 'users/:id' => 'users#destroy'
+
   get 'signup/' => 'users#new', as: :signup
   get 'users/new' => 'users#new'
-  post 'users/' => 'users#create'
+
+  get 'users/:id/edit' => 'users#edit', as: :edit_user
+  patch 'users/:id' => 'users#update'
+
+  get 'users/:id' => 'users#show', as: :user 
 
 
   # Example of regular route:

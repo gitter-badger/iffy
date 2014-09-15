@@ -9,7 +9,7 @@ module SessionsHelper
 		cookies.permanent[:logged_in_id] = user.id
 		#session[:userid] = user.id
 		@current_user = user
-
+		@current_zip = user.zip
 	end
 
 	# LOG OUT: remove cookie from user's browser
@@ -41,5 +41,6 @@ module SessionsHelper
 	# current_user Setter (similar to attr_writer)
 	def current_user=(user)
 		@current_user = user
+		@current_zip = user.zip
 	end
 end

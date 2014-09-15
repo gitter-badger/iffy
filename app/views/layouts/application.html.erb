@@ -7,6 +7,22 @@
 		  <%= csrf_meta_tags %>
 	</head>
 <body class="<%= @place  ? 'bg' : '' %>">
+	<header>
+		<a href="/"><div id="logo">Iffy</div></a>
+		<div class="nav">
+			<ul>
+				<li><a href="/moods">All Moods</a></li>
+				<li><a href="/users">All Users</a></li>
+			</ul>
+		</div>
+		<div id="auth">
+			<% if logged_in? %>
+			Welcome <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Sign out", log_out_path, method: :delete %>
+			<% else %>
+			<%= link_to "Log in", sessions_path %>
+			<% end %>
+		</div>
+	</header>
 <!--
 	<body class="<%#= @place  ? 'bg' : '' %>" onload="getLocation()">
 -->
@@ -14,9 +30,25 @@
 
 	
 	<div ng-view>
-		<%= flash[:error] %>
+		<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><%= flash[:error] %></div>
+		
 		<%= yield %>
 	</div>
-
+<footer>
+	<div id="left-footer">
+		<ul class="list-unstyled">
+			<li>&copy; 2014 Iffy All Rights Reserved</li>
+			<li>FAQ</li>
+			<li>Developers</li>
+		</ul>
+	</div>
+	<div id="right-footer">
+		<ul class="list-unstyled">
+			<li>About Iffy</li>
+			<li>Terms &amp; Conditions</li>
+			<li>Contact</li>
+		</ul>
+	</div>
+</footer>
 </body>
 </html>

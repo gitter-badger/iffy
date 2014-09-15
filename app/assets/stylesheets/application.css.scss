@@ -16,3 +16,95 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+header {
+	height: 50px;
+	width: 100%;
+	background-color: rgba(70,41,100,0.8);
+	position: fixed;
+	top: 0px;
+}
+#logo {
+	float: left;
+	width: 120px;
+	color: white;
+	margin-left: 20px;
+	margin-top: 5px;
+	font-family: 'Helvetica';
+	font-weight: bolder;
+	font-size: 30px;
+}
+
+/*Strip the ul of padding and list styling*/
+.nav > ul {
+	list-style-type:none;
+	margin:50;
+	padding:50;
+	position: relative;
+}
+
+/*Create a horizontal list with spacing*/
+.nav ul li {
+	display:inline-block;
+	float: left;
+	margin-right: 3px;
+}
+
+/*Prevent text wrapping*/
+.nav li ul li a {
+	width: auto;
+	min-width: 70px;
+	padding: 0 20px;
+}
+
+/*Style for menu links*/
+.nav li a {
+	display:block;
+	min-width:100px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	color: #FFF;
+	text-decoration: none;
+}
+.nav li a:hover {
+	background: rgba(255,255,255,0.1);
+}
+
+#auth {
+	float: right;
+	color: white;
+	margin-top: -35px;
+	margin-right: 10px;
+}
+
+body {
+	position: relative;
+	top: 50px;
+}
+footer {
+	height: 500px;
+	background-color: #EEE;
+	color: #BBB;
+	font-size: 11px;
+	width: 100%;
+	position: relative;
+	bottom: 0;
+	left: 0;
+
+}
+#left-footer {
+	float: left;
+	position: relative;
+	top: 10px;
+	left: 20px;
+	width: 200px;
+}
+
+#right-footer {
+	float: left;
+	left: 20px;
+	position: relative;
+	top: 10px;
+}

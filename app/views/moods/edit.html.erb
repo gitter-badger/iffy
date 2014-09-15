@@ -7,13 +7,17 @@
 	<%= m.label :keywords %>: <%= m.text_field :keywords %><br>
 	<%= m.label :category %>: <%= m.text_field :category %><br>
 	<%= m.label :days %>: <%= m.text_field :days %><br>
-	<%= m.label :time_in %>: <%= m.text_field :time_in %><br>
-	<%= m.label :time_out %>: <%= m.text_field :time_out %><br>
+	<%= m.label :dayparts%>:<% Daypart.each do |daypart| %>
+		  <%= check_box_tag "mood[dayparts]", daypart.name %>
+		  <%= daypart.name.titleize %> &nbsp;&nbsp;&nbsp;
+		<% end %>
+		<br>
+	<%= m.label :sort %>: <%= m.radio_button :sort, '0' %> Match: <%= m.radio_button :sort, '0' %> Distance: <%= m.radio_button :sort, '1' %> Rating: <%= m.radio_button :sort, '2', :checked => 'checked' %>
 
 
 
 	
-	<%#= m.label :place %>: <%#= m.text_field :place %><br>
+	<%#= m.label :place %> <%#= m.text_field :place %><br>
 	<br>
 	<%= m.submit "Save" %>  -  <%= link_to "Delete this mood", @mood, 
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>

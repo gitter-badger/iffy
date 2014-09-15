@@ -1,6 +1,7 @@
-<%= link_to "Back to Moods", moods_path %><br>
-<h1>Add a new mood</h1>
 <div id="new_mood" ng-controller="searchController" class="container">
+<!--Location is: <%= current_user.zip %>-->
+<%#= link_to "Back to Moods", moods_path %><br>
+<h1>Add a new mood</h1>
 
 <%= form_for @moods do |m| %>
 <table>
@@ -10,7 +11,7 @@
 	</tr>
 	<tr class= "form-group">
 		<td>
-			<%= m.label :description %>:</td><td><%= m.text_area :description, maxlength: 130, ng_model: "description", class: 'form-control' %> {{ 130 - description.length + " chars" }}<br><br>
+			<%= m.label :description %></td><td><%= m.text_area :description, maxlength: 130, ng_model: "description", class: 'form-control' %> {{ 130 - description.length + " chars" }}<br><br>
 		</td>
 	</tr>
 	<tr class= "form-group">
@@ -29,21 +30,22 @@
 		</td>
 	</tr>
 	<tr class= "form-group">
-		<td><%= m.label :days%>:</td><td><% Date::ABBR_DAYNAMES.each do |day| %>
+		<td><%= m.label :days %>:</td><td><% Date::DAYNAMES.each do |day| %>
 		  <%= check_box_tag "mood[days][]", day %>
-		  <%= day %>.&nbsp;&nbsp;&nbsp;
+		  <%= day %>&nbsp;&nbsp;&nbsp;
 		<% end %><br><br>
 		</td>
 	</tr>
-	<tr>
-		<td>
-			<%= m.label :time_in %>:</td><td><%= select_time Time.now.beginning_of_hour, prefix: :time_in %>
+	<tr class= "form-group">
+		<td><%= m.label :dayparts%>:</td><td><% Daypart.each do |daypart| %>
+		  <%= check_box_tag "mood[dayparts]", daypart.name %>
+		  <%= daypart.name.titleize %> &nbsp;&nbsp;&nbsp;
+		<% end %><br><br>
 		</td>
 	</tr>
-	<tr>
-		<td>
-			<%= m.label :time_out %>:</td><td><%= select_time Time.now.beginning_of_hour, prefix: :time_out %>
-		</td>
+	<tr class= "form-group">
+		<td><%= m.label :sort %>:</td>
+		<td>Match: <%= m.radio_button :sort, '0' %> Distance: <%= m.radio_button :sort, '1' %> Rating: <%= m.radio_button :sort, '2', :checked => 'checked' %></td>
 	</tr>
 </table>
 	<%#= m.label :place %><%#= m.collection_select(:place, Place.all, :id, :name) %><br>

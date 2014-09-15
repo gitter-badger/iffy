@@ -1,23 +1,30 @@
-<h1>It's <%= @day %> <%= @daypart %>, what are you in the mood for?</h1>
-<!--<p>It's <%= @day %>, what are you in the mood for?</p>-->
+<div id="discover" class="container">
+	<% if logged_in? %>
+			
+<h1>It's <%= @day %> <%= @daypart %> in <%= current_user.zip %>, what are you in the mood for?</h1><br>
+<%#= link_to 'Change Location', edit_user_path %>
+
 
 <!-- LIST OF MOODS -->
 <ul>
 	
 	<% @moods.each do |mood| %>
-	<% if mood.days.include? @abbr_day %>
+	<% if mood.days.include? @day and if mood.dayparts.include? @daypart %>
 	<li> 
-		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %>
+		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %> 
 		<br>
 		<br>
 	</li>
 	<% end %>
-	
 	<% end %>
+	<% end %>
+
 </ul>
+<% else %>
+<br>
+Sorry, bro. You need to <%= link_to "log in", sessions_path %> to see the magic.
+<br>
+<br>
+<% end %>
 
-<p id="demo">Getting your location...</p>
-
-<script>
-var x = document.getElementById("demo");
-</script>
+</div>
