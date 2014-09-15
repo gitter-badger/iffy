@@ -9,6 +9,7 @@ root 'discover#index'
   resources :places
   resources :moods
   resources :searches
+  resources :categories
 
   get '/login', to: 'sessions#new', as: :sessions
   post '/login', to: 'sessions#create'

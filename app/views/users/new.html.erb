@@ -3,19 +3,21 @@
 
 <%= form_for @user do |f| %>
 	<%= f.label :name %> 
-	<%= f.text_field :name, class: 'form-control' %>
+	<%= f.text_field :name, class: 'form-control bottom-buffer' %>
 
 	<%= f.label :email %> 
-	<%= f.text_field :email, class: 'form-control' %>
+	<%= f.text_field :email, class: 'form-control bottom-buffer' %>
 
 	<%= f.label :password %> 
-	<%= f.password_field :password, class: 'form-control' %>
+	<%= f.password_field :password, class: 'form-control bottom-buffer' %>
 
 	<%= f.label :zip %> 
-	<%= f.text_field :zip, class: 'form-control', maxlength: 5 %>
+	<%= f.text_field :zip, class: 'form-control bottom-buffer', maxlength: 5 %>
 
 	<%= f.label :radius %> 
-	<%= f.text_field :radius, class: 'form-control', maxlength: 5 %>
+	<%#= f.text_field :radius, class: 'form-control', maxlength: 5 %>
+    <%= f.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>
+<br>
 <br>
 	<%= f.submit "Create New User", class: "btn btn-primary btn-lg" %> <% if !logged_in? %>or <%= link_to "Sign In", sessions_path, class: "btn btn-default btn-lg" %><% end %>
 	<br>

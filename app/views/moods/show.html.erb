@@ -1,6 +1,5 @@
 <div id="mood" class="container">
 <%= image_tag @mood.photo, id: 'mood-image' %><br>
-<br>
 <strong>Mood</strong><br>
 <%= @mood.name %><br>
 <br>
@@ -18,6 +17,17 @@
 <br>
 <strong>Best Time:</strong><br>
 <%= @mood.dayparts.join(", ").titleize %><br>
+<br>
+<!-- @mood.sort returns a value, lets make the interface more readable -->
+<strong>Sorted By:</strong><br>
+<% if @mood.sort===0 %>
+Best Match
+<% elsif @mood.sort===1 %>
+Most Reviewed
+<% elsif @mood.sort===2 %>
+Highest Rated
+<% end %>
+<br>
 
 <!-- <%= image_tag @mood.photo %> -->
 <br>
@@ -27,5 +37,6 @@
 <br>
 <strong><%= @mood.searchYelp(current_user).businesses[0].name %></strong><br>
 <%= @mood.searchYelp(current_user).businesses[0].location.city %><br>
-<%#= @mood.searchYelp(current_user).businesses.length %> results
+<!-- <%#= @mood.searchYelp(current_user).businesses.length %> results -->
 </div>
+<br>

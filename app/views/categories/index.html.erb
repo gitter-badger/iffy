@@ -1,0 +1,26 @@
+<div id="categories" class="container">
+	<%= link_to "Create New Category", new_category_path %>
+	<br>
+	<h1>Categories</h1>
+<table>
+	<tr>
+		<th>Name</th>
+		<th>Path</th>
+		<th>Total</th>
+	</tr>
+	<ul>
+	<!-- LIST OF CATEGORIES -->
+	<% @categories.each do |category| %>
+	<tr>
+		<td><%= category.name %></td>
+		<td><%= category.path %></td>
+		<td><%= category.total %></td>
+	</tr>
+
+	<% end %>
+</ul>
+</table>
+<br>
+
+<%#= link_to "New Category", new_category_path %>
+</div>

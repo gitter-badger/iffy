@@ -10,7 +10,7 @@ class MoodsController < ApplicationController
 		@mood.keywords = params[:mood][:keywords].split(",")
 		@mood.days = params[:mood][:days]
 		@mood.dayparts = params[:mood][:dayparts].split(",")
-		@mood.photo ||= "http://static.tumblr.com/4doxknm/O4sm6v0y7/lame.gif"
+		# @mood.photo ||= "http://static.tumblr.com/4doxknm/O4sm6v0y7/lame.gif"
 
 		if @mood.save
 			redirect_to moods_path

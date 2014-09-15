@@ -1,0 +1,22 @@
+<div id="new-category" class="container">
+	<%= link_to "All Categories", categories_path %>
+	<br>
+	<h1>New Category</h1>
+<br>
+<%= form_for @categories do |c| %>
+<table>
+	<tr>
+		<td><%= c.label :name %>:</td>
+		<td><%= c.text_field :name %></td>
+	</tr>
+	<tr>
+		<td><%= c.label :path %>:</td>
+		<td><%= c.text_field :path %></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><%= c.submit "Create" %></td>
+	</tr>
+</table>
+<% end %>
+<br>

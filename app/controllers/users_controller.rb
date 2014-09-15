@@ -5,8 +5,9 @@ class UsersController < ApplicationController
 
   def create
 	@user = User.new(params.require(:user).permit(:name, :email, :password, :zip, :radius))
+	@user.access ||= "user"
 	if @user.save
-		@user.access = "user"
+		
 		# log the user in
 		redirect_to root_path
 	else
