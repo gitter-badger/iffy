@@ -1,11 +1,11 @@
 class SessionsController < ApplicationController
 
 	def new
-		flash[:error] = nil
+		flash.clear
 	end
 
 	def create
-	flash[:error] = nil
+	flash.clear
 		# STEP ONE - Retrieve a User record by the email parameter
 		begin
 		user = User.find_by({email: params[:session][:email]})

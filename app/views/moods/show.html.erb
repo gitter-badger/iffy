@@ -1,6 +1,4 @@
 <div id="mood" class="container">
-<%= link_to "Back to Directory", moods_path %><br>
-<br>
 <%= image_tag @mood.photo, id: 'mood-image' %><br>
 <br>
 <strong>Mood</strong><br>
@@ -8,6 +6,9 @@
 <br>
 <strong>Description</strong><br>
 <%= @mood.description %><br>
+<br>
+<strong>Category</strong><br>
+<%= @mood.category %><br>
 <br>
 <strong>Keywords</strong><br>
 <%= @mood.keywords.join(", ") %><br>
@@ -24,7 +25,7 @@
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
 
 <br>
-<strong><%= @mood.searchYelp.businesses[0].name %></strong><br>
-<%= @mood.searchYelp.businesses[0].url %><br>
-<%= @mood.searchYelp.businesses.length %> results
+<strong><%= @mood.searchYelp(current_user).businesses[0].name %></strong><br>
+<%= @mood.searchYelp(current_user).businesses[0].location.city %><br>
+<%#= @mood.searchYelp(current_user).businesses.length %> results
 </div>
