@@ -11,6 +11,8 @@ gem 'mongoid', github: 'mongoid/mongoid'
 
 gem 'yelp', require: 'yelp'
 
+gem 'gravatar-ultimate'
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'sass-rails', '~> 4.0.2'

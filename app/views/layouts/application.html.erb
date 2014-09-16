@@ -6,19 +6,21 @@
 		  <%= javascript_include_tag "application" %>
 		  <%= csrf_meta_tags %>
 	</head>
-<body class="<%= @place  ? 'bg' : '' %>">
+<body class="<%= @discover  ? 'bg' : '' %>">
 	<header>
 		<a href="/"><div id="logo">Iffy</div></a>
 		<div class="nav">
 			<ul>
+				<% if logged_in? and current_user.access == 'admin' %> 
 				<li><a href="/moods">All Moods</a></li>
 				<li><a href="/users">All Users</a></li>
 				<li><a href="/categories">All Categories</a></li>
+				<% end %>
 			</ul>
 		</div>
 		<div id="auth">
 			<% if logged_in? %>
-			Welcome <%= link_to current_user.name, user_path(current_user) %> | <%= link_to "Sign out", log_out_path, method: :delete %>
+			<%= link_to current_user.email, user_path(current_user) %> | <%= link_to "Sign out", log_out_path, method: :delete %>
 			<% else %>
 			<%= link_to "Log in", sessions_path %>
 			<% end %>
@@ -28,14 +30,14 @@
 	<body class="<%#= @place  ? 'bg' : '' %>" onload="getLocation()">
 -->
 
-
-	
 	<div ng-view>
 		<% if flash[:error] %>
-		<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><%= flash[:error] %>
-		</div>
+			<div class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><%= flash[:error] %>
+			</div>
 		<% end %>
+
 		<%= yield %>
+		
 	</div>
 <footer>
 	<div id="left-footer">

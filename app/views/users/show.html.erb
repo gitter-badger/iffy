@@ -1,7 +1,10 @@
-<%#= link_to "Edit your profile", edit_user %>Edit User
+<div id="user" class="container">
+	<h1><%= @user.name %></h1>
+	<img src="<%= @user.gravatar(@user.email) %>">
+	<p><strong>Email: </strong><%= @user.email %></p>
+	<p><strong>Zipcode: </strong><%= @user.zip %></p>
+	<p><strong>Latest Moods: </strong><%= @user.moods %></p>
+	<p><strong>Latest Places: </strong><%= @user.places %></p>
+	<%= link_to "Edit Profile", edit_user_path(@user) %>
 
-<h1><%= current_user.name %></h1>
-<p><strong>Email: </strong><%= current_user.email %></p>
-<p><strong>Zipcode: </strong><%= current_user.zip %></p>
-<p><strong>Latest Moods: </strong><%= current_user.moods %></p>
-<p><strong>Latest Places: </strong><%= current_user.places %></p>
+</div>

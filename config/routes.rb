@@ -10,6 +10,7 @@ root 'discover#index'
   resources :moods
   resources :searches
   resources :categories
+  resources :discover
 
   get '/login', to: 'sessions#new', as: :sessions
   post '/login', to: 'sessions#create'
@@ -30,6 +31,8 @@ root 'discover#index'
   patch 'users/:id' => 'users#update'
 
   get 'users/:id' => 'users#show', as: :user 
+
+  get 'about/' => 'about#index'
 
 
   # Example of regular route:

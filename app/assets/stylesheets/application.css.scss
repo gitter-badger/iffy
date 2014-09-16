@@ -79,9 +79,39 @@ header {
 	margin-right: 10px;
 }
 
+#profile-pic {
+	width: 40px;
+}
+
 body {
 	position: relative;
 	top: 50px;
+}
+
+.intro {
+	color: #FFF;
+	font-size: 40px;
+	font-weight: lighter;
+}
+.name {
+	color: #FFF;
+	font-size: 80px;
+}
+.address {
+	color: #FFF;
+	font-size: 14px;
+}
+.snippet {
+	color: #FFF;
+	font-size: 40px;
+}
+.yelp-image > img {
+	border: 1px solid #EEE;
+	width: 300px;
+}
+
+td {
+	padding: 5px;
 }
 
 .bottom-buffer { 

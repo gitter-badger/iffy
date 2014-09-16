@@ -12,7 +12,7 @@ class Mood
   field :sort, type: Integer
   field :selected, type: Integer
 
-  # belongs_to :place
+  # belongs_to :category
 
   def searchYelp(current_user)
   client = Yelp::Client.new({ consumer_key: "YlTjB3sl8gicTpB8Y1huVg",
@@ -23,18 +23,14 @@ class Mood
 
   params = {
     category_filter: self.category,
-    limit: 1,
+    # limit: 1,
     radius_filter: current_user.radius,
-    sort: self.sort.to_s,
-    term: self.keywords.join("+")
+    sort: self.sort,
+    term: self.keywords
   }
   
-
-  @num_results = client.search("Marina Del Rey, CA", params).businesses.length
-  result = client.search(current_user.zip, params)
-  # need to update this to a dynamic location current_user.zip
+  results = client.search(current_user.zip, params)
 
 end
-
 end
 

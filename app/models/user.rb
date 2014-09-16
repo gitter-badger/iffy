@@ -1,4 +1,5 @@
 require 'bcrypt'
+require 'gravatar-ultimate'
 
 class User
   include Mongoid::Document
@@ -22,6 +23,10 @@ class User
     else
       false
     end
+  end
+
+  def gravatar(user_email)
+    url = Gravatar.new(user_email).image_url
   end
 
 end

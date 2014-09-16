@@ -1,0 +1,32 @@
+ <style type="text/css">
+	.bg {
+	width: 100%;
+	background-image: url(<%= @mood.photo %>);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: #000;
+	padding-left: 40px;
+}
+header {
+	visibility: hidden;
+}
+body {
+	margin-top: -50px;
+}
+</style>
+
+<div class="container discover bg">
+	<br>
+	<p class="intro">You chose <em><%= @mood.name %></em>, so we recommend</p>
+<div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
+<div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %></div><br>
+<%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %>
+<br>
+<br>
+<div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
+<!--<div class="yelp-image"><%= image_tag @mood.searchYelp(current_user).businesses[0].image_url %></div><br>-->
+<div class="snippet"><%= @mood.searchYelp(current_user).businesses[0].snippet_text %></div><br>
+<%#= @mood.searchYelp(current_user).inspect %>
+<%= image_tag @mood.photo %>
+	
+</div>

@@ -1,5 +1,6 @@
 <div id='moods' class="container">
-<%= link_to "Add new mood", new_mood_path %>
+	<% if current_user.access == 'admin' %>
+	<%= link_to "Add new mood", new_mood_path %>
 
 <h1>Moods</h1>
 
@@ -15,5 +16,12 @@
 	
 	<% end %>
 </ul>
+
+<% else %>
+<br>
+Not for your prying eyes!<br>
+<br>
+<% end %>
+
 
 </div>

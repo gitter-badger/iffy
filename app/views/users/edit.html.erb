@@ -1,17 +1,35 @@
-Edit your profile
+<div id="sign-up" class="container">
+<h1>Edit Profile</h1>
 
 <%= form_for @user do |u| %>
+
 	<%= u.label :name %> 
-	<%= u.text_field :name %>
+	<%= u.text_field :name, class: 'form-control bottom-buffer' %>
 
 	<%= u.label :email %> 
-	<%= u.text_field :email %>
-
+	<%= u.text_field :email, class: 'form-control bottom-buffer' %>
+	
+	<p><a href="#">Click here to change your password</a></p>
+	<%#= u.label :password %> 
+	<%#= u.password_field :password, class: 'form-control bottom-buffer' %>
+	<br>
 	<%= u.label :zip %> 
-	<%= u.text_field :zip %>
+	<%= u.text_field :zip, class: 'form-control bottom-buffer', maxlength: 5 %>
 
 	<%= u.label :radius %> 
-	<%= u.text_field :radius %>
+	<%#= u.text_field :radius, class: 'form-control', maxlength: 5 %>
+    <%= u.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>
+    <% if current_user.access == "admin" %>
+    <br>
+    <br>
+    <%= u.label :access %> 
+	<%= u.select :access, [['Admin','admin'],['User','user']], class: 'form-control bottom-buffer' %>
+	<% end %>
+<br>
+<br>
+	<%= u.submit "Save Changes", class: "btn btn-primary btn-lg" %> or <%= link_to "Cancel changes", users_path %>
+	<br>
+	<br>
 
-	<%= u.submit "Edit Profile" %> 
 <% end %>
+</div>

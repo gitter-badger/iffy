@@ -33,4 +33,9 @@ class DiscoverController < ApplicationController
 			@daypart = 'sleepytime'
 		end
 	end
+
+	def show
+		@mood = Mood.find(params[:id])
+		# @mood.selected += 1 # why doesn't this work?
+	end
 end

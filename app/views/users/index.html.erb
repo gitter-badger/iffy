@@ -6,7 +6,7 @@
 	<tr>
 		<th>Name</th>
 		<th>Email</th>
-		<th>Location</th>
+		<th>Zip</th>
 		<th>Places</th>
 		<th>Moods</th>
 		<th>Radius</th>
@@ -17,14 +17,14 @@
 	<!-- LIST OF SEARCHES -->
 	<% @users.each do |user| %>
 	<tr>
-		<td><%= link_to user.name, edit_user_path(user) %></td>
+		<td><%= link_to user.name, user_path(user) %></td>
 		<td><%= user.email %></td>
 		<td><%= user.zip %></td>
 		<td><%= user.places %></td>
 		<td><%= user.moods %></td>
 		<td><%= user.radius %></td>
 		<td><%= user.access %></td>
-		<td><%= link_to 'Edit', edit_user_path(user) %> | <%= link_to "Delete", @user, 
+		<td><%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Delete", user, 
 		method: :delete, data: { confirm: 'Are you sure you want to delete this user?'} %></td>
 	</tr>
 	<% end %>

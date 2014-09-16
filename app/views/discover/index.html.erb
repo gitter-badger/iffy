@@ -1,32 +1,31 @@
 <div id="discover" class="container">
-	<% if logged_in? %>
-			
-<h1>It's <%= @day %> <%= @daypart %> in <%= current_user.zip %>, what are you in the mood for?</h1><br>
+	<% if logged_in? %>	
+		<h1>It's <%= @day %> <%= @daypart %> in <%= current_user.zip %>, what are you in the mood for?</h1><br>
+<!-- why doesn't this work? -->
 <%#= link_to 'Change Location', edit_user_path %>
 
+<!-- why doesn't this work? -->
+<%#= f.label current_user.radius %> 
+    <%#= f.select current_user.radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>
 
 <!-- LIST OF MOODS -->
-<ul>
-	
-	<% @moods.each do |mood| %>
-	<% if mood.days.include? @day and if mood.dayparts.include? @daypart %>
-	<li> 
-		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %> 
-		<br>
-		<br>
-	</li>
+	<ul>
+		<% @moods.each do |mood| %>
+		<% if mood.days.include? @day and if mood.dayparts.include? @daypart %>
+			<li> 
+				<%= link_to mood.name, discover_path(mood) %> - <%= mood.description %> 
+				<br>
+				<br>
+			</li>
+		<% end %>
+		<% end %>
 	<% end %>
+	</ul>
+	<%#= u.text_field :radius, class: 'form-control', maxlength: 5 %>
+    <%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>
+		<% else %>
+			<br>
+			<%= render partial: '/about/about' %>
+			<br>
 	<% end %>
-	<% end %>
-
-</ul>
-<% else %>
-<br>
-Sorry, bro. You need to <%= link_to "log in", sessions_path %> to see the magic.
-<br>
-<br>
-This is where an About page would go. Lots of info about what Iffy is and how to use it.<br>
-<br>
-<% end %>
-
 </div>

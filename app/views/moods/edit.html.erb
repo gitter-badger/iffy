@@ -1,17 +1,19 @@
 <div id="edit_mood" ng-controller="searchController" class="container">
+		<% if current_user.access == 'admin' %>
+
 <!--Location is: <%= current_user.zip %>-->
 <%#= link_to "Back to Moods", moods_path %><br>
-<h1>Edit <%= @mood.name %></h1>
+<h1>Edit Mood</h1>
 
 <%= form_for @mood do |m| %>
 <table>
 	<tr class= "form-group">
-		<td><%= m.label :name %>:</td><td><%= m.text_field :name, maxlength: 50, ng_model: "name", class: 'form-control' %> {{ 50 - name.length + " chars" }}<br><br>
+		<td><%= m.label :name %>:</td><td><%= m.text_field :name, maxlength: 50, class: 'form-control' %><br><br>
 		</td>
 	</tr>
 	<tr class= "form-group">
 		<td>
-			<%= m.label :description %></td><td><%= m.text_area :description, maxlength: 130, ng_model: "description", class: 'form-control' %> {{ 130 - description.length + " chars" }}<br><br>
+			<%= m.label :description %></td><td><%= m.text_area :description, maxlength: 130, class: 'form-control' %><br><br>
 		</td>
 	</tr>
 	<tr class= "form-group">
@@ -21,7 +23,7 @@
 	</tr>
 	<tr class= "form-group">
 		<td>
-			<%= m.label :category %>:</td><td><%= m.collection_select(:category, Category.all, :path, :name, class: 'form-control') %><br><br>
+			<%= m.label :category %>:</td><td><%= m.collection_select(:category, Category.all, :path, :name, {},class: 'form-control') %><br><br>
 		</td>
 	</tr>
 	<tr class= "form-group">
@@ -31,26 +33,33 @@
 	</tr>
 	<tr class= "form-group">
 		<td><%= m.label :days %>:</td><td><% Date::DAYNAMES.each do |day| %>
-		  <%= check_box_tag "mood[days][]", day %>
+		  <%= check_box_tag "mood[days][]", day, @mood.days.include?(day) %>
 		  <%= day %>&nbsp;&nbsp;&nbsp;
 		<% end %><br><br>
 		</td>
 	</tr>
 	<tr class= "form-group">
-		<td><%= m.label :dayparts%>:</td><td><% Daypart.each do |daypart| %>
-		  <%= check_box_tag "mood[dayparts]", daypart.name %>
-		  <%= daypart.name.titleize %> &nbsp;&nbsp;&nbsp;
-		<% end %><br><br>
+		<td><%= m.label :dayparts %>:</td><td><%= m.collection_select(:dayparts, Daypart.all, :name, :name, {}, class: 'form-control') %><br><br>
 		</td>
 	</tr>
+
+	<br><br>
+
 	<tr class= "form-group">
 		<td><%= m.label :sort %>:</td>
-		<td>Match: <%= m.radio_button :sort, '0' %> Distance: <%= m.radio_button :sort, '1' %> Rating: <%= m.radio_button :sort, '2', :checked => 'checked' %></td>
+		<td><%= m.radio_button :sort, '0' %> Match&nbsp;&nbsp;&nbsp; <%= m.radio_button :sort, '1' %> Distance&nbsp;&nbsp;&nbsp; <%= m.radio_button :sort, '2' %> Rating</td>
 	</tr>
 </table>
 	<%#= m.label :place %><%#= m.collection_select(:place, Place.all, :id, :name) %><br>
-	<br>
 
 	<%= m.submit "Save Changes", class: "btn btn-primary btn-lg"%> or <%= link_to "Cancel changes", moods_path %>
+	<br>
+	<br>
+<% end %>
+
+<% else %>
+<br>
+Not for your prying eyes!<br>
+<br>
 <% end %>
 </div>

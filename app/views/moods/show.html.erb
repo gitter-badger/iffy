@@ -35,6 +35,7 @@ Highest Rated
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
 
 <br>
+<br>
 <strong><%= @mood.searchYelp(current_user).businesses[0].name %></strong><br>
 <%= @mood.searchYelp(current_user).businesses[0].location.city %><br>
 <!-- <%#= @mood.searchYelp(current_user).businesses.length %> results -->
