@@ -17,6 +17,7 @@ body {
 
 <div class="container discover bg">
 	<br>
+	 <%#= @mood.created_at %> <br>
 	<p class="intro">You chose <em><%= @mood.name %></em>, so we recommend</p>
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %></div><br>

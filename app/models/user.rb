@@ -3,14 +3,18 @@ require 'gravatar-ultimate'
 
 class User
   include Mongoid::Document
+  include Mongoid::Timestamps
   field :name, type: String
   field :email, type: String
   field :password_digest, type: String
   field :zip, type: Integer
   field :moods, type: Array
   field :places, type: Array
-  field :access, type: String
+  field :access, default: 'user'
   field :radius, type: Integer
+
+  scope :admin, -> { where(access: "admin")}
+  # scope :user, where(access: "user")
 
 
   def password=(new_password)

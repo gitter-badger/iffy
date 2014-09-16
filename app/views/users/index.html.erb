@@ -4,6 +4,7 @@
 <h1>Users</h1>
 <table>
 	<tr>
+		<th>Created</th>
 		<th>Name</th>
 		<th>Email</th>
 		<th>Zip</th>
@@ -17,6 +18,7 @@
 	<!-- LIST OF SEARCHES -->
 	<% @users.each do |user| %>
 	<tr>
+		<td><%= user.created_at %></td>
 		<td><%= link_to user.name, user_path(user) %></td>
 		<td><%= user.email %></td>
 		<td><%= user.zip %></td>

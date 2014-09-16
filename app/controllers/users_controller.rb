@@ -5,7 +5,8 @@ class UsersController < ApplicationController
 
   def create
 	@user = User.new(params.require(:user).permit(:name, :email, :password, :zip, :radius))
-	@user.access ||= "user"
+	# doing this in the model now
+	#@user.access ||= "user"
 	if @user.save
 		
 		# log the user in
