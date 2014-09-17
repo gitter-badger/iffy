@@ -8,30 +8,27 @@ class Mood
   field :keywords, type: Array
   field :category, type: String
   field :days, type: Array
-  field :dayparts, type: Array
   field :photo, type: String
   field :sort, type: Integer
   field :selected, type: Integer
 
-  # belongs_to :category
+  has_and_belongs_to_many :dayparts
+  has_and_belongs_to_many :users
+  # has_and_belongs_to_many :categories
+
+  attr_accessor :yelp_results
 
   def searchYelp(current_user)
-  client = Yelp::Client.new({ consumer_key: "YlTjB3sl8gicTpB8Y1huVg",
-                             consumer_secret: "xpsgTMujx-n8bitS2DPh126QrK4",
-                             token: "6e0jiZvh2Y1iUZHwyO5FHwCXJi-jt8ln",
-                             token_secret: "Frpqf4FrLRHTTrKiQvP9_XaLhcE"
-                           })
-
   params = {
     category_filter: self.category,
     # limit: 1,
-    radius_filter: current_user.radius,
+    # radius_filter: current_user.radius,
     sort: self.sort,
-    term: self.keywords
+    term: self.keywords.join('+')
   }
   
-  results = client.search(current_user.zip, params)
+  @yelp_results ||= Yelp.client.search(current_user.zip, params)
 
-end
+  end
 end
 

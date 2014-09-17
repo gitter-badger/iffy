@@ -5,29 +5,49 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: #000;
-	padding-left: 40px;
 }
-header {
+
+.bg:before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  
+  background-image: url(<%= @mood.photo %>);
+  background-size: cover;
+  width: 100%;
+  height: 800px;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+/*header {
 	visibility: hidden;
-}
+}*/
 body {
 	margin-top: -50px;
 }
 </style>
 
-<div class="container discover bg">
+<div class="container">
 	<br>
 	 <%#= @mood.created_at %> <br>
-	<p class="intro">You chose <em><%= @mood.name %></em>, so we recommend</p>
+<p class="intro">You chose <em><%= @mood.name %></em>, so we recommend</p>
+<div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %></div><br>
-<%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %>
+<a href="<%= @mood.searchYelp(current_user).businesses[0].url %>"><%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span></a>
 <br>
+<%#= @mood.searchYelp(current_user).businesses[0].distance %>
 <br>
-<div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
+
 <!--<div class="yelp-image"><%= image_tag @mood.searchYelp(current_user).businesses[0].image_url %></div><br>-->
 <div class="snippet"><%= @mood.searchYelp(current_user).businesses[0].snippet_text %></div><br>
 <%#= @mood.searchYelp(current_user).inspect %>
-<%= image_tag @mood.photo %>
+
+
+<%#= image_tag @mood.photo %>
 	
 </div>

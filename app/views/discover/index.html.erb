@@ -1,6 +1,27 @@
-<div id="discover" class="container">
+<style type="text/css">
+	.home {
+	background-image: url(<%= @daypart.photo %>);
+}
+.home:before {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  
+  background-image: url(<%= @daypart.photo %>);
+  width: 100%;
+  height: 800px;
+  
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+</style>
+
+<div id="discover" class="container welcome">
 	<% if logged_in? %>	
-		<h1>It's <%= @day %> <%= @daypart %> in <%= current_user.zip %>, what are you in the mood for?</h1><br>
+		<h2>It's <%= @day %> <%= @daypart.name %> in <%= current_user.zip.to_s.to_region(:city => true) %>. What are you in the mood for?</h2><br>
 <!-- why doesn't this work? -->
 <%#= link_to 'Change Location', edit_user_path %>
 
@@ -10,14 +31,21 @@
 
 <!-- LIST OF MOODS -->
 	<div class="container">
-		<% Mood.where(days: @day, dayparts: @daypart).each do |mood| %>
-			<a href="<%= discover_path(mood) %>"><div class="mood-choice col-sm-4"> 
-				<h3><%= link_to mood.name, discover_path(mood) %></h3>
+		<% Mood.where(days: @day, daypart_ids: @daypart.name).each do |mood| %>
+			<%= link_to(discover_path(mood)) do %><div class="mood-choice col-sm-3"> 
+				<h4><%= mood.name %></h4>
 				<p><%= mood.description %></p>
-			</div></a>
+
+			</div>
+			<% end %>
 		<% end %>
 	</div>
+	<br>
+	<br>
 	<%#= Mood.where(days: "Tuesday").count %><br>
+
+
+
 
 
 	<%#= u.text_field :radius, class: 'form-control', maxlength: 5 %>

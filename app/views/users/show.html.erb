@@ -1,8 +1,28 @@
+<p id="demo">Your current coordinates are:</p>
+
+<script>
+
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    x.innerHTML="Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;	
+}
+</script>
+
 <div id="user" class="container">
 	<h1><%= @user.name %></h1>
+	<p><%= current_user.zip.to_s.to_region(:city => true) %></p>
 	<img src="<%= @user.gravatar(@user.email) %>">
-	<p><strong>Email: </strong><%= @user.email %></p>
-	<p><strong>Zipcode: </strong><%= @user.zip %></p>
+	<p><strong>Bio: </strong><%= @user.bio %></p>
 	<p><strong>Latest Moods: </strong><%= @user.moods %></p>
 	<p><strong>Latest Places: </strong><%= @user.places %></p>
 	<%= link_to "Edit Profile", edit_user_path(@user) %>

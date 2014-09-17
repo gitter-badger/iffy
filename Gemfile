@@ -13,6 +13,10 @@ gem 'yelp', require: 'yelp'
 
 gem 'gravatar-ultimate'
 
+# gem 'geocoder'
+
+gem 'area'
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'sass-rails', '~> 4.0.2'

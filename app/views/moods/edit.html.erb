@@ -18,12 +18,12 @@
 	</tr>
 	<tr class= "form-group">
 		<td>
-			<%= m.label :keywords %>:</td><td><%= m.text_field :keywords, class: 'form-control' %><br>
+			<%= m.label :keywords %>:</td><td><%= m.text_field :keywords, class: 'form-control', :value => @mood.keywords.join(",") %><br>
 		</td>
 	</tr>
 	<tr class= "form-group">
 		<td>
-			<%= m.label :category %>:</td><td><%= m.collection_select(:category, Category.all, :path, :name, {},class: 'form-control') %><br><br>
+			<%= m.label :category %>:</td><td><%= m.collection_select(:category, Category.order_by([:name, :asc]), :path, :name, {},class: 'form-control') %><br><br>
 		</td>
 	</tr>
 	<tr class= "form-group">
@@ -39,7 +39,7 @@
 		</td>
 	</tr>
 	<tr class= "form-group">
-		<td><%= m.label :dayparts %>:</td><td><%= m.collection_select(:dayparts, Daypart.all, :name, :name, {}, class: 'form-control') %><br><br>
+		<td><%= m.label :daypart %></td><td><%= m.collection_check_boxes(:daypart_ids, Daypart.all, :name, :name) %><br><br>
 		</td>
 	</tr>
 

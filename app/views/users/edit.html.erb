@@ -15,7 +15,10 @@
 	<br>
 	<%= u.label :zip %> 
 	<%= u.text_field :zip, class: 'form-control bottom-buffer', maxlength: 5 %>
-
+	<br>
+	<%= u.label :bio %> 
+	<%= u.text_field :bio, class: 'form-control bottom-buffer', maxlength: 140 %>
+	<br>
 	<%= u.label :radius %> 
 	<%#= u.text_field :radius, class: 'form-control', maxlength: 5 %>
     <%= u.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>

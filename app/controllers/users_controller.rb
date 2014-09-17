@@ -4,14 +4,14 @@ class UsersController < ApplicationController
   end
 
   def create
-	@user = User.new(params.require(:user).permit(:name, :email, :password, :zip, :radius))
+	@user = User.new(params.require(:user).permit(:name, :email, :password, :zip, :radius, :latlon, :bio))
 	# doing this in the model now
 	#@user.access ||= "user"
-	if @user.save
-		
+	if @user.save	
 		# log the user in
 		redirect_to root_path
 	else
+		flash[:error] = 'Please complete all fields to create an account'
 		render 'new'
 	end
   end
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
 		
-		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :moods, :access, :radius, :zip))
+		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :moods, :access, :radius, :zip, :latlon, :bio))
 			redirect_to users_path
 		else
 			render 'edit'

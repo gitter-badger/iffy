@@ -10,32 +10,39 @@ class DiscoverController < ApplicationController
 		
 		case @hour
 		when 5..7
-			@daypart = 'early morning'
+			@daypart = Daypart.find_by(name: 'early morning')
 		when 8..9
-			@daypart = 'morning'
+			@daypart = Daypart.find_by(name: 'morning')
 		when 10
-			@daypart = 'late morning'
+			@daypart = Daypart.find_by(name: 'late morning')
 		when 11..12
-			@daypart = 'midday'
+			@daypart = Daypart.find_by(name: 'midday')
 		when 13..15
-			@daypart = 'early afternoon'
+			@daypart = Daypart.find_by(name: 'early afternoon')
 		when 16..17
-			@daypart = 'late afternoon'
+			@daypart = Daypart.find_by(name: 'late afternoon')
 		when 18..19
-			@daypart = 'early evening'
+			@daypart = Daypart.find_by(name: 'early evening')
 		when 20..21
-			@daypart = 'night'
+			@daypart = Daypart.find_by(name: 'night')
 		when 22..23
-			@daypart = 'late night'
+			@daypart = Daypart.find_by(name: 'late night')
 		when 1..2
-			@daypart = 'overnight'
+			@daypart = Daypart.find_by(name: 'overnight')
 		else
-			@daypart = 'sleepytime'
+			@daypart = Daypart.find_by(name: 'sleepytime')
 		end
+
+		@home = true
+		
 	end
+
+
+
 
 	def show
 		@mood = Mood.find(params[:id])
+		@discover = true
 		# @mood.selected += 1 # why doesn't this work?
 	end
 end

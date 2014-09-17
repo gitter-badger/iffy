@@ -17,13 +17,31 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+.field_with_errors {
+	@extend .has-error;
+}
+
+h2 {
+	padding-top: 60px;
+	color: #FFF;
+	font-family: 'helvetica';
+	font-weight: bold;
+	font-size: 70px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	margin: 10px;
+	line-height: 70px;
+}
+
 header {
 	height: 50px;
 	width: 100%;
-	background-color: rgba(70,41,100,0.8);
+	background-color: rgba(0,0,0,0.8);
 	position: fixed;
 	top: 0px;
+	left: 0px;
 }
+
 #logo {
 	float: left;
 	width: 120px;
@@ -72,6 +90,13 @@ header {
 	background: rgba(255,255,255,0.1);
 }
 
+.checkboxes {
+	background: #000;
+	font-size: 30px;
+	font-weight: normal;
+	padding-right: 10px;
+}
+
 #auth {
 	float: right;
 	color: white;
@@ -89,10 +114,17 @@ body {
 }
 
 .mood-choice {
-	border: 1px solid #71637D;
 	padding: 10px;
 	margin: 10px;
-	height: 200px;
+	text-align: center;
+	color: #FFF;
+	border: 2px solid #FFF;
+	border-radius: 8px;
+}
+.mood-choice:hover {
+	background-color: rgba(0,0,0,0.2);
+	padding: 10px;
+	margin: 10px;
 	text-align: center;
 }
 
@@ -100,10 +132,18 @@ body {
 	color: #FFF;
 	font-size: 40px;
 	font-weight: lighter;
+	line-height: 40px;
+	margin-top: 30px;
 }
 .name {
 	color: #FFF;
-	font-size: 90px;
+	font-family: 'helvetica';
+	font-weight: bold;
+	font-size: 100px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	/*line-height: 10px;*/
+	margin: 10px;
+	line-height: 100px;
 }
 .address {
 	color: #FFF;
@@ -112,10 +152,15 @@ body {
 .snippet {
 	color: #FFF;
 	font-size: 40px;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+	line-height: 50px;
+	margin-bottom: 50px;
 }
 .yelp-image > img {
 	border: 1px solid #EEE;
-	width: 300px;
+	width: 200px;
+	float: right;
+	right: 30px;
 }
 
 td {
@@ -127,14 +172,14 @@ td {
 }
 
 footer {
-	height: 500px;
-	background-color: #EEE;
+	height: 100px;
+	background-color: rgba(0,0,0,0.8);
 	color: #BBB;
 	font-size: 11px;
 	width: 100%;
 	position: relative;
-	bottom: 0;
-	left: 0;
+	bottom: 0px;
+	left: 0px;
 
 }
 #left-footer {

@@ -16,7 +16,11 @@
 <%= @mood.days.join(", ") %><br>
 <br>
 <strong>Best Time:</strong><br>
-<%= @mood.dayparts.join(", ").titleize %><br>
+<% @mood.daypart_ids.each do |daypart| %>
+<ul>
+	<li><%= daypart.titleize %></li>
+</ul>
+<% end %>
 <br>
 <!-- @mood.sort returns a value, lets make the interface more readable -->
 <strong>Sorted By:</strong><br>
@@ -28,16 +32,12 @@ Most Reviewed
 Highest Rated
 <% end %>
 <br>
-
-<!-- <%= image_tag @mood.photo %> -->
-<br>
-<%= link_to "Edit", edit_mood_path %> | <%= link_to "Delete", @mood, 
-		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
-
-<br>
 <br>
 <strong><%= @mood.searchYelp(current_user).businesses[0].name %></strong><br>
 <%= @mood.searchYelp(current_user).businesses[0].location.city %><br>
 <!-- <%#= @mood.searchYelp(current_user).businesses.length %> results -->
+<br>
+<%= link_to "Edit", edit_mood_path %> | <%= link_to "Delete", @mood, 
+		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
 </div>
 <br>
