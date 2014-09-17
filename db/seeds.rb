@@ -32,146 +32,394 @@ places = Place.create([
 	])
 
 moods = Mood.create([
-	{ 
-		name: 'Happy Hour with Co-Workers', 
-		description: 'What a day. Join your favorite coworkers to raise a drink after a long, long day.',
-		keywords: ['happy hour', 'bar'], 
-		category: 'bars', 
-		days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 
-		dayparts: ['late afternoon', 'early evening'],
-		photo: 'http://www.emlii.com/images/article/2014/03/5331d70bd9b98.jpeg',
-		sort: 0,
-		selected: 3,
-
-		# place: places[0], 
-	}, 
-	{ 
-		name: 'Brunch on the Beach', 
-		description: 'The only proper way to enjoy the weekend is with a relaxing brunch on the beach.',
-		keywords: ['brunch', 'beach'], 
-		category: 'bars', 
-		days: ['Saturday', 'Sunday'], 
-		dayparts: ['late morning', 'midday', 'early afternoon'], 
-		photo: 'http://www.vmbimages.net/HostedImages/gulfstreambrunch.jpg',
-		sort: 2,
-		selected: 1,
-
-		# place: places[1],
-	},
-	{ 
-		name: 'Grabbing a Nightcap', 
-		description: 'Still some gas left in the tank. Drop in a special haunt to rub elbows the evil spirits.',
-		keywords: ['late night', 'bar', 'nightcap'], 
-		category: 'bars', 
-		days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 
-		dayparts: ['late night', 'overnight'], 
-		photo: 'http://magazine.foxnews.com/sites/magazine.foxnews.com/files/styles/1600_image/public/Nightcap_0.jpg?itok=__GaB7Nt',
-		sort: 1,
-		selected: 0,
-
-		# place: places[0],
-	}
+	{
+    _id: ObjectId("5417c5e852616ee144090000"),
+    name: "A New Do for You",
+    description: "It's time for a cut. And this place takes the cake.",
+    photo: "http://photos.posh24.com/p/986994/z/music_video/willow_smith_crazy_hair.jpg",
+    category: "beautysvc",
+    sort: 2,
+    keywords: [
+        "barber"
+    ],
+    days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday"
+    ],
+    dayparts: [
+        "late night"
+    ],
+    updated_at: ISODate("2014-09-17T17:40:51.568Z"),
+    daypart_ids: [
+        "late morning",
+        "midday",
+        "early afternoon"
+    ]
+}, 
+	{
+    _id: ObjectId("5418680d52616ee1440a0000"),
+    name: "Healthy Snack after a Run",
+    description: "This is a faaaantastic description",
+    photo: "http://2.bp.blogspot.com/-WfJ7zv-JNdw/Uj9gRYJ6ejI/AAAAAAAACk8/FkE5bfjpH2g/s1600/Image+5.jpg",
+    category: "restaurants",
+    sort: 2,
+    keywords: [
+        "healthy",
+        "snack"
+    ],
+    days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday"
+    ],
+    dayparts: [
+        "morning",
+        "late morning"
+    ],
+    updated_at: ISODate("2014-09-17T18:06:41.694Z"),
+    daypart_ids: [
+        "midday",
+        "early evening",
+        "night"
+    ]
+},
+	{
+    _id: ObjectId("541869cf52616ee1440b0000"),
+    name: "Testing New Timestamp",
+    description: "Well, well, well",
+    photo: "",
+    category: "food",
+    sort: 2,
+    keywords: [
+        "cherry"
+    ],
+    days: [
+        "Monday"
+    ],
+    updated_at: ISODate("2014-09-17T00:38:27.239Z"),
+    created_at: ISODate("2014-09-16T16:48:15.921Z")
+},
+{
+    _id: ObjectId("5417bfcd52616ee144080000"),
+    name: "Shaken...not Stirred",
+    description: "As the evening winds down, so should you. Lets retire to a dark corner and sip a martini fit for 007 himself.",
+    photo: "http://iqtell.com/wp-content/uploads/2013/05/James-Bond.jpg",
+    category: "bars",
+    sort: 0,
+    keywords: [
+        "martini"
+    ],
+    days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Friday",
+        "Saturday"
+    ],
+    dayparts: [
+        "early afternoon"
+    ],
+    updated_at: ISODate("2014-09-17T00:22:14.966Z"),
+    daypart_ids: [
+        "early afternoon",
+        "late afternoon",
+        "early evening"
+    ]
+},
+{
+    _id: ObjectId("5418e10652616eee470b0000"),
+    name: "Some delicious delivery",
+    description: "Yum and yum. Chinese",
+    photo: "http://www.handcraftedbymartin.com/blog/wp-content/uploads/2012/05/Chinese-food-delivery-man-leaving-restaurant-with-delivery.-.jpg",
+    category: "chinese",
+    sort: 2,
+    daypart_ids: [
+        "early evening",
+        "night",
+        "late night"
+    ],
+    keywords: [
+        "delivery"
+    ],
+    days: [
+        "Tuesday",
+        "Wednesday"
+    ],
+    updated_at: ISODate("2014-09-17T02:58:00.223Z"),
+    created_at: ISODate("2014-09-17T01:16:54.25Z")
+},
+{
+    _id: ObjectId("5418ea5f52616eee470d0000"),
+    name: "Studying in Peace and Quiet",
+    description: "Hit the books in a quiet place. Yes please.",
+    photo: "http://1.bp.blogspot.com/-LHQ-zVTucIU/T7qFEgKWoWI/AAAAAAAADk0/zGp9VvHWgDE/s1600/Harper+Library+2.jpg",
+    category: "restaurants",
+    sort: 0,
+    daypart_ids: [
+        "late afternoon",
+        "early evening",
+        "night",
+        "late night"
+    ],
+    keywords: [
+        "quiet",
+        " studying"
+    ],
+    days: [
+        "Tuesday",
+        "Wednesday"
+    ],
+    updated_at: ISODate("2014-09-17T03:04:09.741Z"),
+    created_at: ISODate("2014-09-17T01:56:47.523Z")
+},
+{
+    _id: ObjectId("5419049b52616eee47110000"),
+    name: "Late Night Eats",
+    description: "Hungry after a long day? Well I've got good news. These places are for you.",
+    photo: "http://www.richardalois.com/wp-content/uploads/2011/09/London-Late-Night-Food.jpg",
+    category: "restaurants",
+    sort: 2,
+    daypart_ids: [
+        "night",
+        "late night"
+    ],
+    keywords: [
+        "delivery",
+        "chicken"
+    ],
+    days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+    ],
+    updated_at: ISODate("2014-09-17T03:48:43.318Z"),
+    created_at: ISODate("2014-09-17T03:48:43.318Z")
+},
+{
+    _id: ObjectId("54199b2752616eee47140000"),
+    name: "The Best Workout in Town ",
+    description: "So the daily pushups in the kitchen aren't working--here's a better option.",
+    photo: "http://www.spirithealthclubs.co.uk/media/1153/Gym.jpg",
+    category: "active",
+    sort: 2,
+    daypart_ids: [
+        "early morning",
+        "morning",
+        "late morning",
+        "midday"
+    ],
+    keywords: [
+        "gym",
+        "membership"
+    ],
+    days: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday"
+    ],
+    updated_at: ISODate("2014-09-17T14:32:37.797Z"),
+    created_at: ISODate("2014-09-17T14:31:03.42Z")
+}
 	])
 
 categories = Category.create([
 	{ 
 		name: 'Active Life',
-		path: 'active'
+		path: 'active',
+		total: 0
 	},
 	{
 		name: 'Arts & Entertainment',
-		path: 'arts'
+		path: 'arts',
+		total: 0
 	},
 	{
 		name: 'Bars',
-		path: 'bars'
+		path: 'bars',
+		total: 0
 	},
 	{
 		name: 'Beauty & Spas',
-		path: 'beautysvc'
+		path: 'beautysvc',
+		total: 0
 	},
 	{
 		name: 'Financial Services',
-		path: 'financialservices'
+		path: 'financialservices',
+		total: 0
 	},
 	{
 		name: 'Food',
-		path: 'food'
+		path: 'food',
+		total: 0
 	},
 	{
 		name: 'Health & Medical',
-		path: 'health'
+		path: 'health',
+		total: 0
 	},
 	{
 		name: 'Home Services',
-		path: 'homeservices'
+		path: 'homeservices',
+		total: 0
 	},
 	{
 		name: 'Hotels & Travel',
-		path: 'hotelstravel'
+		path: 'hotelstravel',
+		total: 0
 	},
 	{
 		name: 'Local Flavor',
-		path: 'localflavor'
+		path: 'localflavor',
+		total: 0
 	},
 	{
 		name: 'Nightlife',
-		path: 'nightlife'
+		path: 'nightlife',
+		total: 0
 	},
 	{
 		name: 'Restaurants',
-		path: 'restaurants'
+		path: 'restaurants',
+		total: 0
 	},
 	{
 		name: 'Shopping',
-		path: 'shopping'
-	}
+		path: 'shopping',
+		total: 0
+	},
+	{
+		name: 'Local Services',
+		path: 'localservices',
+		total: 0
+	},
+	{
+		name: 'All',
+		path: '',
+		total: 0
+	},
+	{
+		name: 'Restaurants > Pizza',
+		path: 'pizza',
+		total: 0
+	},
+	{
+		name: 'Restaurants > Mexican',
+		path: 'mexican',
+		total: 0
+	},
+	{
+		name: 'Restaurants > Italian',
+		path: 'italian',
+		total: 0
+	},
+	{
+		name: 'Restaurants > Gastropubs',
+		path: 'gastropubs',
+		total: 0
+	},
+	{
+		name: 'Delis',
+		path: 'delis',
+		total: 0
+	},
+	{
+		name: 'Restaurants > Chinese',
+		path: 'chinese',
+		total: 0
+	},
+	{
+		name: 'Coffee & Tea',
+		path: 'coffee',
+		total: 0
+	},
 ])
 
 dayparts = Daypart.create([
 	{ 
 		name: 'early morning',
-		times: '5..7'
+		times: '5..7',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{
 		name: 'morning',
-		times: '8..9'
+		times: '8..9',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{
 		name: 'late morning',
-		times: '10'
+		times: '10',
+		photo: "http://www.sseubert.com/data/photos/111_1winderlea_vineyard.jpg"
 	},
 	{ 
 		name: 'midday',
-		times: '11..12'
+		times: '11..12',
+		photo: "http://www.hdwallpapersinn.com/wp-content/uploads/2014/08/Lunch-Time-HD-Wallpaper.jpg"
 	},
 	{
 		name: 'early afternoon',
-		times: '13..15'
+		times: '13..15',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{
 		name: 'late afternoon',
-		times: '16..17'
+		times: '16..17',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{
 		name: 'early evening',
-		times: '18..19'
+		times: '18..19',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{ 
 		name: 'night',
-		times: '20..21'
+		times: '20..21',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{
 		name: 'late night',
-		times: '22..23'
+		times: '22..23',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{
 		name: 'overnight',
-		times: '1..2'
+		times: '1..2',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	},
 	{
 		name: 'sleepytime',
-		times: '3..4'
+		times: '3..4',
+		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
 	}
 
+])
+
+users = User.create([
+	{
+    _id: ObjectId("54137a5652616ec3b2000000"),
+    name: "Ran",
+    email: "craynkshaft@gmail.com",
+    password_digest: "$2a$10$DcngX7PPqb8c7.s8MXxu..MaqHEQdF0g3AYZxHCkc4tq8vEk9SEye",
+    zip: 90291,
+    access: "admin",
+    radius: 1000,
+    updated_at: ISODate("2014-09-17T18:26:05.103Z"),
+    bio: "This is my damn bio"
+},
+{
+    _id: ObjectId("5419ccee52616ef85b2e0000"),
+    access: "user",
+    name: "Mr. Red",
+    email: "reds",
+    password_digest: "$2a$10$nwpbp1oybgS3AKMn2tXPiu252t39u8Z.D1SVcmMxa.kXttXJsIBOq",
+    zip: 45219,
+    radius: 1000,
+    bio: "I'm a big Reds fan.",
+    updated_at: ISODate("2014-09-17T18:03:26.33Z"),
+    created_at: ISODate("2014-09-17T18:03:26.33Z")
+}
 ])
