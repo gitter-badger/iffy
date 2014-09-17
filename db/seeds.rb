@@ -373,7 +373,7 @@ dayparts = Daypart.create([
 	{
 		name: 'early evening',
 		times: '18..19',
-		photo: "http://bumcri.org/wp-content/uploads/2014/08/rising-sun.jpg"
+		photo: "http://lucianhirsu.ro/wp-content/uploads/2013/02/Santa-Monica-sunset-1.jpg"
 	},
 	{ 
 		name: 'night',

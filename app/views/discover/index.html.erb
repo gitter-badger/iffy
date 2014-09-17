@@ -1,6 +1,8 @@
 <style type="text/css">
 	.home {
 	background-image: url(<%= @daypart.photo %>);
+  background-size: cover;
+
 }
 .home:before {
   content: "";
@@ -8,6 +10,7 @@
   z-index: -1;
   
   background-image: url(<%= @daypart.photo %>);
+  background-size: cover;
   width: 100%;
   height: 800px;
   

@@ -70,5 +70,5 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['mongodb://heroku:FnVPAuHlddbOUGKYISkUZhRjUTtos1kNu9esCWwt7FzKiIwP89MbjEaBjyvqJ0rsjD1Er5J8n0UYEjfhTHLvbA@kahana.mongohq.com:10086/app29509876'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
 
