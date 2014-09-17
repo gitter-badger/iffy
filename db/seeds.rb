@@ -46,10 +46,6 @@ moods = Mood.create([
         "Tuesday",
         "Wednesday"
     ],
-    dayparts: [
-        "late night"
-    ],
-    updated_at: ISODate("2014-09-17T17:40:51.568Z"),
     daypart_ids: [
         "late morning",
         "midday",
@@ -71,11 +67,6 @@ moods = Mood.create([
         "Tuesday",
         "Wednesday"
     ],
-    dayparts: [
-        "morning",
-        "late morning"
-    ],
-    updated_at: ISODate("2014-09-17T18:06:41.694Z"),
     daypart_ids: [
         "midday",
         "early evening",
@@ -94,8 +85,6 @@ moods = Mood.create([
     days: [
         "Monday"
     ],
-    updated_at: ISODate("2014-09-17T00:38:27.239Z"),
-    created_at: ISODate("2014-09-16T16:48:15.921Z")
 },
 {
     name: "Shaken...not Stirred",
@@ -113,10 +102,6 @@ moods = Mood.create([
         "Friday",
         "Saturday"
     ],
-    dayparts: [
-        "early afternoon"
-    ],
-    updated_at: ISODate("2014-09-17T00:22:14.966Z"),
     daypart_ids: [
         "early afternoon",
         "late afternoon",
@@ -141,8 +126,6 @@ moods = Mood.create([
         "Tuesday",
         "Wednesday"
     ],
-    updated_at: ISODate("2014-09-17T02:58:00.223Z"),
-    created_at: ISODate("2014-09-17T01:16:54.25Z")
 },
 {
     name: "Studying in Peace and Quiet",
@@ -164,8 +147,6 @@ moods = Mood.create([
         "Tuesday",
         "Wednesday"
     ],
-    updated_at: ISODate("2014-09-17T03:04:09.741Z"),
-    created_at: ISODate("2014-09-17T01:56:47.523Z")
 },
 {
     name: "Late Night Eats",
@@ -188,8 +169,6 @@ moods = Mood.create([
         "Thursday",
         "Friday"
     ],
-    updated_at: ISODate("2014-09-17T03:48:43.318Z"),
-    created_at: ISODate("2014-09-17T03:48:43.318Z")
 },
 {
     name: "The Best Workout in Town ",
@@ -213,8 +192,6 @@ moods = Mood.create([
         "Wednesday",
         "Thursday"
     ],
-    updated_at: ISODate("2014-09-17T14:32:37.797Z"),
-    created_at: ISODate("2014-09-17T14:31:03.42Z")
 }
 	])
 
@@ -392,18 +369,15 @@ dayparts = Daypart.create([
 
 users = User.create([
 	{
-    _id: ObjectId("54137a5652616ec3b2000000"),
     name: "Ran",
     email: "craynkshaft@gmail.com",
     password_digest: "$2a$10$DcngX7PPqb8c7.s8MXxu..MaqHEQdF0g3AYZxHCkc4tq8vEk9SEye",
     zip: 90291,
     access: "admin",
     radius: 1000,
-    updated_at: ISODate("2014-09-17T18:26:05.103Z"),
     bio: "This is my damn bio"
 },
 {
-    _id: ObjectId("5419ccee52616ef85b2e0000"),
     access: "user",
     name: "Mr. Red",
     email: "reds",
@@ -411,7 +385,5 @@ users = User.create([
     zip: 45219,
     radius: 1000,
     bio: "I'm a big Reds fan.",
-    updated_at: ISODate("2014-09-17T18:03:26.33Z"),
-    created_at: ISODate("2014-09-17T18:03:26.33Z")
 }
 ])

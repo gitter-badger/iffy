@@ -114,12 +114,14 @@ body {
 }
 
 .mood-choice {
+	background-color: rgba(0,0,0,0.1);
 	padding: 10px;
 	margin: 10px;
 	text-align: center;
 	color: #FFF;
 	border: 2px solid #FFF;
 	border-radius: 8px;
+	height: 150px;
 }
 .mood-choice:hover {
 	background-color: rgba(0,0,0,0.2);
@@ -172,9 +174,9 @@ td {
 }
 
 footer {
-	height: 100px;
+	height: 150px;
 	background-color: rgba(0,0,0,0.8);
-	color: #BBB;
+	color: #666;
 	font-size: 11px;
 	width: 100%;
 	position: relative;
