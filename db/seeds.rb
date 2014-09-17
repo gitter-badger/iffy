@@ -33,7 +33,6 @@ places = Place.create([
 
 moods = Mood.create([
 	{
-    _id: ObjectId("5417c5e852616ee144090000"),
     name: "A New Do for You",
     description: "It's time for a cut. And this place takes the cake.",
     photo: "http://photos.posh24.com/p/986994/z/music_video/willow_smith_crazy_hair.jpg",
@@ -58,7 +57,6 @@ moods = Mood.create([
     ]
 }, 
 	{
-    _id: ObjectId("5418680d52616ee1440a0000"),
     name: "Healthy Snack after a Run",
     description: "This is a faaaantastic description",
     photo: "http://2.bp.blogspot.com/-WfJ7zv-JNdw/Uj9gRYJ6ejI/AAAAAAAACk8/FkE5bfjpH2g/s1600/Image+5.jpg",
@@ -85,7 +83,6 @@ moods = Mood.create([
     ]
 },
 	{
-    _id: ObjectId("541869cf52616ee1440b0000"),
     name: "Testing New Timestamp",
     description: "Well, well, well",
     photo: "",
@@ -101,7 +98,6 @@ moods = Mood.create([
     created_at: ISODate("2014-09-16T16:48:15.921Z")
 },
 {
-    _id: ObjectId("5417bfcd52616ee144080000"),
     name: "Shaken...not Stirred",
     description: "As the evening winds down, so should you. Lets retire to a dark corner and sip a martini fit for 007 himself.",
     photo: "http://iqtell.com/wp-content/uploads/2013/05/James-Bond.jpg",
@@ -128,7 +124,6 @@ moods = Mood.create([
     ]
 },
 {
-    _id: ObjectId("5418e10652616eee470b0000"),
     name: "Some delicious delivery",
     description: "Yum and yum. Chinese",
     photo: "http://www.handcraftedbymartin.com/blog/wp-content/uploads/2012/05/Chinese-food-delivery-man-leaving-restaurant-with-delivery.-.jpg",
@@ -150,7 +145,6 @@ moods = Mood.create([
     created_at: ISODate("2014-09-17T01:16:54.25Z")
 },
 {
-    _id: ObjectId("5418ea5f52616eee470d0000"),
     name: "Studying in Peace and Quiet",
     description: "Hit the books in a quiet place. Yes please.",
     photo: "http://1.bp.blogspot.com/-LHQ-zVTucIU/T7qFEgKWoWI/AAAAAAAADk0/zGp9VvHWgDE/s1600/Harper+Library+2.jpg",
@@ -174,7 +168,6 @@ moods = Mood.create([
     created_at: ISODate("2014-09-17T01:56:47.523Z")
 },
 {
-    _id: ObjectId("5419049b52616eee47110000"),
     name: "Late Night Eats",
     description: "Hungry after a long day? Well I've got good news. These places are for you.",
     photo: "http://www.richardalois.com/wp-content/uploads/2011/09/London-Late-Night-Food.jpg",
@@ -199,7 +192,6 @@ moods = Mood.create([
     created_at: ISODate("2014-09-17T03:48:43.318Z")
 },
 {
-    _id: ObjectId("54199b2752616eee47140000"),
     name: "The Best Workout in Town ",
     description: "So the daily pushups in the kitchen aren't working--here's a better option.",
     photo: "http://www.spirithealthclubs.co.uk/media/1153/Gym.jpg",
