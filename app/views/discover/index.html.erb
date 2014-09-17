@@ -57,7 +57,7 @@
     <%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>
 		<% else %>
 			<br>
-			<%= render partial: '/about/about' %>
+			<%= render partial: '/sessions/login' %>
 			<br>
 	<% end %>
 </div>
