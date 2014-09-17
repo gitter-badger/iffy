@@ -31,3 +31,4 @@ function showPosition(position) {
     ", " + position.coords.longitude;	
 }
 */
+
