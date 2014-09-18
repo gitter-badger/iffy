@@ -34,16 +34,16 @@ body {
 </style>
 
  <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=craynkshaft"></script>
+<!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=craynkshaft"></script>-->
 
-<div class="container">
+<div class="container" data-toggle="modal" data-target="#myModal">
 	<br>
 	 <%#= @mood.created_at %> <br>
 <p class="intro">You chose <em><%= @mood.name %></em>, so we recommend</p>
 <div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %></div><br>
-<a href="<%= @mood.searchYelp(current_user).businesses[0].url %>"><%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span></a>
+<%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span>
 <br>
 <%#= @mood.searchYelp(current_user).businesses[0].id %>
 <br>
@@ -55,4 +55,23 @@ body {
 
 <%#= image_tag @mood.photo %>
 	
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">More Options</h4>
+      </div>
+      <div class="modal-body">
+        <div id="share" class="form-group"><%= link_to "Share this with a friend", share_path, :class => "btn btn-primary form-control taller-buttons" %></div>
+        <div id="yelp" class="form-group"><%= link_to "View this on Yelp", @mood.searchYelp(current_user).businesses[0].url, :class => "btn btn-danger form-control taller-buttons" %></div>
+        <div id="map" class="form-group"><%= link_to "Get directions", directions_path, :class => "btn btn-success form-control taller-buttons" %></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>

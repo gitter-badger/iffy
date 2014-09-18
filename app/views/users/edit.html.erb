@@ -21,12 +21,12 @@
 	<br>
 	<%= u.label :radius %> 
 	<%#= u.text_field :radius, class: 'form-control', maxlength: 5 %>
-    <%= u.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>
+    <%= u.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], {}, class: 'form-control' %>
     <% if current_user.access == "admin" %>
     <br>
     <br>
     <%= u.label :access %> 
-	<%= u.select :access, [['Admin','admin'],['User','user']], class: 'form-control bottom-buffer' %>
+	<%= u.select :access, [['Admin','admin'],['User','user']], {}, class: 'form-control bottom-buffer' %>
 	<% end %>
 <br>
 <br>

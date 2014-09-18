@@ -17,6 +17,8 @@ gem 'geocoder'
 
 gem 'area'
 
+gem 'mongoid_slug'
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'twilio-ruby', '~> 3.12'

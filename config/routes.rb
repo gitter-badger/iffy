@@ -13,6 +13,7 @@ root 'discover#index'
   resources :discover
 
   get 'discover/:id/share' => 'discover#share', as: :share
+  get 'discover/:id/directions' => 'discover#get_directions', as: :directions
 
   get '/login', to: 'sessions#new', as: :sessions
   post '/login', to: 'sessions#create'

@@ -3,18 +3,21 @@ require 'yelp'
 class Mood
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Mongoid::Slug
   field :name, type: String
   field :description, type: String
-  field :keywords, type: Array
-  field :days, type: Array
+  field :keywords, type: Array, default: []
+  field :days, type: Array, default: []
   field :photo, type: String
   field :sort, type: Integer
   field :selected, type: Integer
+  slug :name
+  validates :name, presence: true, uniqueness: true 
 
   field :category
   has_and_belongs_to_many :dayparts
   #has_and_belongs_to_many :users
-  has_and_belongs_to_many :places
+  #has_and_belongs_to_many :places
   #has_and_belongs_to_many :categories
 
   attr_accessor :yelp_results
@@ -33,6 +36,7 @@ class Mood
   }
   
   @yelp_results ||= Yelp.client.search_by_coordinates(coordinates, params)
+
 
 
   end

@@ -1,65 +1,35 @@
-<div id="edit_mood" ng-controller="searchController" class="container">
-	<% if current_user.access == 'admin' %>
-
-<!--Location is: <%= current_user.zip %>-->
-<%#= link_to "Back to Moods", moods_path %><br>
-<h1>Edit Mood</h1>
-
-<%= form_for @mood do |m| %>
-<div>
-	<tr class= "form-group">
-		<td><%= m.label :name %>:</td><td><%= m.text_field :name, maxlength: 50, class: 'form-control' %><br><br>
-		</td>
-	</tr>
-	<tr class= "form-group">
-		<td>
-			<%= m.label :description %></td><td><%= m.text_area :description, maxlength: 130, class: 'form-control' %><br><br>
-		</td>
-	</tr>
-	<tr class= "form-group">
-		<td>
-			<%= m.label :keywords %>:</td><td><%= m.text_field :keywords, class: 'form-control', :value => @mood.keywords.join(",") %><br>
-		</td>
-	</tr>
-	<tr class= "form-group">
-		<td>
-			<%= m.label :category %>:</td><td><%= m.collection_select(:category, Category.order_by([:name, :asc]), :path, :name, {},class: 'form-control') %><br><br>
-		</td>
-	</tr>
-	<tr class= "form-group">
-		<td>
-			<%= m.label :photo %>:</td><td><%= m.text_field :photo, class: 'form-control' %><br>
-		</td>
-	</tr>
-	<tr class= "form-group">
-		<td><%= m.label :days %>:</td><td><% Date::DAYNAMES.each do |day| %>
-		  <%= check_box_tag "mood[days][]", day, @mood.days.include?(day) %>
-		  <%= day %>&nbsp;&nbsp;&nbsp;
-		<% end %><br><br>
-		</td>
-	</tr>
-	<tr class= "form-group">
-		<td><%= m.label :daypart %></td><td><%= m.collection_check_boxes(:daypart_ids, Daypart.all, :name, :name) %><br><br>
-		</td>
-	</tr>
-
-	<br><br>
-
-	<tr class= "form-group">
-		<td><%= m.label :sort %>:</td>
-		<td><%= m.radio_button :sort, '0' %> Match&nbsp;&nbsp;&nbsp; <%= m.radio_button :sort, '1' %> Distance&nbsp;&nbsp;&nbsp; <%= m.radio_button :sort, '2' %> Rating</td>
-	</tr>
-</div>
-	<%#= m.label :place %><%#= m.collection_select(:place, Place.all, :id, :name) %><br>
-
-	<%= m.submit "Save Changes", class: "btn btn-primary btn-lg"%> or <%= link_to "Cancel changes", moods_path %>
-	<br>
-	<br>
-<% end %>
-
-<% else %>
-<br>
-Not for your prying eyes!<br>
-<br>
-<% end %>
+<div id="mood-form" class="container">
+		<%= form_for @mood do |m| %>
+			<div>
+				<div class="form-group">
+					<%= m.label :name %>:<%= m.text_field :name, maxlength: 50, class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<%= m.label :description %><%= m.text_area :description, maxlength: 130, class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<%= m.label :keywords %>:<%= m.text_field :keywords, class: 'form-control', :value => @mood.keywords.join(",") %>
+				</div>
+				<div class="form-group">
+					<%= m.label :category %>:<%= m.collection_select(:category, Category.order_by([:name, :asc]), :path, :name, {},class: 'form-control') %>
+				</div>
+				<div class="form-group">
+					<%= m.label :photo %>:<%= m.text_field :photo, class: 'form-control' %>
+				</div>
+				<div class="form-group">
+					<%= m.label :days %>:<% Date::DAYNAMES.each do |day| %>
+				  		<%= check_box_tag "mood[days][]", day, @mood.days.include?(day) %>
+						<%= day %>
+					<% end %>
+				</div>
+				<div class="form-group">
+					<%= m.label :daypart %><%= m.collection_check_boxes(:daypart_ids, Daypart.all, :name, :name) %>
+				</div>
+				<div class="form-group">
+					<%= m.label :sort %>:<%= m.radio_button :sort, '0' %> Match <%= m.radio_button :sort, '1' %> Distance <%= m.radio_button :sort, '2' %> Rating
+				</div>
+				<div class="form-group">
+				<%= m.submit "Save Changes", class: "btn btn-primary btn-lg"%> or <%= link_to "Cancel changes", moods_path %>
+			</div>
+				<% end %>
 </div>

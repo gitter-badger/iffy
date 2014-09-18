@@ -60,9 +60,14 @@ class DiscoverController < ApplicationController
 		# set up a client to talk to the Twilio REST API
 		@client = Twilio::REST::Client.new account_sid, auth_token
 
-		# what do I do with this? 
-		@client.messages.create(:from => '+13237451232', :to => '3474012203', :body => "Work, bitch!") 
+		# learn how to pass variables into to "to", "body", and "url" 
+		@client.messages.create(:from => '+13237451232', :to => '3474012203', :body => "Let's go here:" ) 
 		redirect_to discover_path(params[:id])
 
 	end
+
+	def get_directions
+		# get google map directions api and put it here
+	end
+
 end

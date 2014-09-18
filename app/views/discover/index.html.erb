@@ -24,18 +24,16 @@
 
 <div id="discover" class="container">
 	<% if logged_in? %>	
-		<h2 class = "welcome-home">It's <%= @day %> <%= @daypart.name %> in <%= link_to current_user.zip.to_s.to_region(:city => true), user_path(current_user) %>. What are you in the mood for?</h2><br>
+		<h2>It's <%= @day %> <%= @daypart.name %> in <%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %>. What are you in the mood for?</h2><br>
 
 
 				<%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], %>
 
-
-				<%= form_for current_user do |user| %>
-				<%= user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], {}, class: 'form-control see-through' %>
-				<% end %>				
-
-   <br>
-   <br>
+<!-- got rid of the dropdown
+				<%#= form_for current_user do |user| %>
+				<%#= user.select :radius, [['Show me walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], {}, class: 'form-control see-through' %>
+				<%# end %>				
+-->
 
 <!-- LIST OF MOODS -->
 	<div class="container center">

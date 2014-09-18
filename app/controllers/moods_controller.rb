@@ -3,7 +3,7 @@ class MoodsController < ApplicationController
 		@moods = Mood.all
 	end
 	def new
-		@moods = Mood.new
+		@mood = Mood.new
 	end
 	def create
 		@mood = Mood.new(params.require(:mood).permit(:name, :description, :photo, :category, :sort, :selected, :daypart_ids => []))
@@ -18,7 +18,7 @@ class MoodsController < ApplicationController
 		if @mood.save
 			#moods_path goes to main moods directory
 			# may need to change this to moods_path
-			redirect_to mood_path
+			redirect_to moods_path
 		else
 			render 'new'
 		end

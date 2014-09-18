@@ -1,52 +1,9 @@
-<div id="new_mood" ng-condivoller="searchCondivoller" class="container">
-<h1>Add a new mood</h1>
-
-<%= form_for @moods do |m| %>
 <div class="container">
-	<div class= "form-group">
-		<div><%= m.label :name %>:<%= m.text_field :name, maxlength: 50, ng_model: "name", class: 'form-control' %> {{ 50 - name.length + " chars" }}<br><br>
-		</div>
-	</div>
-	<div class= "form-group">
-		<div>
-			<%= m.label :description %>:<%= m.text_area :description, maxlength: 130, ng_model: "description", class: 'form-control' %> {{ 130 - description.length + " chars" }}<br><br>
-		</div>
-	</div>
-	<div class= "form-group">
-		<div>
-			<%= m.label :keywords %>:<%= m.text_field :keywords, class: 'form-control' %><br>
-		</div>
-	</div>
-	<div class= "form-group">
-		<div>
-			<%= m.label :category %>:<%= m.collection_select(:category, Category.order_by([:name, :asc]), :path, :name, {}, class: 'form-control')%><br><br>
-		</div>
-	</div>
-	<div class= "form-group">
-		<div>
-			<%= m.label :photo %>:<%= m.text_field :photo, class: 'form-control' %><br>
-		</div>
-	</div>
-	<div class= "form-group">
-		<div><%= m.label :days %>:<% Date::DAYNAMES.each do |day| %>
-		  <%= check_box_tag "mood[days][]", day %>
-		  <%= day %>&nbsp;&nbsp;&nbsp;
-		<% end %><br><br>
-		</div>
-	</div>
-	<div class= "form-group">
-		<div>
-			<%= m.label :daypart %>:<%= m.collection_check_boxes(:daypart_ids, Daypart.all, :name, :name ) %>
-		</div>
-	</div>
-	<div class= "form-group">
-		<div><%= m.label :sort %>:</div>
-		<div><%= m.radio_button :sort, '0' %> Match&nbsp;&nbsp;&nbsp;<%= m.radio_button :sort, '1' %> Distance&nbsp;&nbsp;&nbsp;<%= m.radio_button :sort, '2', :checked => 'checked' %> Rating</div>
-	</div>
-	<%#= m.label :place %><%#= m.collection_select(:place, Place.all, :id, :name) %><br>
-	<br>
-
-	<%= m.submit "Add New Mood", class: "btn btn-primary btn-lg"%>
-	</div>
-<% end %>
+	<% if current_user.access == 'admin' %>
+		<h1>New Mood</h1>
+		<!-- it wants "@moods" -->
+		<%= render 'moodform' %>
+	<% else %>
+		Sorry, this page is not for your prying eyes!
+	<% end %>
 </div>

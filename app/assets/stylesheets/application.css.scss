@@ -28,7 +28,7 @@
 
 .form-wrapper {
 	background: rgba(255,255,255,0.4);
-	width: 400px;
+	width: 50%;
 	border-radius: 20px;
 	margin-bottom: 60px;
 }
@@ -56,18 +56,24 @@ h2 {
 	padding-top: 50px;
 	color: #FFF;
 	font-family: 'helvetica';
-	font-weight: bold;
-	font-size: 50px;
+	font-weight: bolder;
+	font-size: 60px;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	margin: 10px;
-	line-height: 60px;
+	line-height: 65px;
 }
 
 h2 > a {
 	color: #FFF;
 }
+
 h2 > a:hover {
 	color: #FFF;
+}
+
+#mood-for {
+	font-weight: lighter;
+	font-size: .8em;
 }
 
 header {
@@ -81,7 +87,7 @@ header {
 
 #logo {
 	float: left;
-	width: 120px;
+	width: 180px;
 	color: white;
 	margin-left: 20px;
 	margin-top: -2px;
@@ -90,47 +96,10 @@ header {
 	font-size: 40px;
 }
 
-#logo > p {
+#logo > #tagline {
 	font-size: 12px;
 	font-weight: lighter;
 	font-family: 'Helvetica';
-}
-
-/*Strip the ul of padding and list styling*/
-.nav > ul {
-	list-style-type:none;
-	margin:50;
-	padding:50;
-	position: relative;
-}
-
-/*Create a horizontal list with spacing*/
-.nav ul li {
-	display:inline-block;
-	float: left;
-	margin-right: 3px;
-}
-
-/*Prevent text wrapping*/
-.nav li ul li a {
-	width: auto;
-	min-width: 70px;
-	padding: 0 20px;
-}
-
-/*Style for menu links*/
-.nav li a {
-	display:block;
-	min-width:100px;
-	height: 55px;
-	text-align: center;
-	line-height: 50px;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	color: #FFF;
-	text-decoration: none;
-}
-.nav li a:hover {
-	background: rgba(255,255,255,0.1);
 }
 
 .checkboxes {
@@ -140,11 +109,18 @@ header {
 	padding-right: 10px;
 }
 
+.taller-buttons {
+	height: 100px;
+	font-size: 28px;
+	padding-top: 1em;
+}
+
 #auth {
 	float: right;
 	color: white;
-	margin-top: -40px;
+	margin-top: 15px;
 	margin-right: 15px;
+	display: inline-block;
 }
 
 #profile-pic {
