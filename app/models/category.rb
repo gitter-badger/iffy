@@ -4,5 +4,5 @@ class Category
   field :path, type: String
   field :total, type: String
 
-  # has_many: moods
+  has_many :moods
 end

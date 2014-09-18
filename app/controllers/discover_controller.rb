@@ -34,15 +34,35 @@ class DiscoverController < ApplicationController
 		end
 
 		@home = true
+
+		# started trying to detect if coordinates are located
+		# current_user.coordinates.any? ? 
 		
 	end
-
-
 
 
 	def show
 		@mood = Mood.find(params[:id])
 		@discover = true
-		# @mood.selected += 1 # why doesn't this work?
+
+		# Need to find out how to push these to the user model
+		#@user.places << @mood.searchYelp(current_user).businesses[0].id
+		#@user.moods = Mood.find(params[:id])
+
+	end
+
+	def share
+		require 'twilio-ruby'
+
+		account_sid = 'AC9534c890191157016b5de8ae93b656d8'
+		auth_token = 'd0a7fe1196c58e3fbb8b2844d74b5582'
+
+		# set up a client to talk to the Twilio REST API
+		@client = Twilio::REST::Client.new account_sid, auth_token
+
+		# what do I do with this? 
+		@client.messages.create(:from => '+13237451232', :to => '3474012203', :body => "Work, bitch!") 
+		redirect_to discover_path(params[:id])
+
 	end
 end

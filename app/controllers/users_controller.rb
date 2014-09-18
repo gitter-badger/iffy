@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
-	@user = User.new(params.require(:user).permit(:name, :email, :password, :zip, :radius, :latlon, :bio))
-	# doing this in the model now
-	#@user.access ||= "user"
+	@user = User.new(params.require(:user).permit(:name, :email, :password, :zip, :radius, :bio, :coordinates ))
+
+
 	if @user.save	
 		# log the user in
 		redirect_to root_path
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
 		
-		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :moods, :access, :radius, :zip, :latlon, :bio))
+		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :access, :radius, :zip, :bio, :coordinates))
 			redirect_to users_path
 		else
 			render 'edit'

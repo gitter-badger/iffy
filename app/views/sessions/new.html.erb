@@ -1,17 +1,3 @@
-<div id="sign-in" class="container">
-	<% if logged_in? %>
-		<p>You are already signed in as <%= current_user.name %>. If you would like to sign in as a different user, please <%= link_to "sign out", log_out_path, method: :delete %>.</p>
-	<% else %>
-		<h1>Sign In</h1>
-		<%= form_for(:session, url: sessions_path) do |f| %>
-			<div class = "form-group">
-				<%= f.label :email %> <%= f.text_field :email, class: 'form-control' %>
-			</div>
-			<div class = "form-group">
-				<%= f.label :password %> <%= f.password_field :password, class: 'form-control' %>
-			</div>
-			<div class = "form-group"><%= f.submit "Sign In", class: "btn btn-primary btn-lg" %> or <%= link_to "Create New Account", signup_path, class: "btn btn-default btn-lg" %>
-			</div>
-		<% end %>
-	<% end %>
+<div id="login" class="container form-wrapper">
+<%= render partial: '/sessions/login' %>
 </div>

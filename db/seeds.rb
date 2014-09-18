@@ -17,6 +17,7 @@ places = Place.create([
 		phone: '(310) 822-3902', 
 		photo: 'http://s3-media3.fl.yelpcdn.com/bphoto/ZKlTc8VfDDWHEI-KPnl8Lg/o.jpg', 
 		keywords: ['dive', 'locals', 'live music', 'hipster', 'burger', 'single'],
+		yelpid: 'hinano-café-venice-2'
 	},
 	{
 		name: 'Baja Cantina', 
@@ -28,6 +29,7 @@ places = Place.create([
 		phone: '(310) 822-3902', 
 		photo: 'http://s3-media3.fl.yelpcdn.com/bphoto/ZKlTc8VfDDWHEI-KPnl8Lg/o.jpg', 
 		keywords: ['brunch', 'margaritas', 'mexican' ],
+		yelpid: 'baja-cantina-marina-del-rey'
 	}
 	])
 

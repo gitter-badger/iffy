@@ -22,8 +22,8 @@
 		<td><%= link_to user.name, user_path(user) %></td>
 		<td><%= user.email %></td>
 		<td><%= user.zip %></td>
-		<td><%= user.places %></td>
-		<td><%= user.moods %></td>
+		<td><%#= user.places %></td>
+		<td><%#= user.moods %></td>
 		<td><%= user.radius %></td>
 		<td><%= user.access %></td>
 		<td><%= link_to "Edit", edit_user_path(user) %> | <%= link_to "Delete", user, 

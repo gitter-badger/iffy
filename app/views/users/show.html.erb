@@ -23,8 +23,8 @@ function showPosition(position) {
 	<p><%= current_user.zip.to_s.to_region(:city => true) %></p>
 	<img src="<%= @user.gravatar(@user.email) %>">
 	<p><strong>Bio: </strong><%= @user.bio %></p>
-	<p><strong>Latest Moods: </strong><%= @user.moods %></p>
-	<p><strong>Latest Places: </strong><%= @user.places %></p>
+	<p><strong>Latest Moods: </strong><%#= @user.moods %></p>
+	<p><strong>Latest Places: </strong><%#= @user.places %></p>
 	<%= link_to "Edit Profile", edit_user_path(@user) %>
 
 </div>

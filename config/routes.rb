@@ -12,6 +12,8 @@ root 'discover#index'
   resources :categories
   resources :discover
 
+  get 'discover/:id/share' => 'discover#share', as: :share
+
   get '/login', to: 'sessions#new', as: :sessions
   post '/login', to: 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: :log_out

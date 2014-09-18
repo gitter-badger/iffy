@@ -1,4 +1,4 @@
-<div id="sign-in" class="container">
+<div id="sign-in">
 	<% if logged_in? %>
 		<p>You are already signed in as <%= current_user.name %>. If you would like to sign in as a different user, please <%= link_to "sign out", log_out_path, method: :delete %>.</p>
 	<% else %>

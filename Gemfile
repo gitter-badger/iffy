@@ -13,11 +13,16 @@ gem 'yelp', require: 'yelp'
 
 gem 'gravatar-ultimate'
 
-# gem 'geocoder'
+gem 'geocoder'
 
 gem 'area'
 
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'twilio-ruby', '~> 3.12'
+
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
+gem 'aws-sdk'
 
 gem 'sass-rails', '~> 4.0.2'
 gem 'bootstrap-sass', '~> 3.2.0'

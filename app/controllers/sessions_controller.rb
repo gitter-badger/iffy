@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
 		begin
 		user = User.find_by({email: params[:session][:email]})
 		rescue
-			flash[:error] = 'Invalid credentails.'			
+			flash[:error] = 'Invalid credentials.'			
 		end
 		# STEP TWO - If the user exists, use the User.authenticate 
 		#            method to ensure the password is correct
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
 		# STEP THREE - If authenticated successfully, redirect to root_path
 		redirect_to root_path
 	else
-		flash[:error] ||= 'Invalid credentails.'
+		flash[:error] ||= 'Invalid credentials.'
 		render 'new'
 		end
 	end
