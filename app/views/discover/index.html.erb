@@ -22,17 +22,49 @@
 }
 </style>
 
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>
+
 <div id="discover" class="container">
 	<% if logged_in? %>	
 		<h2>It's <%= @day %> <%= @daypart.name %> in <%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %>. What are you in the mood for?</h2><br> 
 
 <%= current_user.latitude %>, <%= current_user.longitude %>
 <%=request.location.city %>
-<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
-different location!
-	<% else %>
-	same location!
+
+<%# if current_user.latitude != 0 %>
+	<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
+		<!-- different location! -->
+
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Noticed you're not in <%= current_user.zip.to_s.to_region(:city => true) %>. Which would you like to search?</h4>
+		      </div>
+		      <div class="modal-body">
+                <div id="nearby" class="form-group"><%= link_to 'Nearby', root_path, :class => "btn btn-primary form-control taller-buttons" %></div>
+                <div id="home" class="form-group"><%= link_to 'Search ' + current_user.zip.to_s.to_region(:city => true), root_path, :class => "btn btn-default form-control taller-buttons" %></div>
+
+		      </div>
+		    </div>
+		  </div>
+		</div>
+
+
+
+
+
+
+
 	<% end %>
+<%# end %>
 
 
 				<%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], %>
