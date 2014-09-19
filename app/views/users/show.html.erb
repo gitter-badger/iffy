@@ -29,8 +29,7 @@ function showPosition(position) {
 		</div>
 	  	<div id="profile-separator" class="col-md-8"><p><strong>Latest Moods: </strong><%#= @user.moods %></p>
 	  		<%#= current_user.address %>
-	  		<%= @lat %>
-	  		<%= @lon %>
+	  		<%= current_user.latitude %>, <%= current_user.longitude %>
 	</div>
 	</div>
 	
