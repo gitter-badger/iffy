@@ -48,7 +48,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Noticed you're not in <%= current_user.zip.to_s.to_region(:city => true) %>. Which would you like to search?</h4>
+		        <h4 class="modal-title" id="myModalLabel">Noticed you're not currently in <%= current_user.zip.to_s.to_region(:city => true) %>. Which would you like to search?</h4>
 		      </div>
 		      <div class="modal-body">
                 <div id="nearby" class="form-group"><%= link_to 'Nearby', traveling_path, :class => "btn btn-primary form-control taller-buttons" %></div>
@@ -80,7 +80,7 @@
 
 <!-- LIST OF MOODS -->
 	<div class="container center">
-		<% Mood.where(days: @day, daypart_ids: @daypart.name).each do |mood| %>
+		<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(6).each do |mood| %>
 			<%= link_to(discover_path(mood)) do %><div class="mood-choice col-md-3"> 
 				<h4><%= mood.name %></h4>
 				<p><%= mood.description %></p>
