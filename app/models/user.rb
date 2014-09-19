@@ -59,11 +59,6 @@ class User
     url = Gravatar.new(user_email).image_url
   end
 
-  # this needs to be run when a new location is detected
-  def change_location(lat, lon)
-    current_user.latitude = lat
-    current_user.longitude = lon
-  end
 
 end
 

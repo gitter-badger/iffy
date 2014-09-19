@@ -71,8 +71,10 @@ class DiscoverController < ApplicationController
 
 	end
 
-	def get_directions
+	def traveling
 		# get google map directions api and put it here
+		return true
+		redirect_to root_path
 	end
 
 end

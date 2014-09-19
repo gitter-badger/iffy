@@ -1,23 +1,4 @@
-<!-- <p id="demo">Your current coordinates are:</p> 
 
-<script>
-
-var x = document.getElementById("demo");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;	
-}
-</script>
--->
 
 <div id="profile" class="container">
 	<div class="row">
@@ -32,6 +13,4 @@ function showPosition(position) {
 	  		<%= current_user.latitude %>, <%= current_user.longitude %>
 	</div>
 	</div>
-	
-
 </div>
