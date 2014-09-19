@@ -5,7 +5,6 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include Geocoder::Model::Mongoid
-  #geocoded_by :address, :skip_index => true
 
   attr_accessor :yelp_results, :latitude, :longitude
   geocoded_by :address
@@ -19,7 +18,6 @@ class User
   field :access, default: 'user'
   field :radius, type: Integer
   field :bio
-  #field :coordinates, type: Array
   field :latitude, type: Float 
   field :longitude, type: Float
   validates :name, presence: true
@@ -38,18 +36,6 @@ class User
   end
 
   
-
-
-
-
-  # validates :password, presence: true
-
-
-
-
-  #has_and_belongs_to_many :moods
-  
-
 
 # this creates @users.admin to grab all admins
   scope :admin, -> { where(access: "admin")}

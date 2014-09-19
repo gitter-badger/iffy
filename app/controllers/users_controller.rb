@@ -7,8 +7,6 @@ class UsersController < ApplicationController
 	@user = User.new(params.require(:user).permit(:name, :email, :password, :address, :zip, :radius, :bio, :latitude, :longitude ))
 	if @user.save	
 		# log the user in
-
-		# Session is not being created for some reason
 		log_in(@user)
 		flash[:error] = 'Welcome to Iffy! Choose a mood below to get started'
 		redirect_to root_path
@@ -19,14 +17,13 @@ class UsersController < ApplicationController
   end
 
 
-    def index
-		@users = User.all
-	end
+def index
+	@users = User.all
+end
 
-	def show
-		@user = User.find(params[:id])
-			
-	end
+def show
+	@user = User.find(params[:id])
+end
 
   def edit
 	@user = User.find(params[:id])

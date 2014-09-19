@@ -15,7 +15,7 @@
 
 
 <hr>
-<strong>Local Place: </strong><%= @mood.searchYelp(current_user).businesses[0].name %> (in <%= @mood.searchYelp(current_user).businesses[0].location.city %>)<br>
+<strong>Recommendation: </strong><%= @mood.searchYelp(current_user).businesses[0].name %> (in <%= @mood.searchYelp(current_user).businesses[0].location.city %>)<br>
 <strong>Local results: </strong><%= @mood.searchYelp(current_user).businesses.length %><br>
 <!-- <%#= @mood.searchYelp(current_user).businesses.length %> results -->
 <br>

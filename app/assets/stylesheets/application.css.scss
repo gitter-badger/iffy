@@ -22,6 +22,21 @@
 	margin: 0 auto;
 }
 
+.days > input {
+	margin-left: 15px;
+}
+
+.sort > input {
+	margin-left: 15px;
+}
+
+.dayparts > label {
+	font-weight: normal;
+	text-transform:capitalize;
+	padding-right: 20px;
+	padding-left: 3px;
+}
+
 .field_with_errors {
 	@extend .has-error;
 }

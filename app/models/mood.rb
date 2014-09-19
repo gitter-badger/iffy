@@ -30,13 +30,11 @@ class Mood
     term: self.keywords.join('+')
   }
 
-
-
+  
   coordinates = {
     latitude: current_user.zip.to_s.to_lat,
     longitude: current_user.zip.to_s.to_lon
   }
-
   
   @yelp_results ||= Yelp.client.search_by_coordinates(coordinates, params)
 
