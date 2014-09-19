@@ -52,7 +52,8 @@
 		      </div>
 		      <div class="modal-body">
                 <div id="nearby" class="form-group"><%= link_to 'Nearby', traveling_path, :class => "btn btn-primary form-control taller-buttons" %></div>
-                <div id="home" class="form-group"><%= link_to 'Search ' + current_user.zip.to_s.to_region(:city => true), root_path, :class => "btn btn-default form-control taller-buttons" %></div>
+                <div id="home" class="form-group"><%= link_to current_user.zip.to_s.to_region(:city => true), root_path, :class => "btn btn-default form-control taller-buttons" %></div>
+                <div><%= link_to "Update your default location", edit_user_path(current_user) %></div>
 
 		      </div>
 		    </div>
