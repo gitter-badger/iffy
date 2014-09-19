@@ -37,8 +37,8 @@ class DiscoverController < ApplicationController
 
 		# started trying to detect if coordinates are located
 		if logged_in?
-			current_user.latitude = request.location.latitude.round(10)
-			current_user.longitude = request.location.longitude.round(10)	
+			current_user.latitude = request.location.latitude
+			current_user.longitude = request.location.longitude	
 			current_user.save
 		end
 		

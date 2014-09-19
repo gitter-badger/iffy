@@ -31,7 +31,8 @@ class Mood
   }
 
 if current_user.latitude > 0
-
+# pop up modal
+# noticed you're not searching from cityname. Would you like to search in newcityname instead? You could also update your location in your account profile
   coordinates = {
     latitude: current_user.latitude,
     longitude: current_user.longitude

@@ -24,6 +24,8 @@ root 'discover#index'
   # USERS RESOURCE
   ########################
   get 'users/' => 'users#index'
+  get 'users/change-location' => 'users#change-location'
+
   post 'users/' => 'users#create'
   delete 'users/:id' => 'users#destroy'
 
