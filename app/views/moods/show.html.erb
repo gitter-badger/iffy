@@ -1,43 +1,22 @@
 <div id="mood" class="container">
 <%= image_tag @mood.photo, id: 'mood-image' %><br>
-<strong>Mood</strong><br>
-<%= @mood.name %><br>
-<br>
-<strong>Description</strong><br>
-<%= @mood.description %><br>
-<br>
-<strong>Category</strong><br>
-<%= @mood.category %><br>
-<br>
-<strong>Keywords</strong><br>
-<%= @mood.keywords.join(", ") %><br>
-<br>
-<strong>Best Day(s):</strong><br>
-<%= @mood.days.join(", ") %><br>
-<br>
-<strong>Best Time:</strong><br>
-<% @mood.daypart_ids.each do |daypart| %>
-<ul>
-	<li><%= daypart.titleize %></li>
-</ul>
-<% end %>
-<br>
-<!-- @mood.sort returns a value, lets make the interface more readable -->
-<strong>Sorted By:</strong><br>
-<% if @mood.sort===0 %>
-Best Match
-<% elsif @mood.sort===1 %>
-Most Reviewed
-<% elsif @mood.sort===2 %>
-Highest Rated
-<% end %>
-<br>
-<br>
-<strong><%= @mood.searchYelp(current_user).businesses[0].name %></strong><br>
-<%= @mood.searchYelp(current_user).businesses[0].location.city %><br>
-<!-- <%#= @mood.searchYelp(current_user).businesses.length %> results -->
-<br>
+<strong>Mood: </strong><%= @mood.name %><br>
 <%= link_to "Edit", edit_mood_path %> | <%= link_to "Delete", @mood, 
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
-</div>
+<hr>
+<strong>Description: </strong><%= @mood.description %><br>
+<strong>Category: </strong><%= @mood.category %><br>
+<strong>Keywords: </strong><%= @mood.keywords.join(", ") %><br>
+<strong>Best Day(s): </strong><%= @mood.days.join(", ") %><br>
+<strong>Best Time: </strong><% @mood.daypart_ids.each do |daypart| %>
+<%= daypart.titleize %>, 
+<% end %><br>
+<strong>Sorted By: </strong><%= @mood.sort==0 ? "Best Match" : @mood.sort==1 ? "Most Reviewed" : @mood.sort==2 ? "Highest Rated" : "No search method set" %>
+
+
+<hr>
+<strong>Local Place: </strong><%= @mood.searchYelp(current_user).businesses[0].name %> (in <%= @mood.searchYelp(current_user).businesses[0].location.city %>)<br>
+<strong>Local results: </strong><%= @mood.searchYelp(current_user).businesses.length %><br>
+<!-- <%#= @mood.searchYelp(current_user).businesses.length %> results -->
 <br>
+</div>

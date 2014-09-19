@@ -11,13 +11,13 @@ class User
   field :email, type: String
   field :password_digest, type: String
   field :zip, type: Integer
+  field :address
   field :places, type: Array
   field :access, default: 'user'
   field :radius, type: Integer
   field :bio
-  #field :latitude, type: Float 
-  #field :longitude, type: Float
-  field :coordinates, type: Array
+  field :latitude, type: Float 
+  field :longitude, type: Float
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true 
   validates :password_digest, presence: true, :confirmation => true
@@ -33,6 +33,8 @@ class User
     end
   end
 
+  attr_accessor :yelp_results, :latitude, :longitude
+  #geocode_by :address
 
 
 
