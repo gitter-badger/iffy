@@ -22,6 +22,7 @@ class User
   field :bio
   field :latitude, type: Float, default: '0'
   field :longitude, type: Float, default: '0'
+  field :traveling, type: Boolean, default: false
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true 
   validates :password_digest, presence: true, :confirmation => true

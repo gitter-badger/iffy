@@ -15,8 +15,8 @@ root 'discover#index'
   get 'discover/:id/share' => 'discover#share', as: :share
 
   # need to get this to work
-  get 'discover/traveling' => 'discover#traveling', as: :traveling
-  get 'discover/:id/directions' => 'discover#get_directions', as: :directions
+  get '/traveling' => 'discover#traveling', as: :traveling
+  # get 'discover/:id/directions' => 'discover#get_directions', as: :directions
 
   get '/login', to: 'discover#index', as: :sessions
   post '/login', to: 'sessions#create'
@@ -27,7 +27,7 @@ root 'discover#index'
   # USERS RESOURCE
   ########################
   get 'users/' => 'users#index'
-  get 'users/change-location' => 'users#change-location'
+  # get 'users/change-location' => 'users#change-location'
 
   post 'users/' => 'users#create'
   delete 'users/:id' => 'users#destroy'
