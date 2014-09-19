@@ -1,12 +1,13 @@
 class DiscoverController < ApplicationController
 	def index
-		@time = Time.now.localtime
+		@time = Time.now
 		@pretty_time = Time.now.strftime('%l:%M%P')
 		@hour = @time.hour
 		@minute = @time.min
 		@day = @time.strftime('%A')
 		@abbr_day = @time.strftime('%a')
 		@moods = Mood.all
+
 		
 		case @hour
 		when 5..7
@@ -66,13 +67,16 @@ class DiscoverController < ApplicationController
 
 		# learn how to pass variables into to "to", "body", and "url" 
 		flash[:error] = 'Successfully shared!'
-		@client.messages.create(:from => '+13237451232', :to => '3474012203', :body => "Let's go here:" ) 
+		pars = {
+			:from => '+13237451232', :to => '3474012203', :body => 'this place'
+		}
+		@client.messages.create(pars) 
 		redirect_to discover_path(params[:id])
 
 	end
 
-	def traveling
-		current_user.traveling = true
+	def traveling(value)
+		current_user.traveling = value
 		current_user.save
 		redirect_to root_path
 	end

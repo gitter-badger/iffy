@@ -15,7 +15,7 @@ root 'discover#index'
   get 'discover/:id/share' => 'discover#share', as: :share
 
   # need to get this to work
-  get '/traveling' => 'discover#traveling', as: :traveling
+  get 'discover/traveling' => 'discover#traveling', as: :traveling
   # get 'discover/:id/directions' => 'discover#get_directions', as: :directions
 
   get '/login', to: 'discover#index', as: :sessions

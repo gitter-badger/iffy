@@ -34,9 +34,12 @@
 
 <%= current_user.latitude %>, <%= current_user.longitude %>
 <%=request.location.city %>
+<%= current_user.zip.to_gmt_offset %>
+
+
 
 <!-- uncomment this when ready to push live -->
-<%# if current_user.latitude != 0 %>
+<% if current_user.latitude != 0 %>
 
 	<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
 		<!-- different location! -->
@@ -51,8 +54,9 @@
 		        <h4 class="modal-title" id="myModalLabel">Noticed you're not currently in <%= current_user.zip.to_s.to_region(:city => true) %>. Which would you like to search?</h4>
 		      </div>
 		      <div class="modal-body">
-                <div id="nearby" class="form-group"><%= link_to 'Nearby', traveling_path, :class => "btn btn-primary form-control taller-buttons" %></div>
-                <div id="home" class="form-group"><%= link_to current_user.zip.to_s.to_region(:city => true), root_path, :class => "btn btn-default form-control taller-buttons" %></div>
+		      	<!-- this nearby functionality doesn't work -->
+                <div id="nearby" class="form-group"><%= link_to 'Nearby', traveling_path(true), :class => "btn btn-primary form-control taller-buttons" %></div>
+                <div id="home" class="form-group"><%= link_to current_user.zip.to_s.to_region(:city => true), traveling_path(false), :class => "btn btn-default form-control taller-buttons" %></div>
                 <div><%= link_to "Update your default location", edit_user_path(current_user) %></div>
 
 		      </div>
@@ -67,7 +71,7 @@
 
 
 	<% end %>
-<%# end %>
+<% end %>
 
 
 				<%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], %>
