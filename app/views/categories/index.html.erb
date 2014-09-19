@@ -10,17 +10,14 @@
 	</tr>
 	<ul>
 	<!-- LIST OF CATEGORIES -->
-	<% @categories.each do |category| %>
+	<% @categories.order("name asc").each do |category| %>
 	<tr>
 		<td><%= category.name %></td>
 		<td><%= category.path %></td>
 		<td><%= category.total %></td>
 	</tr>
-
 	<% end %>
 </ul>
 </table>
 <br>
-
-<%#= link_to "New Category", new_category_path %>
 </div>

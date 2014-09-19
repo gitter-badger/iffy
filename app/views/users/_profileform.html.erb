@@ -13,6 +13,10 @@
 			<%= f.password_field :password, class: 'form-control bottom-buffer' %>
 		</div>
 		<div class = "form-group">
+			<%= f.label :address %><%=@user.errors.messages[:address].join(" AND ") %>
+			<%= f.text_field :address, class: 'form-control bottom-buffer'%>
+		</div>
+		<div class = "form-group">
 			<%= f.label :zip %><%=@user.errors.messages[:zip].join(" AND ") %>
 			<%= f.text_field :zip, class: 'form-control bottom-buffer', maxlength: 5 %>
 		</div>

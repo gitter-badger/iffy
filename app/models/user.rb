@@ -4,9 +4,12 @@ require 'gravatar-ultimate'
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  # include Geocoder::Model::Mongoid
+  include Geocoder::Model::Mongoid
   #geocoded_by :address, :skip_index => true
-  #after_validation :geocode
+
+  attr_accessor :yelp_results, :latitude, :longitude
+  geocoded_by :address
+  after_validation :geocode, :if => :address_changed?
   field :name, type: String
   field :email, type: String
   field :password_digest, type: String
@@ -16,6 +19,7 @@ class User
   field :access, default: 'user'
   field :radius, type: Integer
   field :bio
+  field :coordinates, type: Array
   field :latitude, type: Float 
   field :longitude, type: Float
   validates :name, presence: true
@@ -33,8 +37,7 @@ class User
     end
   end
 
-  attr_accessor :yelp_results, :latitude, :longitude
-  #geocode_by :address
+  
 
 
 
