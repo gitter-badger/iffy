@@ -19,7 +19,7 @@ class User
   field :access, default: 'user'
   field :radius, type: Integer
   field :bio
-  field :coordinates, type: Array
+  #field :coordinates, type: Array
   field :latitude, type: Float 
   field :longitude, type: Float
   validates :name, presence: true
