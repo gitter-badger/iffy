@@ -31,6 +31,7 @@ class Mood
   }
 
 if current_user.latitude > 0
+
   coordinates = {
     latitude: current_user.latitude,
     longitude: current_user.longitude
