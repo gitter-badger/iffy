@@ -1,6 +1,6 @@
 class DiscoverController < ApplicationController
 	def index
-		@time = Time.now
+		@time = Time.now.localtime
 		@pretty_time = Time.now.strftime('%l:%M%P')
 		@hour = @time.hour
 		@minute = @time.min
