@@ -28,7 +28,11 @@
 
 <%= current_user.latitude %>, <%= current_user.longitude %>
 <%=request.location.city %>
-<%= request.location.city != current_user.zip.to_s.to_region(:city => true) ? "different place" : '' %>
+<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
+different location!
+	<% else %>
+	same location!
+	<% end %>
 
 
 				<%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], %>
