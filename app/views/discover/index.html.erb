@@ -27,7 +27,7 @@
 		<h2>It's <%= @day %> <%= @daypart.name %> in <%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %>. What are you in the mood for?</h2><br> 
 
 <%= current_user.latitude %>, <%= current_user.longitude %>
-your region is <%=[34.016, -118.4925].to_zip %>
+your region is <%=request.location.city %>
 
 
 				<%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], %>
