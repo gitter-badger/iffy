@@ -61,6 +61,7 @@ class DiscoverController < ApplicationController
 		@client = Twilio::REST::Client.new account_sid, auth_token
 
 		# learn how to pass variables into to "to", "body", and "url" 
+		flash[:error] = 'Successfully shared!'
 		@client.messages.create(:from => '+13237451232', :to => '3474012203', :body => "Let's go here:" ) 
 		redirect_to discover_path(params[:id])
 

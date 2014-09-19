@@ -7,7 +7,8 @@
 <!-- LIST OF MOODS -->
 <ul>
 	<!-- order these by date created -->
-	<% @moods.each do |mood| %>
+	<% @moods.order("created_at desc").each do |mood| %>
+
 	<li> 
 		<!--<%#= image_tag mood.photo %><br>-->
 		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %> - <%= mood.selected %>

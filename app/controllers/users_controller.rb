@@ -5,10 +5,12 @@ class UsersController < ApplicationController
 
   def create
 	@user = User.new(params.require(:user).permit(:name, :email, :password, :zip, :radius, :bio, :coordinates ))
-
-
 	if @user.save	
 		# log the user in
+
+		# Session is not being created for some reason
+		log_in(@user)
+		flash[:error] = 'Welcome to Iffy! Choose a mood below to get started'
 		redirect_to root_path
 	else
 		flash[:error] = 'Please complete all fields to create an account'

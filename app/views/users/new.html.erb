@@ -1,3 +1,9 @@
 <div id="sign-up" class="container form-wrapper">
-<%= render partial: '/users/signup' %>
+	<% if logged_in? %>
+		<p>You are already signed in as <%= current_user.name %>. If you would like to create a new account, please <%= link_to "sign out", log_out_path, method: :delete %>.</p>
+	<% else %>
+		<h1>New Account</h1>
+		<p>Please create an account so we can recommend great things to do nearby.</p>
+		<%= render 'profile' %>
+	<% end %>
 </div>

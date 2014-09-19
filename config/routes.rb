@@ -15,7 +15,7 @@ root 'discover#index'
   get 'discover/:id/share' => 'discover#share', as: :share
   get 'discover/:id/directions' => 'discover#get_directions', as: :directions
 
-  get '/login', to: 'sessions#new', as: :sessions
+  get '/login', to: 'discover#index', as: :sessions
   post '/login', to: 'sessions#create'
   delete '/logout' => 'sessions#destroy', as: :log_out
 

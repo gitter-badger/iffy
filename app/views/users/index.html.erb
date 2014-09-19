@@ -16,7 +16,7 @@
 	</tr>
 	<ul>
 	<!-- LIST OF SEARCHES -->
-	<% @users.each do |user| %>
+	<% @users.order("created_at desc").each do |user| %>
 	<tr>
 		<td><%= user.created_at %></td>
 		<td><%= link_to user.name, user_path(user) %></td>
