@@ -18,6 +18,8 @@ class SessionsController < ApplicationController
 			log_in(user)
 			# flash[:error] = 'Logged in'
 			current_location = user.zip
+			#@user.latitude = request.location.latitude
+			#@user.longitude = request.location.longitude
 
 		# STEP THREE - If authenticated successfully, redirect to root_path
 		redirect_to root_path

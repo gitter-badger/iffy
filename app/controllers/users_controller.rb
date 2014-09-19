@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-	@user = User.new(params.require(:user).permit(:name, :email, :password, :address, :zip, :radius, :bio, :coordinates ))
+	@user = User.new(params.require(:user).permit(:name, :email, :password, :address, :zip, :radius, :bio, :latitude, :longitude ))
 	if @user.save	
 		# log the user in
 
@@ -25,9 +25,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@geo = User.geocoded
-		@user.latitude = request.location.latitude
-		@user.longitude = request.location.longitude
+			
 	end
 
   def edit
@@ -37,7 +35,7 @@ class UsersController < ApplicationController
   def update
   	@user = User.find(params[:id])
 		
-		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :access, :radius, :address, :zip, :bio, :coordinates))
+		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :access, :radius, :address, :zip, :bio, :latitude, :longitude))
 			redirect_to users_path
 		else
 			render 'edit'
