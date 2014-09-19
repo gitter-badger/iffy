@@ -6,9 +6,11 @@ class User
   include Mongoid::Timestamps
   include Geocoder::Model::Mongoid
 
-  attr_accessor :yelp_results, :latitude, :longitude
+  attr_accessor :yelp_results
   geocoded_by :address
-  after_validation :geocode, :if => :address_changed?
+
+  # This validation line is causing problems with user creation
+  #after_validation :geocode, :if => :address_changed?
   field :name, type: String
   field :email, type: String
   field :password_digest, type: String
@@ -18,8 +20,8 @@ class User
   field :access, default: 'user'
   field :radius, type: Integer
   field :bio
-  field :latitude, type: Float 
-  field :longitude, type: Float
+  field :latitude, type: Float, default: '0'
+  field :longitude, type: Float, default: '0'
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true 
   validates :password_digest, presence: true, :confirmation => true

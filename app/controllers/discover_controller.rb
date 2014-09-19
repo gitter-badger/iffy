@@ -39,6 +39,7 @@ class DiscoverController < ApplicationController
 		if logged_in?
 			current_user.latitude = request.location.latitude
 			current_user.longitude = request.location.longitude	
+			current_user.save
 		end
 		
 	end

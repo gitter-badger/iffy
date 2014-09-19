@@ -7,7 +7,6 @@ class MoodsController < ApplicationController
 	end
 	def create
 		@mood = Mood.new(params.require(:mood).permit(:name, :description, :photo, :category, :sort, :selected, :daypart_ids => []))
-
 		# can we do ':keywords => []' here instead?
 		@mood.keywords = params[:mood][:keywords].split(", ")
 		@mood.days = params[:mood][:days]
