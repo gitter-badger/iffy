@@ -71,8 +71,9 @@ class DiscoverController < ApplicationController
 
 		# learn how to pass variables into to "to", "body", and "url" 
 		flash[:error] = 'Successfully shared!'
+		share_url = "http://www.iffy.la/discover/#{params[:id]}"
 		stuff = {
-			:from => '+13237451232', :to => '+13474012203', :body => 'this place'
+			:from => '+13237451232', :to => '+13474012203', :body => "whatever you want dash #{share_url} and #{params[:url]}"
 		}
 		@client.messages.create(stuff) 
 		redirect_to discover_path(params[:id])
