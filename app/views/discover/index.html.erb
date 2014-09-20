@@ -38,7 +38,7 @@
 			<% end %> <br> 
 
 <%#= current_user.zip.to_gmt_offset %>
-<%= [current_user.latitude, current_user.longitude].to_zip %>
+<%= [current_user.latitude, current_user.longitude].to_zip.to_region(:city => true) %>
 
 
 <!-- uncomment this when ready to push live -->
