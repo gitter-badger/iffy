@@ -32,10 +32,11 @@
 	<% if logged_in? %>	
 		<h2>It's <%= @day %> <%= @daypart.name %> in </h2>
 			<% if current_user.traveling %>
-			<h2><%=request.location.city %></h2>
+			<h2><%= link_to request.location.city, edit_user_path(current_user) %></h2>
 			<% else %>
-			<h2><%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %>. What are you in the mood for?</h2>
-			<% end %> <br> 
+			<h2><%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %></h2>
+			<% end %> 
+			<h2>. What are you in the mood for?</h2><br> 
 
 <%#= current_user.zip.to_gmt_offset %>
 <%= [current_user.latitude, current_user.longitude].to_zip.to_region(:city => true) %>
