@@ -86,13 +86,19 @@
 
 <!-- LIST OF MOODS -->
 	<div class="container center">
+		<%if Mood.where(days: @day, daypart_ids: @daypart.name).length > 0 %>
 		<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(4).each do |mood| %>
 			<%= link_to(discover_path(mood)) do %><div class="mood-choice col-md-3"> 
+
 				<h4><%= mood.name %></h4>
 				<p><%= mood.description %></p>
-
 			</div>
 			<% end %>
+		
+		<% end %>
+		<% else %>
+			<p class="welcome-home">Standby, we're plotting some great new choices to fill your day with awesome.</p>
+		<!-- end mood length checker -->
 		<% end %>
 	</div>
 	<br>
