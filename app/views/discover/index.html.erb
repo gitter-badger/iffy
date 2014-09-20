@@ -84,7 +84,7 @@
 
 <!-- LIST OF MOODS -->
 	<div class="container center">
-		<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(6).each do |mood| %>
+		<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(4).each do |mood| %>
 			<%= link_to(discover_path(mood)) do %><div class="mood-choice col-md-3"> 
 				<h4><%= mood.name %></h4>
 				<p><%= mood.description %></p>
