@@ -39,7 +39,7 @@
 
 
 <!-- uncomment this when ready to push live -->
-<% if current_user.latitude != 0 %>
+<%# if current_user.latitude != 0 %>
 
 	<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
 		<!-- different location! -->
@@ -55,7 +55,7 @@
 		      </div>
 		      <div class="modal-body">
 		      	<!-- this nearby functionality doesn't work -->
-                <div id="nearby" class="form-group"><%= link_to 'Nearby', traveling_path(true), :class => "btn btn-primary form-control taller-buttons" %></div>
+                <div id="nearby" class="form-group"><%= link_to 'Nearby', traveling_path(nearby: "1"), :class => "btn btn-primary form-control taller-buttons" %></div>
                 <div id="home" class="form-group"><%= link_to current_user.zip.to_s.to_region(:city => true), traveling_path(false), :class => "btn btn-default form-control taller-buttons" %></div>
                 <div><%= link_to "Update your default location", edit_user_path(current_user) %></div>
 
@@ -70,7 +70,7 @@
 
 
 
-	<% end %>
+	<%# end %>
 <% end %>
 
 

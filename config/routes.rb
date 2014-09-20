@@ -10,12 +10,15 @@ root 'discover#index'
   resources :moods
   resources :searches
   resources :categories
-  resources :discover
+  
 
+  get 'discover/traveling' => 'discover#traveling', as: :traveling
   get 'discover/:id/share' => 'discover#share', as: :share
 
+  resources :discover
+
   # need to get this to work
-  get 'discover/traveling' => 'discover#traveling', as: :traveling
+  
   # get 'discover/:id/directions' => 'discover#get_directions', as: :directions
 
   get '/login', to: 'discover#index', as: :sessions
