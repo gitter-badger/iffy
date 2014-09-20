@@ -19,6 +19,12 @@ gem 'area'
 
 gem 'mongoid_slug'
 
+source 'https://rubygems.org'
+ 
+group :production do
+  gem "thin"
+end
+
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'twilio-ruby', '~> 3.12'
