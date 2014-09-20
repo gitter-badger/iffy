@@ -50,7 +50,10 @@ body {
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %></div><br>
 <%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span>
-<%#= @mood.searchYelp(current_user).businesses[0].id %>
+<%= current_user.traveling ? ((@mood.searchYelp(current_user).businesses[0].distance(current_user.latitude, current_user.longitude)) * 0.00062137).round(1) : ((@mood.searchYelp(current_user).businesses[0].distance(current_user.zip.to_s.to_lat, current_user.zip.to_s.to_lon)) * 0.00062137).round(1) %> miles away
+
+<%#= @mood.searchYelp(current_user).businesses[0].location.coordinate.latitude %>
+<%#= @mood.searchYelp(current_user).businesses[0].location.coordinate.longitude %>
 <br>
 <%#= @mood.searchYelp(current_user).businesses[0].id %>
 <br>
