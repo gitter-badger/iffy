@@ -3,14 +3,30 @@
 <div id="profile" class="container">
 	<div class="row">
 		<div class="col-md-4"><img class = "avatar" src="<%= @user.gravatar(@user.email) %>?s=250"></div>
-		<div class="col-md-8"><h1><%= @user.bio %></h1></div>
+		<div class="col-md-8"><p><strong>Latest Moods: </strong>
+
+	  		<% current_user.moods.each do |mood| %>
+
+	<li> 
+		<%= link_to mood.name, discover_path(mood) %> - <%= mood.description %> 
+	</li>
+	
+	<% end %>
+
+
+
+
+
+
+	  	</p></div>
 	</div>
 	<div class="row">
-		<div class="col-md-4"><strong><p><%= @user.name %></strong>, <%= current_user.zip.to_s.to_region %></p><%= link_to "Edit Profile", edit_user_path(@user) if current_user.id == @user.id || current_user.access == 'admin' %><br>
+		<div class="col-md-4"><strong><p><%= @user.name %></strong> <%= link_to "Edit Profile", edit_user_path(@user) if current_user.id == @user.id || current_user.access == 'admin' %><br><%= current_user.zip.to_s.to_region %></p>
+			<h3><%= @user.bio %></h3>
 		</div>
-	  	<div id="profile-separator" class="col-md-8"><p><strong>Latest Moods: </strong><%#= @user.moods %></p>
+	  	<div class="col-md-8">
 	  		<%#= current_user.address %>
-	  		<%= current_user.latitude %>, <%= current_user.longitude %>
+	  		<%#= current_user.latitude %> <%#= current_user.longitude %>
 	</div>
 	</div>
 </div>

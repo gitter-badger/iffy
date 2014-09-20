@@ -17,7 +17,7 @@ class Mood
   field :category
   has_and_belongs_to_many :dayparts
   #has_and_belongs_to_many :users
-  #has_and_belongs_to_many :places
+  has_and_belongs_to_many :places
   #has_and_belongs_to_many :categories
 
 
@@ -30,7 +30,7 @@ class Mood
     term: self.keywords.join('+')
   }
 
-if current_user.latitude > 0 && current_user.traveling
+if current_user.latitude > 0 && current.traveling
 # pop up modal
 # noticed you're not searching from cityname. Would you like to search in newcityname instead? You could also update your location in your account profile
   coordinates = {
@@ -44,6 +44,8 @@ else
   }
 end
   
+  # current_user.places << @mood.searchYelp(current_user).businesses[0].id
+
   @yelp_results ||= Yelp.client.search_by_coordinates(coordinates, params)
 
 

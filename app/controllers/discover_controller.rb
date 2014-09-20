@@ -49,6 +49,10 @@ class DiscoverController < ApplicationController
 	def show
 		@mood = Mood.find(params[:id])
 		@discover = true
+		# why doesn't this work?
+		current_user.moods << @mood
+		# it doesn't like this next line
+		current_user.save
 
 		# Need to find out how to push these to the user model
 		#@user.places << @mood.searchYelp(current_user).businesses[0].id

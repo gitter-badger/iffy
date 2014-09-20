@@ -7,6 +7,8 @@ class User
   include Geocoder::Model::Mongoid
 
   attr_accessor :yelp_results
+  
+  # should probably take this out
   geocoded_by :address
 
   # This validation line is causing problems with user creation
@@ -28,7 +30,6 @@ class User
   validates :password_digest, presence: true, :confirmation => true
   validates_numericality_of :zip, :in => 5
   validates :zip, presence: true
-
   validates_each :zip do |record, attr, value|
     #add a begin/rescue here
     if value
@@ -38,6 +39,7 @@ class User
     end
   end
 
+  has_and_belongs_to_many :moods
   
 
 # this creates @users.admin to grab all admins

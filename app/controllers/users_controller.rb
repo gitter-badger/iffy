@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def create
-	@user = User.new(params.require(:user).permit(:name, :email, :password, :address, :zip, :radius, :bio, :latitude, :longitude, :traveling ))
+	@user = User.new(params.require(:user).permit(:name, :email, :password, :address, :zip, :radius, :bio, :latitude, :longitude, :traveling, :mood_ids => [], :places =>[] ))
 	if @user.save	
 		# log the user in
 		log_in(@user)
@@ -32,7 +32,7 @@ end
   def update
   	@user = User.find(params[:id])
 		
-		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :access, :radius, :address, :zip, :bio, :latitude, :longitude, :traveling))
+		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :access, :radius, :address, :zip, :bio, :latitude, :longitude, :traveling, :mood_ids => [], :places =>[] ))
 			redirect_to users_path
 		else
 			render 'edit'
