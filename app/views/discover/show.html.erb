@@ -36,9 +36,15 @@ body {
  <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=craynkshaft"></script>-->
 
+<!-- not sure we need the data-target below -->
 <div class="container" data-toggle="modal" data-target="#myModal">
+
+
 	<br>
 	 <%#= @mood.created_at %> <br>
+
+<% if @mood.searchYelp(current_user).businesses.length > 0 %>
+
 <p class="intro">You chose <em><%= @mood.name %></em>, so we recommend</p>
 <div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
@@ -76,3 +82,7 @@ body {
     </div>
   </div>
 </div>
+
+<% else %>
+  <p class="no-results">Dang it! No local matches for <%= @mood.name %>. Consider exploring a new neighborhood by <%= link_to "updating your default profile location", edit_user_path(current_user) %> in increasing how far you're willing to go.</p>
+  <% end %>

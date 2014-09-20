@@ -1,6 +1,6 @@
 <div id="mood" class="container">
 
-<% if @mood.searchYelp(current_user).businesses.length > 0 %>
+<% if @mood.searchYelp(current_user).businesses.length > 0 %> 
 	<%= image_tag @mood.photo, id: 'mood-image' %><br>
 	<strong>Mood: </strong><%= @mood.name %><br>
 	<%= link_to "Edit", edit_mood_path %> | <%= link_to "Delete", @mood, 

@@ -30,16 +30,12 @@
 
 <div id="discover" class="container">
 	<% if logged_in? %>	
-		<h2>It's <%= @day %> <%= @daypart.name %> in </h2>
-			<% if current_user.traveling %>
-			<h2><%= link_to request.location.city, edit_user_path(current_user) %></h2>
-			<% else %>
-			<h2><%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %></h2>
-			<% end %> 
-			<h2>. What are you in the mood for?</h2><br> 
+		<h2>It's <%= @day %> <%= @daypart.name %> in <%= current_user.traveling ? (link_to request.location.city, edit_user_path(current_user)) : (link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user)) %>. What are you in the mood for?</h2>
 
 <%#= current_user.zip.to_gmt_offset %>
-<%= [current_user.latitude, current_user.longitude].to_zip.to_region(:city => true) %>
+
+<!-- throws an error if running locally -->
+<%#= [current_user.latitude, current_user.longitude].to_zip.to_region(:city => true) %>
 
 
 <!-- uncomment this when ready to push live -->
@@ -55,7 +51,7 @@
 		    <div class="modal-content">
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Noticed you're not currently in <%= current_user.zip.to_s.to_region(:city => true) %>. Which would you like to search?</h4>
+		        <h4 class="modal-title" id="myModalLabel">Noticed you may not currently be in <%= current_user.zip.to_s.to_region(:city => true) %>. Which area would you like to search?</h4>
 		      </div>
 		      <div class="modal-body">
 		      	<!-- this nearby functionality doesn't work -->
