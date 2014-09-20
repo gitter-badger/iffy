@@ -44,7 +44,7 @@ body {
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %></div><br>
 <%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span>
-<%= @mood.searchYelp(current_user).businesses[0].id %>
+<%#= @mood.searchYelp(current_user).businesses[0].id %>
 <br>
 <%#= @mood.searchYelp(current_user).businesses[0].id %>
 <br>

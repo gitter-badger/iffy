@@ -5,7 +5,7 @@
 		<div class="col-md-4"><img class = "avatar" src="<%= @user.gravatar(@user.email) %>?s=250"></div>
 		<div class="col-md-8"><p><strong>Latest Moods: </strong>
 
-	  		<% current_user.moods.each do |mood| %>
+	  		<% current_user.moods.order("created_at desc").each do |mood| %>
 
 	<li> 
 		<%= link_to mood.name, discover_path(mood) %> - <%= mood.description %> 
