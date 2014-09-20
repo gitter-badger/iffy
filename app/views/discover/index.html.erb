@@ -30,16 +30,18 @@
 
 <div id="discover" class="container">
 	<% if logged_in? %>	
-		<h2>It's <%= @day %> <%= @daypart.name %> in <%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %>. What are you in the mood for?</h2><br> 
+		<h2>It's <%= @day %> <%= @daypart.name %> in 
+			<% if current_user.traveling %>
+			<%=request.location.city %>
+			<% else %>
+			<%= link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user) %>. What are you in the mood for?</h2>
+			<% end %> <br> 
 
-<%= current_user.latitude %>, <%= current_user.longitude %>
-<%=request.location.city %>
 <%#= current_user.zip.to_gmt_offset %>
 
 
-
 <!-- uncomment this when ready to push live -->
-<%# if current_user.latitude != 0 %>
+<% if current_user.latitude != 0 %>
 
 	<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
 		<!-- different location! -->
@@ -70,7 +72,7 @@
 
 
 
-	<%# end %>
+	<% end %>
 <% end %>
 
 
