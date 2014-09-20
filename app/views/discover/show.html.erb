@@ -29,7 +29,7 @@
 	visibility: hidden;
 }*/
 body {
-	margin-top: -50px;
+	margin-top: 0px;
 }
 </style>
 
@@ -37,7 +37,7 @@ body {
 <!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=craynkshaft"></script>-->
 
 <!-- not sure we need the data-target below -->
-<div class="container" data-toggle="modal" data-target="#myModal">
+<div class="container" data-toggle="modal" data-target="#myModal #test">
 
 
 	<br>
@@ -64,7 +64,7 @@ body {
 
 
 <%#= image_tag @mood.photo %>
-	
+	<div aria-hidden="true" id="test" role="dialog" >asdfsadfsadfsadf</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

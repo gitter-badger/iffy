@@ -61,6 +61,7 @@ class DiscoverController < ApplicationController
 	end
 
 	def share
+
 		require 'twilio-ruby'
 
 		account_sid = 'AC9534c890191157016b5de8ae93b656d8'
@@ -69,13 +70,13 @@ class DiscoverController < ApplicationController
 		# set up a client to talk to the Twilio REST API
 		@client = Twilio::REST::Client.new account_sid, auth_token
 
-		# learn how to pass variables into to "to", "body", and "url" 
-		flash[:error] = 'Successfully shared!'
+		
 		share_url = "http://www.iffy.la/discover/#{params[:id]}"
 		stuff = {
-			:from => '+13237451232', :to => '+13474012203', :body => "Lets go to #{params[:name]} at #{params[:address]}. Sent from Iffy.la #{share_url} and #{params[:url]}"
+			:from => '+13237451232', :to => '+13474012203', :body => "http://Iffy.la says to go to #{params[:name]} at #{params[:address]} #{params[:url]}"
 		}
 		@client.messages.create(stuff) 
+		flash[:error] = "Successfully shared to #{stuff[:to]}!"
 		redirect_to discover_path(params[:id])
 
 	end
