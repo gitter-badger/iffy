@@ -22,7 +22,7 @@
 		</div>
 		<div class = "form-group">
 			<%= f.label :radius %>
-			<%= f.select :radius, [['I only want walkable places','2000'],['I can hop on a bike','10000'],['Whatever it takes!','20000']], {}, class: 'form-control' %>
+			<%= f.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','8000'],['Whatever it takes!','20000']], {}, class: 'form-control' %>
 		</div>
 		<% if logged_in? && current_user.access == "admin" %>
 		<div class = "form-group">
