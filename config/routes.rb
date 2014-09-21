@@ -9,6 +9,7 @@ root 'discover#index'
   resources :places
   resources :moods
   resources :searches
+  resources :dayparts
 
   resources :categories
   #get 'categories/:id/edit' => 'categories#edit', as: :edit_category

@@ -1,0 +1,11 @@
+<div id="show-daypart" class="container">
+	<%= link_to "Back to Dayparts", dayparts_path %>
+	<br>
+	<%= image_tag @daypart.photo, id: 'mood-image' %>
+	<strong>Name: </strong><%= @daypart.name %><br>
+	<strong>Start: </strong><%= @daypart.times.min %><br>
+	<strong>End: </strong><%= @daypart.times.max %><br>
+	<br>
+	<%= link_to "Edit", edit_daypart_path %> | <%= link_to "Delete", @daypart, 
+			method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
+</div>

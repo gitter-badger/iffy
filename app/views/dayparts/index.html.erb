@@ -1,0 +1,27 @@
+<div id="dayparts" class="container">
+	<% if logged_in? && current_user.access == 'admin' %>
+		<div class="form-group">
+		<h1>Dayparts</h1>
+		<%= link_to "Create New Daypart", new_daypart_path, :class => "btn btn-primary" %>
+		</div>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Times</th>
+				<th>Photo</th>
+			</tr>
+			<ul>
+			<!-- LIST OF CATEGORIES -->
+				<% @dayparts.order("name asc").each do |daypart| %>
+					<tr>
+						<td><%= link_to daypart.name, daypart_path(daypart) %></td>
+						<td><%= daypart.times.min %> to <%= daypart.times.max %></td>
+						<td><%= daypart.photo %></td>
+					</tr>
+				<% end %>
+			</ul>
+		</table>
+	<% else %>
+		<%= render '/layouts/restricted' %>
+	<% end %>
+</div>

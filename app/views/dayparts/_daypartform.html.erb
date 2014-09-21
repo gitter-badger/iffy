@@ -1,0 +1,23 @@
+<div id="daypart-form" class="container">
+	<% if logged_in? && current_user.access == 'admin' %>
+		<%= form_for @daypart do |d| %>
+			<div class="form-group">
+				<div><%= d.label :name %>:</div>
+				<div><%= d.text_field :name, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<div><%= d.label :times %>:</div>
+				<div><%= d.text_field :times, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<div><%= d.label :photo %>:</div>
+				<div><%= d.text_field :photo, class: 'form-control' %></div>
+			</div>
+			<div><%= d.submit "Save", class: 'btn btn-primary form-control' %></div>
+
+			<div class="form-group" style="text-align: center"> or <%= link_to "Cancel", dayparts_path %></div>
+		<% end %>
+	<% else %>
+	<%= render '/layouts/restricted' %>
+	<% end %>
+</div>

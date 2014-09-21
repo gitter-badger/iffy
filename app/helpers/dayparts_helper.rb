@@ -1,0 +1,2 @@
+module DaypartsHelper
+end
