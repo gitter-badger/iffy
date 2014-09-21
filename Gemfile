@@ -19,6 +19,8 @@ gem 'area'
 
 gem 'mongoid_slug'
 
+gem 'font-awesome-sass'
+
 source 'https://rubygems.org'
  
 group :production do
