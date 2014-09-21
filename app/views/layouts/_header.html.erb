@@ -1,0 +1,23 @@
+<header>
+	<a href="/">
+		<div id="logo">Iffy<span id="tagline">Makes decisions</span></div>
+	</a>
+	<div id="auth">
+		<% if logged_in? %>
+			<%= link_to current_user.email, user_path(current_user) %> | <%= link_to "Sign out", log_out_path, method: :delete %>
+		<% else %>
+			<%= link_to "Log in", sessions_path %>
+		<% end %>
+		<!-- admin nav -->
+		<% if logged_in? and current_user.access == 'admin' %>
+			<div class="dropdown">
+				<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">Admin Dashboard</a>
+				<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+				    <li><a href="/moods">Moods Admin</a></li>
+					<li><a href="/users">Users Admin</a></li>
+					<li><a href="/categories">Categories Admin</a></li>
+				</ul>
+			</div>
+		<% end %>
+	</div>
+</header>

@@ -115,7 +115,7 @@ footer {
 
 .welcome {
 	color: #FFF;
-	font-size: 2.5em;
+	font-size: 2.8em;
 	font-weight: lighter;
 	line-height: 1em;
 	text-align: center;
@@ -172,7 +172,7 @@ header {
 
 #logo {
 	float: left;
-	width: 180px;
+	width: 40%;
 	color: white;
 	margin-left: 20px;
 	margin-top: -2px;
@@ -202,10 +202,15 @@ header {
 
 #auth {
 	float: right;
+	width: 40%;
 	color: white;
-	margin-top: 15px;
+	margin-top: 20px;
 	margin-right: 15px;
 	display: inline-block;
+	text-align: right;
+}
+#auth > a {
+	color: #FFF;
 }
 
 #profile {
