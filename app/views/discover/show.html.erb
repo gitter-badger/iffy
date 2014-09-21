@@ -45,7 +45,7 @@ body {
    <%# if logged_in? %> 
 
 <% if @mood.searchYelp(current_user).businesses.length > 0 %>
-<p class="intro">em><%= @mood.name %></em> is within <%= current_user.radius === 10000 ? "driving " : current_user.radius === 6000 ? "biking " : current_user.radius === 1000 ? "walking " : "" %>distance</p>
+<p class="intro"><em><%= @mood.name %></em> is within <%= current_user.radius === 20000 ? "driving " : current_user.radius === 10000 ? "biking " : current_user.radius === 2000 ? "walking " : "" %>distance</p>
 <div class = "row">
 <div class="col-sm-9">
 
