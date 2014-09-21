@@ -34,12 +34,7 @@
 </script>
 
 <% if logged_in? %>	
-	<!-- display recent moods -->
-	<div id="recent">
-		Recent moods: <% current_user.moods.order("created_at desc").take(5).each do |mood| %>
-		<%= link_to truncate(mood.name, length: 40, separator: ' '), discover_path(mood) %>&nbsp;|&nbsp;
-		<% end %>
-	</div>
+
 
 	<div id="discover" class="container">
 		<h2>It's <%= @day %> <%= @daypart.name %> in <%= current_user.traveling ? (link_to request.location.city, edit_user_path(current_user)) : (link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user)) %>. What are you in the mood for?</h2>
@@ -69,11 +64,11 @@
 			<% end %>
 		<% end %>
 		<!-- display available moods -->
-		<div class="container center">
+		<div class="container center no-underline">
 			<!-- if there are moods to display, display them -->
 			<%if Mood.where(days: @day, daypart_ids: @daypart.name).length > 0 %>
 				<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(4).each do |mood| %>
-					<%= link_to(discover_path(mood)) do %>
+					<%= link_to(discover_path(mood), :class => "no-underlines") do %>
 					<div class="mood-choice col-md-3"> 
 						<div class="<%=mood.category.icon %>"></div>
 						<div class="mood-title"><%= mood.name %></div>

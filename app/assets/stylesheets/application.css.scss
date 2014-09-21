@@ -52,12 +52,13 @@ footer {
 
 #recent
 {
+	width: 100%;
 	font-size: 11px;
 	color: #888;
 	padding-left: 20px;
 	padding-top: 6px;
 	padding-bottom: 6px;
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(255,255,255,0.1);
 }
 
 .tall-btn {
@@ -140,7 +141,7 @@ h2 {
 	color: #FFF;
 	font-family: 'helvetica';
 	font-weight: bolder;
-	font-size: 8vw;
+	font-size: 7vw;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	margin: 10px;
 	line-height: 1.1em;
@@ -160,7 +161,7 @@ h2 > a:hover {
 }
 
 header {
-	height: 55px;
+	min-height: 50px;
 	width: 100%;
 	background-color: rgba(0,0,0,0.8);
 	position: fixed;
@@ -177,11 +178,12 @@ header {
 	margin-top: -2px;
 	font-family: 'Roboto Slab', serif;
 	font-weight: bolder;
-	font-size: 40px;
+	font-size: 50px;
 }
 
 #logo > #tagline {
 	font-size: 12px;
+	line-height: 12px;
 	font-weight: lighter;
 	font-family: 'Helvetica';
 }
@@ -245,14 +247,20 @@ body {
 	background-color: rgba(0,0,0,0.1);
 	padding: 20px;
 	margin: 10px;
-	text-align: center;
-	color: #FFF;
+/*	text-align: center;
+*/	color: #FFF;
 	border: 2px solid #FFF;
 	border-radius: 8px;
 }
 
 .mood-choice:hover {
 	background-color: rgba(0,0,0,0.2);
+	color: #FF1493;
+	border: 2px solid #FF1493;
+}
+
+.no-underline > a {
+	text-decoration: none;
 }
 
 .intro {
