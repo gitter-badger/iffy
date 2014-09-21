@@ -1,32 +1,33 @@
 <header>
 	<div class="row">
 	<a href="/">
-		<div id="logo" class="col-md-2">Iffy</div>
+		<div id="logo" class="col-lg-1">Iffy</div>
 	</a>
-		<div id="auth" class="col-md-10">
+		<div id="auth" class="col-lg-8">
 			<% if logged_in? %>
-				<%= link_to current_user.email, user_path(current_user) %> | <%= link_to "Sign out", log_out_path, method: :delete %>
-			<% else %>
-				<%= link_to "Log in", sessions_path %>
-			<% end %>
-			<!-- admin nav -->
-			<% if logged_in? and current_user.access == 'admin' %>
-				<div class="dropdown">
-					<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">Admin Dashboard</a>
+				<span class="dropdown">
+					<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"><%= current_user.name %></a>
 					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+						<li><%= link_to "Settings", user_path(current_user) %></li>
+						<li><%= link_to "Sign out", log_out_path, method: :delete %></li>
+						<!-- admin nav -->
+						<% if current_user.access == 'admin' %>
 					    <li><a href="/moods">Moods Admin</a></li>
 						<li><a href="/users">Users Admin</a></li>
 						<li><a href="/categories">Categories Admin</a></li>
+						<% end %>
 					</ul>
-				</div>
+				</span>
+			<% else %>
+				<%= link_to "Log in", sessions_path %>				
 			<% end %>
 		</div>
 	</div>
 	<% if logged_in? %>
 	<!-- display recent moods -->
 	<div id="recent" class="container">
-		Recent moods: <% current_user.moods.order("created_at desc").take(5).each do |mood| %>
-		<%= link_to truncate(mood.name, length: 40, separator: ' '), discover_path(mood) %>&nbsp;|&nbsp;
+		Recent mood: <% current_user.moods.order("created_at desc").take(1).each do |mood| %>
+		<%= link_to truncate(mood.name, length: 40, separator: ' '), discover_path(mood) %> <!--&nbsp;|&nbsp;-->
 		<% end %>
 	</div>
 	<% end %>
