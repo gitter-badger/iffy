@@ -45,26 +45,17 @@ body {
    <%# if logged_in? %> 
 
 <% if @mood.searchYelp(current_user).businesses.length > 0 %>
-
 <p class="intro">You chose <em><%= @mood.name %></em>, this is within <%= current_user.radius === 10000 ? "driving " : current_user.radius === 6000 ? "biking " : current_user.radius === 1000 ? "walking " : "" %>distance.</p>
-<div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
+<div class = "row">
+<div class="col-sm-9">
+
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %> (<%= current_user.traveling ? ((@mood.searchYelp(current_user).businesses[0].distance(current_user.latitude, current_user.longitude)) * 0.00062137).round(1) : ((@mood.searchYelp(current_user).businesses[0].distance(current_user.zip.to_s.to_lat, current_user.zip.to_s.to_lon)) * 0.00062137).round(1) %> miles away)</div><br>
 <%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span>
-
-<%#= Yelp.client.business(@mood.searchYelp(current_user).businesses[0].id).inspect %>
-<%#= @mood.searchYelp(current_user).businesses[0].inspect %>
-<%#= @mood.searchYelp(current_user).businesses[0].location.coordinate.longitude %>
-<br>
-<%#= @mood.searchYelp(current_user).businesses[0].id %>
-<br>
-
-<!--<div class="yelp-image"><%= image_tag @mood.searchYelp(current_user).businesses[0].image_url %></div><br>-->
-<div class="snippet"><%= @mood.searchYelp(current_user).businesses[0].snippet_text %></div><br>
-<%#= @mood.searchYelp(current_user).inspect %>
-
-
-<%#= image_tag @mood.photo %>
+</div>
+<div class="yelp-image col-sm-3"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
+</div>
+<div class="snippet"><%= @mood.searchYelp(current_user).businesses[0].snippet_text %></div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

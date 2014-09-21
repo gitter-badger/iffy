@@ -229,7 +229,7 @@ header {
 body {
 	position: relative;
 	top: 55px;
-	
+
 }
 
 .mood-title {
@@ -257,20 +257,19 @@ body {
 
 .intro {
 	color: #FFF;
-	font-size: 40px;
+	font-size: 5.5vw;
 	font-weight: lighter;
-	line-height: 40px;
+	line-height: 1em;
 	margin-top: 30px;
 }
 .name {
 	color: #FFF;
 	font-family: 'helvetica';
 	font-weight: bold;
-	font-size: 90px;
+	font-size: 10vw;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-	/*line-height: 10px;*/
-	margin: 10px;
-	line-height: 90px;
+	line-height: 1em;
+	margin-left: -3px;
 }
 .address {
 	color: #FFF;
@@ -278,17 +277,17 @@ body {
 }
 .snippet {
 	color: #FFF;
-	font-size: 40px;
+	font-size: 5vw;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-	line-height: 50px;
-	margin-bottom: 50px;
+	line-height: 1.2em;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 .yelp-image > img {
 	border: 1px solid #EEE;
-	float: right;
-	right: 30px;
+	margin-top: 30px;
 	display: inline-block;
-	width: 250px;
+	width: 100%;
 	background-position: center center;
 	background-size: cover;
 
