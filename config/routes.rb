@@ -44,7 +44,7 @@ root 'discover#index'
 
   get 'users/:id' => 'users#show', as: :user 
 
-  get 'about/' => 'about#index'
+  get '/about' => 'pages#about', as: :about
 
 
   # Example of regular route:

@@ -14,6 +14,14 @@
 		<td><%= c.text_field :path %></td>
 	</tr>
 	<tr>
+		<td><%= c.label :icon %>:</td>
+		<td><%= c.text_field :icon %></td>
+	</tr>
+	<div>
+		<strong>Moods: </strong>
+		<%= c.collection_check_boxes(:mood_ids, Mood.all, :name, :name) %>
+	</div>
+	<tr>
 		<td></td>
 		<td><%= c.submit "Create" %></td>
 	</tr>

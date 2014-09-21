@@ -46,7 +46,7 @@ body {
 
 <% if @mood.searchYelp(current_user).businesses.length > 0 %>
 
-<p class="intro">You chose <em><%= @mood.name %></em>, this is within <%= current_user.radius === 10000 ? link_to("driving ", edit_user_path(current_user)) : current_user.radius === 6000 ? link_to("biking ", edit_user_path(current_user)) : current_user.radius === 1000 ? link_to("walking ", edit_user_path(current_user)) : "" %>distance.</p>
+<p class="intro">You chose <em><%= @mood.name %></em>, this is within <%= current_user.radius === 10000 ? "driving " : current_user.radius === 6000 ? "biking " : current_user.radius === 1000 ? "walking " : "" %>distance.</p>
 <div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %> (<%= current_user.traveling ? ((@mood.searchYelp(current_user).businesses[0].distance(current_user.latitude, current_user.longitude)) * 0.00062137).round(1) : ((@mood.searchYelp(current_user).businesses[0].distance(current_user.zip.to_s.to_lat, current_user.zip.to_s.to_lon)) * 0.00062137).round(1) %> miles away)</div><br>

@@ -11,7 +11,7 @@
 					<%= m.label :keywords %>:<%= m.text_field :keywords, class: 'form-control', :value => @mood.keywords.join(",") %>
 				</div>
 				<div class="form-group">
-					<%= m.label :category %>:<%= m.collection_select(:category, Category.order_by([:name, :asc]), :path, :name, {},class: 'form-control') %>
+					<%= m.label :category_id %>:<%= m.collection_select(:category_id, Category.order_by([:name, :asc]), :id, :name, {}, class: 'form-control') %>
 				</div>
 				<div class="form-group">
 					<%= m.label :photo %>:<%= m.text_field :photo, class: 'form-control' %>

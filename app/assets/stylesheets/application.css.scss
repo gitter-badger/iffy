@@ -29,7 +29,7 @@ html, body {
 
 #main {
   overflow:auto;
-  padding-bottom:150px; /* this needs to be bigger than footer height*/
+  padding-bottom: 230px; /* this needs to be bigger than footer height*/
 }
 
 footer {
@@ -38,8 +38,8 @@ footer {
 	color: #666;
 	font-size: 11px;
 	position: relative;
-  margin-top: -60px; /* negative value of footer height */
-  clear:both;
+    margin-top: -60px; /* negative value of footer height */
+    clear:both;
 }
 
 
@@ -54,11 +54,10 @@ footer {
 {
 	font-size: 11px;
 	color: #888;
-	margin-top: 5px;
 	padding-left: 20px;
 	padding-top: 6px;
 	padding-bottom: 6px;
-	background-color: rgba(255,255,255,0.5);
+	background-color: rgba(0,0,0,0.5);
 }
 
 .tall-btn {
@@ -229,24 +228,31 @@ header {
 
 body {
 	position: relative;
-	top: 50px;
+	top: 55px;
+	
+}
+
+.mood-title {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.mood-description {
+	font-size: 14px;
 }
 
 .mood-choice {
 	background-color: rgba(0,0,0,0.1);
-	padding: 10px;
+	padding: 20px;
 	margin: 10px;
 	text-align: center;
 	color: #FFF;
 	border: 2px solid #FFF;
 	border-radius: 8px;
-	height: 150px;
 }
+
 .mood-choice:hover {
 	background-color: rgba(0,0,0,0.2);
-	padding: 10px;
-	margin: 10px;
-	text-align: center;
 }
 
 .intro {
@@ -283,7 +289,6 @@ body {
 	right: 30px;
 	display: inline-block;
 	width: 250px;
-	height: 250px;
 	background-position: center center;
 	background-size: cover;
 

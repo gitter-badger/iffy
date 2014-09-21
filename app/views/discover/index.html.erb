@@ -1,9 +1,11 @@
+<!-- style to create dynamic background images -->
 <style type="text/css">
 .home {
 	background-image: url(<%= @daypart.photo %>);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100%;
+	width: 100%;
 
 }
 .home:before {
@@ -16,6 +18,7 @@
 	width: 100%;
 	height: 100%;
 
+
 	-webkit-filter: blur(5px);
 	-moz-filter: blur(5px);
 	-o-filter: blur(5px);
@@ -23,93 +26,69 @@
 	filter: blur(5px);
 }
 </style>
-
+<!-- script for modal if traveling location is detected -->
 <script type="text/javascript">
     $(window).load(function(){
-        $('#myModal').modal('show');
+        $('#traveling').modal('show');
     });
 </script>
+
 <% if logged_in? %>	
-
-			<div id="recent">
-				Recent moods:
-				<% current_user.moods.order("created_at desc").take(3).each do |mood| %>
-						<%= link_to truncate(mood.name, length: 40, separator: ' '), discover_path(mood) %>&nbsp;|&nbsp;
-				<% end %>
-			</div>
-<div id="discover" class="container">
-	
-
-		<h2>It's <%= @day %> <%= @daypart.name %> in <%= current_user.traveling ? (link_to request.location.city, edit_user_path(current_user)) : (link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user)) %>. What are you in the mood for?</h2>
-
-<%#= current_user.zip.to_gmt_offset %>
-<!-- throws an error if running locally -->
-<%#= [current_user.latitude, current_user.longitude].to_zip.to_region(:city => true) %>
-
-
-<!-- uncomment this when ready to push live -->
-<% if current_user.latitude != 0 %>
-
-	<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
-		<!-- different location! -->
-
-
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Noticed you may not currently be in <%= current_user.zip.to_s.to_region(:city => true) %>. Which area would you like to search?</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<!-- this nearby functionality doesn't work -->
-                <div id="nearby" class="form-group"><%= link_to request.location.city, traveling_path(nearby: "1"), :class => "btn btn-primary form-control taller-buttons" %></div>
-                <div id="home" class="form-group"><%= link_to current_user.zip.to_s.to_region(:city => true), traveling_path(false), :class => "btn btn-default form-control taller-buttons" %></div>
-                <div><p><%= link_to "Update your default location", edit_user_path(current_user) %></p></div>
-
-		      </div>
-		    </div>
-		  </div>
-		</div>
-
-
-
-
-
-
-
-	<% end %>
-<% end %>
-
-
-				<%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], %>
-
-<!-- got rid of the dropdown
-				<%#= form_for current_user do |user| %>
-				<%#= user.select :radius, [['Show me walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], {}, class: 'form-control see-through' %>
-				<%# end %>				
--->
-
-<!-- LIST OF MOODS -->
-	<div class="container center">
-		<%if Mood.where(days: @day, daypart_ids: @daypart.name).length > 0 %>
-		<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(4).each do |mood| %>
-			<%= link_to(discover_path(mood)) do %><div class="mood-choice col-md-3"> 
-
-				<h4><%= mood.name %></h4>
-				<p><%= mood.description %></p>
-			</div>
-			<% end %>
-		
-		<% end %>
-		<% else %>
-			<p class="welcome">Standby, we're plotting some great new choices to fill your day with awesome.</p>
-		<!-- end mood length checker -->
+	<!-- display recent moods -->
+	<div id="recent">
+		Recent moods: <% current_user.moods.order("created_at desc").take(5).each do |mood| %>
+		<%= link_to truncate(mood.name, length: 40, separator: ' '), discover_path(mood) %>&nbsp;|&nbsp;
 		<% end %>
 	</div>
-		<% else %>
-			<%= render partial: '/sessions/login' %>
-			</div>
-	<% end %>
+
+	<div id="discover" class="container">
+		<h2>It's <%= @day %> <%= @daypart.name %> in <%= current_user.traveling ? (link_to request.location.city, edit_user_path(current_user)) : (link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user)) %>. What are you in the mood for?</h2>
+
+		<!-- modal to search nearby instead of your home location -->
+		<!-- ignore lat/lon if none detected -->
+		<% if current_user.latitude != 0 %>
+		<!-- if your home city and detected city are different, pop up a modal -->
+			<% if request.location.city != current_user.zip.to_s.to_region(:city => true) %>
+				<!-- begin modal -->
+				<div class="modal fade" id="traveling" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+				        <h4 class="modal-title" id="myModalLabel">Noticed you may not currently be in <%= current_user.zip.to_s.to_region(:city => true) %>. Which area would you like to search?</h4>
+				      </div>
+				      <div class="modal-body">
+				      	<!-- this nearby functionality doesn't work -->
+		                <div id="nearby" class="form-group"><%= link_to request.location.city, traveling_path(nearby: "1"), :class => "btn btn-primary form-control taller-buttons" %></div>
+		                <div id="home" class="form-group"><%= link_to current_user.zip.to_s.to_region(:city => true), traveling_path(false), :class => "btn btn-default form-control taller-buttons" %></div>
+		                <div><p><%= link_to "Update your default location", edit_user_path(current_user) %></p></div>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			<% end %>
+		<% end %>
+		<!-- display available moods -->
+		<div class="container center">
+			<!-- if there are moods to display, display them -->
+			<%if Mood.where(days: @day, daypart_ids: @daypart.name).length > 0 %>
+				<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(4).each do |mood| %>
+					<%= link_to(discover_path(mood)) do %>
+					<div class="mood-choice col-md-3"> 
+						<div class="<%=mood.category.icon %>"></div>
+						<div class="mood-title"><%= mood.name %></div>
+						<div class="mood-description"><%= mood.description %></div>
+					</div>
+					<% end %>
+				<% end %>
+			<% else %>
+				<p class="welcome">Standby, we're plotting some great new choices to fill your day with awesome.</p>
+			<!-- end mood length check -->
+			<% end %>
+		</div>
+<% else %>
+	<%= render partial: '/sessions/login' %>
+	<!-- end 'discover' div -->
+<% end %>
 </div>
+<!-- deleted an orphaned closing </div> here. might cause problems -->

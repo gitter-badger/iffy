@@ -5,17 +5,19 @@
 </div>
 <table>
 	<tr>
+		<th>Icon</th>
 		<th>Name</th>
 		<th>Path</th>
-		<th>Total</th>
+		<th>Moods</th>
 	</tr>
 	<ul>
 	<!-- LIST OF CATEGORIES -->
 	<% @categories.order("name asc").each do |category| %>
 	<tr>
+		<td class="<%= category.icon %>"></td>
 		<td><%= category.name %></td>
 		<td><%= category.path %></td>
-		<td><%= category.total %></td>
+		<td><%= category.moods.length %></td>
 	</tr>
 	<% end %>
 </ul>

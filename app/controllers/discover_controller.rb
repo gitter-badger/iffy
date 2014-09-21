@@ -28,7 +28,7 @@ class DiscoverController < ApplicationController
 			@daypart = Daypart.find_by(name: 'night')
 		when 22..23
 			@daypart = Daypart.find_by(name: 'late night')
-		when 1..2
+		when 0..2
 			@daypart = Daypart.find_by(name: 'overnight')
 		else
 			@daypart = Daypart.find_by(name: 'sleepytime')
@@ -82,7 +82,7 @@ class DiscoverController < ApplicationController
 			:from => '+13237451232', :to => '+13474012203', :body => "http://Iffy.la says to go to #{params[:name]} at #{params[:address]} #{params[:url]}"
 		}
 		@client.messages.create(stuff) 
-		flash[:error] = "Successfully shared to #{stuff[:to]}!"
+		flash[:error] = "Sent #{params[:name]} to #{stuff[:to]}"
 		redirect_to discover_path(params[:id])
 
 	end

@@ -6,10 +6,11 @@ class MoodsController < ApplicationController
 		@mood = Mood.new
 	end
 	def create
-		@mood = Mood.new(params.require(:mood).permit(:name, :description, :photo, :category, :sort, :selected, :daypart_ids => [], :user_ids => []))
+		@mood = Mood.new(params.require(:mood).permit(:name, :description, :photo, :category_id, :sort, :selected, :daypart_ids => [], :user_ids => []))
 		# can we do ':keywords => []' here instead?
 		@mood.keywords = params[:mood][:keywords].split(", ")
 		@mood.days = params[:mood][:days]
+		#@mood.save
 		#@mood.dayparts = params[:mood][:dayparts].split(",")
 		# @mood.category.total += 1
 		# @mood.photo ||= "http://static.tumblr.com/4doxknm/O4sm6v0y7/lame.gif"
@@ -39,7 +40,7 @@ class MoodsController < ApplicationController
 	def update
 		@mood = Mood.find(params[:id])
 		
-		if @mood.update(params.require(:mood).permit(:name, :description, :photo, :sort, :category, :selected, :daypart_ids => [], :user_ids => []))
+		if @mood.update(params.require(:mood).permit(:name, :description, :photo, :sort, :category_id, :selected, :daypart_ids => [], :user_ids => []))
 			@mood.keywords = params[:mood][:keywords].tr("][", "").split(",")
 			@mood.days = params[:mood][:days]
 			#@mood.dayparts = params[:mood][:dayparts].split(",")

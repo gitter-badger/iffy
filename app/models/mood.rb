@@ -14,7 +14,7 @@ class Mood
   slug :name
   validates :name, presence: true, uniqueness: true 
 
-  field :category
+  belongs_to :category
   has_and_belongs_to_many :dayparts
   #has_and_belongs_to_many :users
   has_and_belongs_to_many :places
@@ -23,7 +23,7 @@ class Mood
 
   def searchYelp(current_user)
   params = {
-    category_filter: self.category,
+    category_filter: self.category.path,
     # limit: 1,
     radius_filter: current_user.radius,
     sort: self.sort,
