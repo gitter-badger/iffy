@@ -81,6 +81,10 @@ class DiscoverController < ApplicationController
 
 	end
 
+	def directions
+		redirect_to "http://maps.google.com/maps?q=#{params[:address]}"
+	end
+
 	def traveling
 		if params[:nearby]
 			current_user.traveling = true

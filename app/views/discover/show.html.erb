@@ -37,22 +37,22 @@ body {
 <!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=craynkshaft"></script>-->
 
 <!-- not sure we need the data-target below -->
-<div class="container" data-toggle="modal" data-target="#myModal #test">
+<div class="container" data-toggle="modal" data-target="#myModal">
 
-
+<%#= image_tag "Yelp-Logo-sm.png" %>
 	<br>
 	 <%#= @mood.created_at %> <br>
 
 <% if @mood.searchYelp(current_user).businesses.length > 0 %>
 
-<p class="intro">You chose <em><%= @mood.name %></em>, so we recommend</p>
+<p class="intro">You chose <em><%= @mood.name %></em>, this is within <%= current_user.radius === 10000 ? link_to("driving ", edit_user_path(current_user)) : current_user.radius === 6000 ? link_to("biking ", edit_user_path(current_user)) : current_user.radius === 1000 ? link_to("walking ", edit_user_path(current_user)) : "" %>distance.</p>
 <div class="yelp-image"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
 <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
 <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %> (<%= current_user.traveling ? ((@mood.searchYelp(current_user).businesses[0].distance(current_user.latitude, current_user.longitude)) * 0.00062137).round(1) : ((@mood.searchYelp(current_user).businesses[0].distance(current_user.zip.to_s.to_lat, current_user.zip.to_s.to_lon)) * 0.00062137).round(1) %> miles away)</div><br>
 <%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span>
 
-
-<%#= @mood.searchYelp(current_user).businesses[0].location.coordinate.latitude %>
+<%#= Yelp.client.business(@mood.searchYelp(current_user).businesses[0].id).inspect %>
+<%#= @mood.searchYelp(current_user).businesses[0].inspect %>
 <%#= @mood.searchYelp(current_user).businesses[0].location.coordinate.longitude %>
 <br>
 <%#= @mood.searchYelp(current_user).businesses[0].id %>
@@ -64,7 +64,6 @@ body {
 
 
 <%#= image_tag @mood.photo %>
-	<div aria-hidden="true" id="test" role="dialog" >asdfsadfsadfsadf</div>
 </div>
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -75,9 +74,9 @@ body {
         <h4 class="modal-title" id="myModalLabel">More Options</h4>
       </div>
       <div class="modal-body">
-        <div id="share" class="form-group"><%= link_to "Text this to a friend", share_path(url: @mood.searchYelp(current_user).businesses[0].url, name: @mood.searchYelp(current_user).businesses[0].name, address: @mood.searchYelp(current_user).businesses[0].location.display_address.join(", ")), :class => "btn btn-primary form-control taller-buttons" %></div>
-        <div id="yelp" class="form-group"><%= link_to "View this on Yelp", @mood.searchYelp(current_user).businesses[0].url, :class => "btn btn-danger form-control taller-buttons" %></div>
-        <!--<div id="map" class="form-group"><%#= link_to "Get directions", directions_path, :class => "btn btn-success form-control taller-buttons" %></div>-->
+        <div id="share" class="form-group"><%= link_to "Text this to a friend", share_path(url: @mood.searchYelp(current_user).businesses[0].url, name: @mood.searchYelp(current_user).businesses[0].name, address: @mood.searchYelp(current_user).businesses[0].location.display_address.join(", ")), :class => "btn btn-primary form-control taller-buttons", :popup => ['new_window_name', 'height=300,width=600'] %></div>
+        <div id="yelp" class="form-group"><%= link_to image_tag('Yelp-Logo-sm.png'), @mood.searchYelp(current_user).businesses[0].url, :class => "yelp-button btn btn-danger form-control taller-buttons" %></div>
+        <div id="map" class="form-group"><%= link_to image_tag('google-maps-logo-transparent.png'), directions_path(address: @mood.searchYelp(current_user).businesses[0].location.display_address.join("+")), :class => "map-button btn btn-success form-control taller-buttons" %></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
