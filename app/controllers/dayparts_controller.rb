@@ -21,7 +21,7 @@ class DaypartsController < ApplicationController
 		if @daypart.update(params.require(:daypart).permit(:name, :photo, :times => []))
 			#@mood.dayparts = params[:mood][:dayparts].split(",")
 			@daypart.save
-			redirect_to dayparts_path
+			redirect_to daypart_path
 		else
 			render 'edit'
 		end

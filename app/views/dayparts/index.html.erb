@@ -7,7 +7,6 @@
 		<table>
 			<tr>
 				<th>Name</th>
-				<th>Times</th>
 				<th>Photo</th>
 			</tr>
 			<ul>
@@ -15,7 +14,6 @@
 				<% @dayparts.order("name asc").each do |daypart| %>
 					<tr>
 						<td><%= link_to daypart.name, daypart_path(daypart) %></td>
-						<td><%= daypart.times.min %> to <%= daypart.times.max %></td>
 						<td><%= daypart.photo %></td>
 					</tr>
 				<% end %>
