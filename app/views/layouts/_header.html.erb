@@ -7,7 +7,7 @@
 			<% if logged_in? %>
 				<span class="dropdown">
 					<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"><%= current_user.name %></a>
-					<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+					<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
 						<li><%= link_to "Settings", user_path(current_user) %></li>
 						<li><%= link_to "Sign out", log_out_path, method: :delete %></li>
 						<!-- admin nav -->
