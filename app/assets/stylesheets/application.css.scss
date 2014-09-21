@@ -101,9 +101,9 @@ footer {
 	background: rgba(255,255,255,0.4);
 	width: 300px;
 	border-radius: 20px;
-	margin-bottom: 20px;
 }
 
+/* being used? */
 .see-through {
 	background-color: rgba(255,255,255,0.4);
 	color: #222;
@@ -141,10 +141,10 @@ h2 {
 	color: #FFF;
 	font-family: 'helvetica';
 	font-weight: bolder;
-	font-size: 4.5em;
+	font-size: 8vw;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	margin: 10px;
-	line-height: 1em;
+	line-height: 1.1em;
 }
 
 h2 > a {
@@ -209,6 +209,7 @@ header {
 	display: inline-block;
 	text-align: right;
 }
+
 #auth > a {
 	color: #FFF;
 }
