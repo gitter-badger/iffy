@@ -1,5 +1,5 @@
+<% if logged_in? && current_user.access == 'admin &&' %>
 <div id='moods' class="container">
-	<% if current_user.access == 'admin' %>
 <div class="form-group">
 <h1>Moods</h1>
 <%= link_to "Add new mood", new_mood_path, :class => "btn btn-primary" %>

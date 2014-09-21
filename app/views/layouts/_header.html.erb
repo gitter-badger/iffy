@@ -8,13 +8,15 @@
 				<span class="dropdown">
 					<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"><%= current_user.name %></a>
 					<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
-						<li><%= link_to "Settings", user_path(current_user) %></li>
+						<li><%= link_to "Profile", user_path(current_user) %></li>
+						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 						<li><%= link_to "Sign out", log_out_path, method: :delete %></li>
 						<!-- admin nav -->
+						<hr>
 						<% if current_user.access == 'admin' %>
-					    <li><a href="/moods">Moods Admin</a></li>
-						<li><a href="/users">Users Admin</a></li>
-						<li><a href="/categories">Categories Admin</a></li>
+					    <li><a href="/moods" style="color: red">Moods Admin</a></li>
+						<li><a href="/users" style="color: red">Users Admin</a></li>
+						<li><a href="/categories" style="color: red">Categories Admin</a></li>
 						<% end %>
 					</ul>
 				</span>
