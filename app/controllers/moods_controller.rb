@@ -23,11 +23,11 @@ class MoodsController < ApplicationController
 			render 'new'
 		end
 	end
+	
 	def show
 		@mood = Mood.find(params[:id])
-
-
 	end
+
 	def destroy
 		@mood = Mood.find(params[:id])
 		@mood.destroy

@@ -1,0 +1,13 @@
+<div id="show-category" class="container">
+	<%= link_to "Back to Categories", categories_path %>
+	<br>
+	<strong>Name: </strong><%= @category.name %><br>
+	<strong>Path: </strong><%= @category.path %><br>
+	<strong>Icon: </strong><%= @category.icon %><br>
+	<strong>Total: </strong><%= @category.total %><br>
+	<strong>Moods: </strong><%= @category.mood_ids %><br>
+	<br>
+	<%= link_to "Edit", edit_category_path %> | <%= link_to "Delete", @category, 
+			method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
+
+</div>

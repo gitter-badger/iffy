@@ -1,0 +1,25 @@
+<div id="mood-form" class="container">
+	<% if logged_in? && current_user.access == 'admin' %>
+		<%= form_for @category do |c| %>
+			<div class="form-group">
+				<div><%= c.label :name %>:</div>
+				<div><%= c.text_field :name, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<div><%= c.label :path %>:</div>
+				<div><%= c.text_field :path, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">		
+				<div><%= c.label :icon %>:</div>
+				<div><%= c.text_field :icon, class: 'form-control' %></div>
+			</div>
+			<div class="form-group">
+				<div></div>
+				<div><%= c.submit "Save", class: 'btn btn-primary form-control' %></div>
+			</div>
+			<div class="form-group" style="text-align: center"> or <%= link_to "Cancel", categories_path %></div>
+		<% end %>
+	<% else %>
+	<%= render '/layouts/restricted' %>
+	<% end %>
+</div>

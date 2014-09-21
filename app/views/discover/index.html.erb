@@ -69,7 +69,7 @@
 			<!-- if there are moods to display, display them -->
 			<%if Mood.where(days: @day, daypart_ids: @daypart.name).length > 0 %>
 				<% Mood.where(days: @day, daypart_ids: @daypart.name).shuffle.first(4).each do |mood| %>
-					<%= link_to(discover_path(mood), :class => "no-underlines") do %>
+					<%= link_to(discover_path(mood)) do %>
 					<div class="mood-choice col-md-3"> 
 						<div class="<%#=mood.category.icon %>"></div>
 						<div class="mood-title"><%= mood.name %></div>

@@ -1,26 +1,29 @@
 <div id="categories" class="container">
-<div class="form-group">
-<h1>Categories</h1>
-<%= link_to "Create New Category", new_category_path, :class => "btn btn-primary" %>
-</div>
-<table>
-	<tr>
-		<th>Icon</th>
-		<th>Name</th>
-		<th>Path</th>
-		<th>Moods</th>
-	</tr>
-	<ul>
-	<!-- LIST OF CATEGORIES -->
-	<% @categories.order("name asc").each do |category| %>
-	<tr>
-		<td class="<%= category.icon %>"></td>
-		<td><%= category.name %></td>
-		<td><%= category.path %></td>
-		<td><%= category.moods.length %></td>
-	</tr>
+	<% if logged_in? && current_user.access == 'admin' %>
+		<div class="form-group">
+		<h1>Categories</h1>
+		<%= link_to "Create New Category", new_category_path, :class => "btn btn-primary" %>
+		</div>
+		<table>
+			<tr>
+				<th>Icon</th>
+				<th>Name</th>
+				<th>Path</th>
+				<th>Moods</th>
+			</tr>
+			<ul>
+			<!-- LIST OF CATEGORIES -->
+				<% @categories.order("name asc").each do |category| %>
+					<tr>
+						<td class=""><%= image_tag(category.icon) %></td>
+						<td><%= link_to category.name, category_path(category) %></td>
+						<td><%= category.path %></td>
+						<td><%= category.moods.length %></td>
+					</tr>
+				<% end %>
+			</ul>
+		</table>
+	<% else %>
+		<%= render '/layouts/restricted' %>
 	<% end %>
-</ul>
-</table>
-<br>
 </div>
