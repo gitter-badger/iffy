@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.5'
@@ -18,7 +18,7 @@ gem 'geocoder'
 
 gem 'area'
 
-gem 'font-awesome-sass'
+#gem 'font-awesome-sass'
 
 gem 'mongoid_slug'
 
