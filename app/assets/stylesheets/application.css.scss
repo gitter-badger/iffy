@@ -17,6 +17,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
 .center {
 	float: none;
 	margin: 0 auto;
@@ -102,14 +103,14 @@ background-color: rgba(255,255,255,0.5);
 }
 
 h2 {
-	padding-top: 50px;
+	padding-top: .5em;
 	color: #FFF;
 	font-family: 'helvetica';
 	font-weight: bolder;
-	font-size: 60px;
+	font-size: 4.5em;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 	margin: 10px;
-	line-height: 65px;
+	line-height: 1em;
 }
 
 h2 > a {
