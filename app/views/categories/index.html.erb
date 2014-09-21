@@ -15,7 +15,7 @@
 			<!-- LIST OF CATEGORIES -->
 				<% @categories.order("name asc").each do |category| %>
 					<tr>
-						<td class="<%= category.icon %>"><%= image_tag('') %></td>
+						<td class="<%= category.icon %>"></td>
 						<td><%= link_to category.name, category_path(category) %></td>
 						<td><%= category.path %></td>
 						<td><%= category.moods.length %></td>

@@ -14,9 +14,6 @@ root 'discover#index'
   #get 'categories/:id/edit' => 'categories#edit', as: :edit_category
   #patch 'categories/:id' => 'categories#update'
   #get 'categories/:id' => 'categories#show', as: :category 
-
-  
-
   
 
   get 'discover/traveling' => 'discover#traveling', as: :traveling
