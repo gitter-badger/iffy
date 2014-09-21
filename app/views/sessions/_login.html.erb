@@ -2,7 +2,6 @@
 	<% if logged_in? %>
 		<p>You are already signed in as <%= current_user.name %>. If you would like to sign in as a different user, please <%= link_to "sign out", log_out_path, method: :delete %>.</p>
 	<% else %>
-	<div class="welcome">Take the decision out of deciding what to do.</div>
 		<div class="container form-wrapper">
 		<h1>Sign In</h1>
 		<%= form_for(:session, url: sessions_path) do |f| %>
