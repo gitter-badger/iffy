@@ -102,17 +102,14 @@
 		
 		<% end %>
 		<% else %>
-			<p class="welcome-home">Standby, we're plotting some great new choices to fill your day with awesome.</p>
+			<p class="welcome">Standby, we're plotting some great new choices to fill your day with awesome.</p>
 		<!-- end mood length checker -->
 		<% end %>
 	</div>
 	<br>
 		<br>
-
-	<%#= u.text_field :radius, class: 'form-control', maxlength: 5 %>
-    <%#= current_user.select :radius, [['I only want walkable places','1000'],['I can hop on a bike','6000'],['Whatever it takes!','10000']], class: 'form-control' %>
 		<% else %>
-			<div class="welcome-home">Take the decision out of deciding what to do.</div>
+			<div class="welcome">Take the decision out of deciding what to do.</div>
 			<div class="container form-wrapper">
 			<%= render partial: '/sessions/login' %>
 			</div>
