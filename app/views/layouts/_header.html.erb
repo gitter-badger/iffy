@@ -28,7 +28,7 @@
 	<% if logged_in? %>
 	<!-- display recent moods -->
 	<div id="recent" class="container">
-		Recent mood: <% current_user.moods.order("created_at desc").take(1).each do |mood| %>
+		Recent mood: <% current_user.moods.order("created_at desc").take(3).each do |mood| %>&nbsp;|&nbsp;
 		<%= link_to truncate(mood.name, length: 40, separator: ' '), discover_path(mood) %> <!--&nbsp;|&nbsp;-->
 		<% end %>
 	</div>
