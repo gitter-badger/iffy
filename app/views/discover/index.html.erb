@@ -27,9 +27,17 @@
         $('#myModal').modal('show');
     });
 </script>
+<% if logged_in? %>	
 
+			<div id="recent">
+				Recent moods:
+				<% current_user.moods.order("created_at desc").take(5).each do |mood| %>
+						<%= link_to truncate(mood.name, length: 40, separator: ' '), discover_path(mood) %>&nbsp;|&nbsp;
+				<% end %>
+			</div>
 <div id="discover" class="container">
-	<% if logged_in? %>	
+	
+
 		<h2>It's <%= @day %> <%= @daypart.name %> in <%= current_user.traveling ? (link_to request.location.city, edit_user_path(current_user)) : (link_to current_user.zip.to_s.to_region(:city => true), edit_user_path(current_user)) %>. What are you in the mood for?</h2>
 
 <%#= current_user.zip.to_gmt_offset %>

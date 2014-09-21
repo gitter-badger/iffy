@@ -47,12 +47,18 @@ class DiscoverController < ApplicationController
 
 
 	def show
+		if logged_in?
 		@mood = Mood.find(params[:id])
 		@discover = true
 		# why doesn't this work?
-		current_user.moods << @mood
+		
+			current_user.moods << @mood
 		# it doesn't like this next line
-		current_user.save
+			current_user.save
+		else
+			flash[:error] = "Please log in to view this page"
+			redirect_to login_path
+		end
 
 		# Need to find out how to push these to the user model
 		#@user.places << @mood.searchYelp(current_user).businesses[0].id

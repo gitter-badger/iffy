@@ -40,8 +40,9 @@ body {
 <div class="container" data-toggle="modal" data-target="#myModal">
 
 <%#= image_tag "Yelp-Logo-sm.png" %>
-	<br>
-	 <%#= @mood.created_at %> <br>
+	 <%#= @mood.created_at %> 
+
+   <%# if logged_in? %> 
 
 <% if @mood.searchYelp(current_user).businesses.length > 0 %>
 
