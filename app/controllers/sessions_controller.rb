@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
 
 	def new
 		flash.clear
-
 	end
 
 	def create
@@ -19,7 +18,8 @@ class SessionsController < ApplicationController
 		redirect_to root_path
 	else
 		flash[:error] ||= 'Invalid credentials.'
-		render 'new'
+		#render 'new'
+		redirect_to root_path
 		end
 	end
 
