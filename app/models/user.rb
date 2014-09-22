@@ -28,6 +28,8 @@ class User
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true 
   validates :password_digest, presence: true, :confirmation => true
+  validates_presence_of :password
+  validates_length_of :password, :minimum => 5
   validates_numericality_of :zip, :in => 5
   validates :zip, presence: true
   validates_each :zip do |record, attr, value|
@@ -49,9 +51,18 @@ class User
   scope :admin, -> { where(access: "admin")}
 
 
-  def password=(new_password)
-    self.password_digest = BCrypt::Password.create(new_password)
-  end
+   # password SETTER
+ def password=(new_password)
+     self[:password] = new_password
+     self.password_digest = BCrypt::Password.create(new_password)
+ end
+
+  attr :password      # ensure this replaces the existing attr_reader
+
+ # password GETTER
+ def password
+     return self[:password]
+ end
 
   def authenticate(test_password)
     if test_password && BCrypt::Password.new(self.password_digest) == test_password
