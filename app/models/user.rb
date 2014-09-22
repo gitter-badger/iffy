@@ -28,8 +28,8 @@ class User
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true 
   validates :password_digest, presence: true, :confirmation => true
-  validates_presence_of :password
-  validates_length_of :password, :minimum => 5
+  # validates_presence_of :password
+  # validates_length_of :password, :minimum => 5
   validates_numericality_of :zip, :in => 5
   validates :zip, presence: true
   validates_each :zip do |record, attr, value|
