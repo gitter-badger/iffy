@@ -11,9 +11,7 @@
 
 	<li> 
 		<!--<%#= image_tag mood.photo %><br>-->
-		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %> - <%= mood.selected %>
-		<br>
-		<br>
+		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %>
 	</li>
 	
 	<% end %>
