@@ -33,7 +33,7 @@ class User
   validates_each :zip do |record, attr, value|
     #add a begin/rescue here
     if value
-      if value.to_s.to_region(:state => true) != "CA"
+      if value.to_s.to_region(:state => true) != "CA" || "NY"
         record.errors.add attr, "Sorry, Iffy isn\'t in your area yet!" 
       end
     end
