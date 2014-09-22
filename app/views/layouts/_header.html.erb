@@ -14,10 +14,15 @@
 						<!-- admin nav -->
 						<hr>
 						<% if current_user.access == 'admin' %>
-						<li><%= link_to "New Mood", new_mood_path %></li>
-					    <li><a href="/moods" style="color: red">Moods Admin</a></li>
-						<li><a href="/users" style="color: red">Users Admin</a></li>
-						<li><a href="/categories" style="color: red">Categories Admin</a></li>
+						<li><a href="/moods" style="color: green" class="fa fa-smile-o"> All Moods</a></li>
+						<li><%= link_to " New Mood", new_mood_path, :class => 'fa fa-plus'%></li>
+						<li><hr></li>
+					    
+						<li><a href="/users" style="color: indianred" class="fa fa-users"> All Users</a></li>
+						<li><%= link_to " New User", signup_path, :class => 'fa fa-plus'%></li>
+						<li><hr></li>
+						<li><a href="/categories" style="color: steelblue" class="fa fa-folder-o"> All Categories</a></li>
+						<li><%= link_to " New Category", new_category_path, :class => 'fa fa-plus'%></li>
 						<% end %>
 					</ul>
 				</span>
