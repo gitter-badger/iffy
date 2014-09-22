@@ -25,7 +25,7 @@ class Mood
   params = {
     category_filter: self.category.path,
     # limit: 1,
-    #radius_filter: current_user.radius,
+    radius_filter: current_user.radius,
     sort: self.sort,
     term: self.keywords.join('+')
   }
