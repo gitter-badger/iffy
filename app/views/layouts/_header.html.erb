@@ -6,7 +6,7 @@
 		<div id="auth" class="col-lg-8">
 			<% if logged_in? %>
 				<span class="dropdown">
-					<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"><%= current_user.name %></a>
+					<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html" class="fa fa-bars fa-2x"></a>
 					<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
 						<li><%= link_to " Profile", user_path(current_user), :class => "fa fa-user" %></li>
 						<li><%= link_to " Settings", edit_user_path(current_user), :class => "fa fa-cog" %></li>
