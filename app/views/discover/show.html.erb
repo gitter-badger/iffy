@@ -46,7 +46,7 @@ body {
 
 
 <% if @mood.searchYelp(current_user).businesses.length > 0 %>
-<p class="intro"><em><%= @mood.name %></em> is <%= current_user.radius === 16000 ? "driving " : current_user.radius === 8000 ? "biking " : current_user.radius === 1000 ? "walking " : "" %>distance</p>
+<p class="intro"><em><%= @mood.name %></em> is <%= current_user.radius === 16000 ? "driving " : current_user.radius === 8000 ? "biking " : "" %>distance</p>
 <div class = "row">
 <div class="col-sm-9">
 
@@ -77,8 +77,7 @@ body {
     </div>
   </div>
 </div>
-<%= current_user.radius %>
-
+<%#= current_user.radius %>
 <% else %>
   <p class="no-results">Dang it! No local matches for <%= @mood.name %>. Consider exploring a new neighborhood by <%= link_to "updating your default profile location", edit_user_path(current_user) %> in increasing how far you're willing to go.</p>
   <% end %>
