@@ -8,9 +8,9 @@
 				<span class="dropdown">
 					<a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html"><%= current_user.name %></a>
 					<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dLabel">
-						<li><%= link_to "Profile", user_path(current_user) %></li>
-						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-						<li><%= link_to "Sign out", log_out_path, method: :delete %></li>
+						<li><%= link_to " Profile", user_path(current_user), :class => "fa fa-user" %></li>
+						<li><%= link_to " Settings", edit_user_path(current_user), :class => "fa fa-cog" %></li>
+						<li><%= link_to " Sign out", log_out_path, method: :delete, :class => "fa fa-sign-out" %></li>
 						<!-- admin nav -->
 						<hr>
 						<% if current_user.access == 'admin' %>

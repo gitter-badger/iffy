@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
 	def new
 		flash.clear
+
 	end
 
 	def create
@@ -9,7 +10,7 @@ class SessionsController < ApplicationController
 		begin
 		user = User.find_by({email: params[:session][:email]})
 		rescue
-			flash[:error] = 'Invalid credentials.'			
+			flash[:error] = 'Invalid credentials.'	
 		end
 		if user && user.authenticate(params[:session][:password])
 			log_in(user)

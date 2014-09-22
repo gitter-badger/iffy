@@ -2,7 +2,7 @@
 	<% if logged_in? && current_user.access == 'admin' %>
 		<div class="form-group">
 		<h1>Categories</h1>
-		<%= link_to "Create New Category", new_category_path, :class => "btn btn-primary" %>
+		<%= link_to " Create New Category", new_category_path, :class => "btn btn-primary fa fa-plus-square" %>
 		</div>
 		<table>
 			<tr>
