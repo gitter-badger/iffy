@@ -148,7 +148,6 @@ h1 {
 }
 
 h2 {
-	padding-top: .5em;
 	color: #FFF;
 	font-family: 'helvetica';
 	font-weight: bolder;
@@ -258,18 +257,17 @@ body {
 .mood-choice {
 	background-color: rgba(0,0,0,0.1);
 	padding: 20px;
-	margin: 10px;
+	margin: 5px;
 /*	text-align: center;
 */	color: #FFF;
 	border: 2px solid #FFF;
 	border-radius: 8px;
-	height: 180px;
+	height: 170px;
 }
 
 .mood-choice:hover {
 	background-color: rgba(0,0,0,0.2);
-	color: #FF1493;
-	border: 2px solid #FF1493;
+	border: 2px solid #428bca;
 }
 
 .no-underline > a {
