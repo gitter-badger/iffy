@@ -32,7 +32,7 @@ end
   	@user = User.find(params[:id])
 		
 		if @user.update_attributes(params.require(:user).permit(:name, :email, :places, :access, :radius, :address, :zip, :bio, :latitude, :longitude, :traveling, :mood_ids => [], :places =>[] ))
-			redirect_to users_path
+			redirect_to user_path
 		else
 			render 'edit'
 		end
