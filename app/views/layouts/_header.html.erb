@@ -14,6 +14,7 @@
 						<!-- admin nav -->
 						<hr>
 						<% if current_user.access == 'admin' %>
+						<li><%= link_to "New Mood", new_mood_path %></li>
 					    <li><a href="/moods" style="color: red">Moods Admin</a></li>
 						<li><a href="/users" style="color: red">Users Admin</a></li>
 						<li><a href="/categories" style="color: red">Categories Admin</a></li>
