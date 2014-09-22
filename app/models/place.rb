@@ -12,6 +12,4 @@ class Place
   field :yelpid
 
   has_and_belongs_to_many :moods
-  #has_and_belongs_to_many :users
-
 end

@@ -1,14 +1,10 @@
 <span class='logged-in-out'>
 	<% if logged_in? %> 
-	<p>You're logged in</p>
+		<p>You're logged in</p>
 		<%= link_to "Log out", log_out_path, method: :delete %>: 
-		<% else %>
+	<% else %>
 		<p>You're logged out</p>
 		<%= link_to "Log in", sessions_path %><br>
 		<%= link_to "Sign up", signup_path %>
-		<% end %>
-		<br></span>
-
-<br>
-
-
+	<% end %>
+</span>

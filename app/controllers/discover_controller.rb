@@ -8,7 +8,6 @@ class DiscoverController < ApplicationController
 		@abbr_day = @time.strftime('%a')
 		@moods = Mood.all
 
-		
 		case @hour
 		when 5..7
 			@daypart = Daypart.find_by(name: 'early morning')
@@ -42,7 +41,6 @@ class DiscoverController < ApplicationController
 			current_user.longitude = request.location.longitude	
 			current_user.save
 		end
-		
 	end
 
 
@@ -50,33 +48,22 @@ class DiscoverController < ApplicationController
 		if logged_in?
 		@mood = Mood.find(params[:id])
 		@discover = true
-		# why doesn't this work?
-		
-			current_user.moods << @mood
-		# it doesn't like this next line
-			current_user.save
+		# save each mood the user looks at to their account
+		current_user.moods << @mood
+		current_user.save
 		else
 			flash[:error] = "Please log in to view this page"
 			redirect_to login_path
 		end
-
-		# Need to find out how to push these to the user model
-		#@user.places << @mood.searchYelp(current_user).businesses[0].id
-		#@user.moods = Mood.find(params[:id])
-
 	end
 
 	def share
-
 		require 'twilio-ruby'
-
 		account_sid = 'AC9534c890191157016b5de8ae93b656d8'
 		auth_token = 'd0a7fe1196c58e3fbb8b2844d74b5582'
 
 		# set up a client to talk to the Twilio REST API
 		@client = Twilio::REST::Client.new account_sid, auth_token
-
-		
 		share_url = "http://www.iffy.la/discover/#{params[:id]}"
 		stuff = {
 			:from => '+13237451232', :to => '+13474012203', :body => "http://Iffy.la says to go to #{params[:name]} at #{params[:address]} #{params[:url]}"
@@ -84,7 +71,6 @@ class DiscoverController < ApplicationController
 		@client.messages.create(stuff) 
 		flash[:error] = "Sent #{params[:name]} to #{stuff[:to]}"
 		redirect_to discover_path(params[:id])
-
 	end
 
 	def directions
@@ -97,9 +83,7 @@ class DiscoverController < ApplicationController
 		else
 			current_user.traveling = false
 		end
-
 		current_user.save
 		redirect_to root_path
 	end
-
 end

@@ -18,8 +18,6 @@ gem 'geocoder'
 
 gem 'area'
 
-#gem 'font-awesome-sass'
-
 gem 'mongoid_slug'
 
 source 'https://rubygems.org'

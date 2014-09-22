@@ -1,27 +1,24 @@
 <div id="mood" class="container">
-
-<% if @mood.searchYelp(current_user).businesses.length > 0 %>
-	<%= image_tag @mood.photo, id: 'mood-image' %><br>
-	<strong>Mood: </strong><%= @mood.name %><br>
-	<%= link_to "Edit", edit_mood_path %> | <%= link_to "Delete", @mood, 
-			method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
-	<hr>
-	<strong>Description: </strong><%= @mood.description %><br>
-	<strong>Category: </strong><%= @mood.category.name %><br>
-	<strong>Keywords: </strong><%= @mood.keywords.join(", ") %><br>
-	<strong>Best Day(s): </strong><%= @mood.days.join(", ") %><br>
-	<strong>Best Time: </strong><% @mood.daypart_ids.each do |daypart| %>
-	<%= daypart.titleize %>, 
-	<% end %><br>
-	<strong>Sorted By: </strong><%= @mood.sort==0 ? "Best Match" : @mood.sort==1 ? "Most Reviewed" : @mood.sort==2 ? "Highest Rated" : "No search method set" %>
-
-
-	<hr>
-	<strong>Recommendation: </strong><%= @mood.searchYelp(current_user).businesses[0].name %> (in <%= @mood.searchYelp(current_user).businesses[0].location.city %>)<br>
-	<strong>Local results: </strong><%= @mood.searchYelp(current_user).businesses.length %><br>
-	<!-- <%= @mood.searchYelp(current_user).businesses.length %> results -->
-	<br>
-	<% else %>
-	<p class="no-results">Dang it! No local matches. Consider exploring a new neighborhood by <%= link_to "updating your default profile location", edit_user_path(current_user) %>.</p>
+	<% if @mood.searchYelp(current_user).businesses.length > 0 %>
+		<%= image_tag @mood.photo, id: 'mood-image' %><br>
+		<strong>Mood: </strong><%= @mood.name %><br>
+		<%= link_to "Edit", edit_mood_path %> | <%= link_to "Delete", @mood, 
+				method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
+		<hr>
+		<strong>Description: </strong><%= @mood.description %><br>
+		<strong>Category: </strong><%= @mood.category.name %><br>
+		<strong>Keywords: </strong><%= @mood.keywords.join(", ") %><br>
+		<strong>Best Day(s): </strong><%= @mood.days.join(", ") %><br>
+		<strong>Best Time: </strong><% @mood.daypart_ids.each do |daypart| %>
+		<%= daypart.titleize %>, 
+		<% end %><br>
+		<strong>Sorted By: </strong><%= @mood.sort==0 ? "Best Match" : @mood.sort==1 ? "Most Reviewed" : @mood.sort==2 ? "Highest Rated" : "No search method set" %>
+		<hr>
+		<strong>Recommendation: </strong><%= @mood.searchYelp(current_user).businesses[0].name %> (in <%= @mood.searchYelp(current_user).businesses[0].location.city %>)<br>
+		<strong>Local results: </strong><%= @mood.searchYelp(current_user).businesses.length %><br>
+		<!-- <%= @mood.searchYelp(current_user).businesses.length %> results -->
+		<br>
+		<% else %>
+		<p class="no-results">Dang it! No local matches. Consider exploring a new neighborhood by <%= link_to "updating your default profile location", edit_user_path(current_user) %>.</p>
 	<% end %>
 </div>

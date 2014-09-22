@@ -1,35 +1,35 @@
 <div id="mood-form" class="container">
-		<%= form_for @mood do |m| %>
-			<div>
-				<div class="form-group">
-					<%= m.label :name %>:<%= m.text_field :name, maxlength: 50, class: 'form-control' %>
-				</div>
-				<div class="form-group">
-					<%= m.label :description %><%= m.text_area :description, maxlength: 130, class: 'form-control' %>
-				</div>
-				<div class="form-group">
-					<%= m.label :keywords %>:<%= m.text_field :keywords, class: 'form-control', :value => @mood.keywords.join(",") %>
-				</div>
-				<div class="form-group">
-					<%= m.label :category_id %>:<%= m.collection_select(:category_id, Category.order_by([:name, :asc]), :id, :name, {}, class: 'form-control') %>
-				</div>
-				<div class="form-group">
-					<%= m.label :photo %>:<%= m.text_field :photo, class: 'form-control' %>
-				</div>
-				<div class="form-group days">
-					<%= m.label :days %>:<% Date::DAYNAMES.each do |day| %>
-				  		<%= check_box_tag "mood[days][]", day, @mood.days.include?(day) %>
-						<%= day %>
-					<% end %>
-				</div>
-				<div class="form-group dayparts">
-					<strong>Dayparts: </strong><%= m.collection_check_boxes(:daypart_ids, Daypart.all, :name, :name) %>
-				</div>
-				<div class="form-group sort">
-					<%= m.label :sort %>:<%= m.radio_button :sort, '0' %> Match <%= m.radio_button :sort, '1' %> Distance <%= m.radio_button :sort, '2' %> Rating
-				</div>
-				<div class="form-group">
-				<%= m.submit "Save Changes", class: "btn btn-primary btn-lg"%> or <%= link_to "Cancel changes", moods_path %>
+	<%= form_for @mood do |m| %>
+		<div>
+			<div class="form-group">
+				<%= m.label :name %>:<%= m.text_field :name, maxlength: 50, class: 'form-control' %>
 			</div>
+			<div class="form-group">
+				<%= m.label :description %><%= m.text_area :description, maxlength: 130, class: 'form-control' %>
+			</div>
+			<div class="form-group">
+				<%= m.label :keywords %>:<%= m.text_field :keywords, class: 'form-control', :value => @mood.keywords.join(",") %>
+			</div>
+			<div class="form-group">
+				<%= m.label :category_id %>:<%= m.collection_select(:category_id, Category.order_by([:name, :asc]), :id, :name, {}, class: 'form-control') %>
+			</div>
+			<div class="form-group">
+				<%= m.label :photo %>:<%= m.text_field :photo, class: 'form-control' %>
+			</div>
+			<div class="form-group days">
+				<%= m.label :days %>:<% Date::DAYNAMES.each do |day| %>
+			  		<%= check_box_tag "mood[days][]", day, @mood.days.include?(day) %>
+					<%= day %>
 				<% end %>
+			</div>
+			<div class="form-group dayparts">
+				<strong>Dayparts: </strong><%= m.collection_check_boxes(:daypart_ids, Daypart.all, :name, :name) %>
+			</div>
+			<div class="form-group sort">
+				<%= m.label :sort %>:<%= m.radio_button :sort, '0' %> Match <%= m.radio_button :sort, '1' %> Distance <%= m.radio_button :sort, '2' %> Rating
+			</div>
+			<div class="form-group">
+			<%= m.submit "Save Changes", class: "btn btn-primary btn-lg"%> or <%= link_to "Cancel changes", moods_path %>
+		</div>
+	<% end %>
 </div>

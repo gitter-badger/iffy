@@ -9,7 +9,6 @@ class Search
   field :location, type: String
   field :radius_filter, type: Integer
 
-
   def searchYelp
   client = Yelp::Client.new({ consumer_key: "YlTjB3sl8gicTpB8Y1huVg",
                              consumer_secret: "xpsgTMujx-n8bitS2DPh126QrK4",

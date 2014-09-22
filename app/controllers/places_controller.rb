@@ -13,7 +13,6 @@ class PlacesController < ApplicationController
 	end
 
 	def create
-		# params[:keywords] = params[:keywords].split(",")
 		@place = Place.new(params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo))
 		@place.keywords = params[:place][:keywords].split(",")
 		if @place.save
@@ -54,8 +53,6 @@ class PlacesController < ApplicationController
 			                            token: "6e0jiZvh2Y1iUZHwyO5FHwCXJi-jt8ln",
 			                            token_secret: "Frpqf4FrLRHTTrKiQvP9_XaLhcE"
 			                          })
-
-
 			params = {
 			  limit: 1,
 			  sort: 1,
@@ -64,14 +61,11 @@ class PlacesController < ApplicationController
 			  category_filter: 'bars'
 			}
 
-
 			result = client.search("Venice, CA", params).businesses[0]
-
 	end
 
 	def place_params
 		params.require(:place).permit(:name, :address, :rating, :url, :tip, :phone, :photo, :keywords)
 	end
-
 end
 

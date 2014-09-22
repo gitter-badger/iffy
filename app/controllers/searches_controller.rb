@@ -33,7 +33,4 @@ class SearchesController < ApplicationController
 			render 'edit'
 		end
 	end
-
-
-
 end

@@ -1,5 +1,4 @@
 <h1>Edit <%= @place.name %></h1>
-
 <%= form_for @place do |p| %>
 	<%= p.label :name %>: <%= p.text_field :name %><br>
 	<%= p.label :address %>: <%= p.text_field :address %><br>
@@ -14,7 +13,6 @@
 		method: :delete, data: { confirm: 'Are you sure you want to delete it?'} %>
 <% end %>
 <br>
-
 <%= link_to "Back to the list", places_path %>
 
 

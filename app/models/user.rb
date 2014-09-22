@@ -8,11 +8,9 @@ class User
 
   attr_accessor :yelp_results
   
-  # should probably take this out
+  # not currently using this
   geocoded_by :address
 
-  # This validation line is causing problems with user creation
-  #after_validation :geocode, :if => :address_changed?
   field :name, type: String
   field :email, type: String
   field :password_digest, type: String
@@ -33,7 +31,6 @@ class User
   validates_numericality_of :zip, :in => 5
   validates :zip, presence: true
   validates_each :zip do |record, attr, value|
-    #add a begin/rescue here
     if value
       if value.to_s.to_region(:state => true) != "CA"
       elsif value.to_s.to_region(:state => true) != "NY"
@@ -45,11 +42,10 @@ class User
   end
 
   has_and_belongs_to_many :moods
-  
 
 # this creates @users.admin to grab all admins
   scope :admin, -> { where(access: "admin")}
-
+  scope :user, -> { where(access: "user")}
 
    # password SETTER
  def password=(new_password)
@@ -75,7 +71,5 @@ class User
   def gravatar(user_email)
     url = Gravatar.new(user_email).image_url
   end
-
-
 end
 

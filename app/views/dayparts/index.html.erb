@@ -10,7 +10,7 @@
 				<th>Photo</th>
 			</tr>
 			<ul>
-			<!-- LIST OF CATEGORIES -->
+			<!-- LIST OF DAYPARTS -->
 				<% @dayparts.order("name asc").each do |daypart| %>
 					<tr>
 						<td><%= link_to daypart.name, daypart_path(daypart) %></td>

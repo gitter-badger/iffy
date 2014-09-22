@@ -1,5 +1,3 @@
-
-
 <style type="text/css">
 	.bg {
 	width: 100%;
@@ -25,60 +23,48 @@
   -ms-filter: blur(5px);
   filter: blur(5px);
 }
-/*header {
-	visibility: hidden;
-}*/
-body {
-	margin-top: 0px;
-}
 </style>
-
- <!-- Go to www.addthis.com/dashboard to customize your tools -->
-<!--<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=craynkshaft"></script>-->
 
 <!-- not sure we need the data-target below -->
 <div class="container" data-toggle="modal" data-target="#myModal">
-
-<%#= image_tag "Yelp-Logo-sm.png" %>
-	 <%#= @mood.created_at %> 
 
    <%# if logged_in? %> 
 
 
 <% if @mood.searchYelp(current_user).businesses.length > 0 %>
-<p class="intro"><em><%= @mood.name %></em> 
-  <!--is <%#= current_user.radius === 16000 ? "driving " : current_user.radius === 8000 ? "biking " : "" %>distance</p>-->
-<div class = "row">
-<div class="col-sm-9">
+  <p class="intro"><em><%= @mood.name %></em> 
+    <!--is <%#= current_user.radius === 16000 ? "driving " : current_user.radius === 8000 ? "biking " : "" %>distance</p>-->
+  <div class = "row">
+  <div class="col-sm-9">
 
-<div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
-<div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %> (<%= current_user.traveling ? ((@mood.searchYelp(current_user).businesses[0].distance(current_user.latitude, current_user.longitude)) * 0.00062137).round(1) : ((@mood.searchYelp(current_user).businesses[0].distance(current_user.zip.to_s.to_lat, current_user.zip.to_s.to_lon)) * 0.00062137).round(1) %> miles away)</div><br>
-<%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span>
-</div>
-<div class="yelp-image col-sm-3"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
-</div>
-<div class="snippet"><%= @mood.searchYelp(current_user).businesses[0].snippet_text %></div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">More Options</h4>
-      </div>
-      <div class="modal-body">
-        <div id="share" class="form-group"><%= link_to "Text this to a friend", share_path(url: @mood.searchYelp(current_user).businesses[0].url, name: @mood.searchYelp(current_user).businesses[0].name, address: @mood.searchYelp(current_user).businesses[0].location.display_address.join(", ")), :class => "btn btn-primary form-control taller-buttons", :popup => ['new_window_name', 'height=300,width=600'] %></div>
-        <div id="yelp" class="form-group"><%= link_to image_tag('Yelp-Logo-sm.png'), @mood.searchYelp(current_user).businesses[0].url, :class => "yelp-button btn btn-danger form-control taller-buttons" %></div>
-        <div id="map" class="form-group"><%= link_to image_tag('google-maps-logo-transparent.png'), directions_path(address: @mood.searchYelp(current_user).businesses[0].location.display_address.join("+")), :class => "map-button btn btn-success form-control taller-buttons" %></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <div class="name"><%= @mood.searchYelp(current_user).businesses[0].name %></div>
+  <div class="address"><%= @mood.searchYelp(current_user).businesses[0].location.display_address[0] %> (<%= current_user.traveling ? ((@mood.searchYelp(current_user).businesses[0].distance(current_user.latitude, current_user.longitude)) * 0.00062137).round(1) : ((@mood.searchYelp(current_user).businesses[0].distance(current_user.zip.to_s.to_lat, current_user.zip.to_s.to_lon)) * 0.00062137).round(1) %> miles away)</div><br>
+  <%= image_tag @mood.searchYelp(current_user).businesses[0].rating_img_url_large %> <span class="address"><%= @mood.searchYelp(current_user).businesses[0].review_count %> reviews</span>
+  </div>
+  <div class="yelp-image col-sm-3"><img src="<%= @mood.searchYelp(current_user).businesses[0].image_url[0..-7] %>o.jpg"></div>
+  </div>
+  <div class="snippet"><%= @mood.searchYelp(current_user).businesses[0].snippet_text %></div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="myModalLabel">More Options</h4>
+        </div>
+        <div class="modal-body">
+          <div id="share" class="form-group"><%= link_to "Text this to a friend", share_path(url: @mood.searchYelp(current_user).businesses[0].url, name: @mood.searchYelp(current_user).businesses[0].name, address: @mood.searchYelp(current_user).businesses[0].location.display_address.join(", ")), :class => "btn btn-primary form-control taller-buttons", :popup => ['new_window_name', 'height=300,width=600'] %></div>
+          <div id="yelp" class="form-group"><%= link_to image_tag('Yelp-Logo-sm.png'), @mood.searchYelp(current_user).businesses[0].url, :class => "yelp-button btn btn-danger form-control taller-buttons" %></div>
+          <div id="map" class="form-group"><%= link_to image_tag('google-maps-logo-transparent.png'), directions_path(address: @mood.searchYelp(current_user).businesses[0].location.display_address.join("+")), :class => "map-button btn btn-success form-control taller-buttons" %></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<%#= current_user.radius %>
+  <%#= current_user.radius %>
 <% else %>
-  <p class="no-results">Dang it! No local matches for <%= @mood.name %>. Consider exploring a new neighborhood by <%= link_to "updating your default profile location", edit_user_path(current_user) %> in increasing how far you're willing to go.</p>
-  <% end %>
+  <p class="no-results">Dang it! No local matches for <%= @mood.name %>. Increase your radius in your <%= link_to "profile settings", edit_user_path(current_user) %>to get more results.</p>
+<% end %>

@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   def create
 	@user = User.new(params.require(:user).permit(:name, :email, :password, :address, :zip, :radius, :bio, :latitude, :longitude, :traveling, :mood_ids => [], :places =>[] ))
 	if @user.save	
-		# log the user in
 		log_in(@user)
 		flash[:error] = 'Welcome to Iffy! Choose a mood below to get started'
 		redirect_to root_path
@@ -44,6 +43,4 @@ end
 		@user.destroy
 		redirect_to users_path
   end
-
-
 end

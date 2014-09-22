@@ -1,8 +1,8 @@
 <div class="container">
-	<% if current_user.access == 'admin' %>
+	<% if logged_in? && current_user.access == 'admin' %>
 		<h1>Edit Mood</h1>
 		<%= render 'moodform' %>
 	<% else %>
-		Sorry, this page is not for your prying eyes!
+		<%= render '/layouts/restricted' %>
 	<% end %>
 </div>

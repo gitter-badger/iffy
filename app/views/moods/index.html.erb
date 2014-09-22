@@ -1,27 +1,17 @@
 <% if logged_in? && current_user.access == 'admin' %>
-<div id='moods' class="container">
-<div class="form-group">
-<h1>Moods</h1>
-<%= link_to " Add new mood", new_mood_path, :class => "btn btn-primary fa fa-plus-square" %>
-</div>
-<!-- LIST OF MOODS -->
-<ul>
-	<!-- order these by date created -->
-	<% @moods.order("created_at desc").each do |mood| %>
-
-	<li> 
-		<!--<%#= image_tag mood.photo %><br>-->
-		<%= link_to mood.name, mood_path(mood) %> - <%= mood.description %>
-	</li>
-	
-	<% end %>
-</ul>
-
-<% else %>
-<br>
-Not for your prying eyes!<br>
-<br>
+	<div id='moods' class="container">
+		<div class="form-group">
+			<h1>Moods</h1>
+			<%= link_to " Add new mood", new_mood_path, :class => "btn btn-primary fa fa-plus-square" %>
+		</div>
+		<!-- LIST OF MOODS -->
+		<ul>
+			<!-- order these by date created -->
+			<% @moods.order("created_at desc").each do |mood| %>
+				<li> <%= link_to mood.name, mood_path(mood) %> - <%= mood.description %></li>
+			<% end %>
+		</ul>
+		<% else %>
+			<%= render '/layouts/restricted' %>
+	</div>
 <% end %>
-
-
-</div>
