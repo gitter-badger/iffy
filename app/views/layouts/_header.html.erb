@@ -12,8 +12,8 @@
 						<li><%= link_to " Settings", edit_user_path(current_user), :class => "fa fa-cog" %></li>
 						<li><%= link_to " Sign out", log_out_path, method: :delete, :class => "fa fa-sign-out" %></li>
 						<!-- admin nav -->
-						<hr>
 						<% if current_user.access == 'admin' %>
+						<hr>
 						<li><a href="/moods" style="color: green" class="fa fa-smile-o"> All Moods</a></li>
 						<li><%= link_to " New Mood", new_mood_path, :class => 'fa fa-plus'%></li>
 						<li><hr></li>
